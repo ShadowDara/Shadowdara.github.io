@@ -1,0 +1,13 @@
+<button onclick="showConfirm()">Bestätigung anzeigen</button>
+
+<script>
+  function showConfirm() {
+    let result = confirm("Bist du sicher?");
+    
+    if (result) {
+      alert("✅ Aktion bestätigt!");
+    } else {
+      alert("❌ Aktion abgelehnt!");
+    }
+  }
+</script>
