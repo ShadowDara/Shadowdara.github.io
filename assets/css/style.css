@@ -130,3 +130,18 @@ footer {
         font-size: 12px;
     }
 }
+
+.blue-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.blue-button:hover {
+    background-color: #0056b3;
+}
