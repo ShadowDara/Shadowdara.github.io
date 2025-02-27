@@ -23,7 +23,7 @@ function showConfirm2() {
 }
 
 function showConfirm3() {
-
+    alert("Haha, i just wasted your time!")
 }
 
 function denied() {
