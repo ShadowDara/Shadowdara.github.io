@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="icon" href="Dara-3.ico" type="ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>Subpage</header>
+    <div class="container">
+        <div class="sidebar">Linker Balken<br><p>Zusätzliche Inhalte</p></div>
+
+        <div class="content">
+            <div>
+                <div class="post"><div class="details"><h2>Thema</h2><p>Subpage Zeugs</p></div></div>
+            </div>
+
+            <div>
+                <div class="post">
+                    <div class="details">
+                        <h2>Hello</h2>
+                        <select id="colorSelect" onchange="showColor()">
+                            <option value="">Wähle eine Farbe</option>
+                            <option value="Rot">Rot</option>
+                            <option value="Blau">Blau</option>
+                            <option value="Grün">Grün</option>
+                          </select>
+                          <p>Gewählte Farbe: <span id="selectedColor"></span></p>
+                          
+                          <script>
+                            function showColor() {
+                              let color = document.getElementById("colorSelect").value;
+                              document.getElementById("selectedColor").textContent = color;
+                            }
+                          </script>
+                          
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="post">
+                    <div class="details">
+                        <input type="text" id="inputText" placeholder="Schreib etwas...">
+<p>Du hast eingegeben: <span id="outputText"></span></p>
+
+<script>
+  document.getElementById("inputText").addEventListener("input", function() {
+    document.getElementById("outputText").textContent = this.value;
+  });
+</script>
+
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="post">
+                    <div class="details">
+                        <input type="text" id="nameInput" placeholder="Dein Name">
+<button onclick="showName()">Senden</button>
+<p id="greeting"></p>
+
+<script>
+  function showName() {
+    let name = document.getElementById("nameInput").value;
+    document.getElementById("greeting").textContent = "Hallo, " + name + "!";
+  }
+</script>
+
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="post">
+                    <div class="details">
+                        <input type="number" id="numberInput" placeholder="Gib eine Zahl ein">
+<button onclick="calculateSquare()">Quadrat berechnen</button>
+<p>Ergebnis: <span id="result"></span></p>
+
+<script>
+  function calculateSquare() {
+    let num = document.getElementById("numberInput").value;
+    document.getElementById("result").textContent = num * num;
+  }
+</script>
+
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="post">
+                    <div class="details">
+                        <h2>Thema</h2>
+                        <p>Subpage Zeugs</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="post">
+                    <div class="details">
+                        <h2>Thema</h2>
+                        <p>Subpage Zeugs</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sidebar">Rechter Balken<br><p>Zusätzliche Inhalte</p></div>
+    </div>
+    <footer>Footer-Inhalt</footer>
+</body>
+</html>
