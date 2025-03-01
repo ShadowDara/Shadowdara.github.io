@@ -1,4 +1,4 @@
-function showConfirm() {
+async function showConfirm() {
     let result = confirm("Are you sure?");
     
     if (result) {
@@ -23,7 +23,7 @@ function showConfirm2() {
 }
 
 function showConfirm3() {
-    alert("Haha, i just wasted your time!")
+    alert("Haha, you just wasted your time!")
 }
 
 function denied() {
