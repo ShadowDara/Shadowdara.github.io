@@ -1,11 +1,22 @@
-function addDateField() {
+document.addEventListener("DOMContentLoaded", () => {
+    loadSavedDates();
+    calculateAllTimes();
+});
+
+// 🟢 Neues Datum-Feld hinzufügen und speichern
+function addDateField(dateValue = "") {
     const container = document.getElementById("dateFields");
     const newInput = document.createElement("input");
     newInput.type = "date";
     newInput.className = "dateInput";
+    newInput.value = dateValue;
+    newInput.addEventListener("change", saveDates); // Speichert, wenn das Datum geändert wird
+
     container.appendChild(newInput);
+    saveDates();
 }
 
+// 🔵 Alle eingegebenen Daten berechnen
 function calculateAllTimes() {
     const inputs = document.querySelectorAll(".dateInput");
     const resultsDiv = document.getElementById("results");
@@ -37,4 +48,27 @@ function calculateAllTimes() {
         resultP.innerText = resultText;
         resultsDiv.appendChild(resultP);
     });
+
+    saveDates(); // Speichert alle aktuellen Eingaben
+}
+
+// 🟡 Speichert alle eingegebenen Daten in `localStorage`
+function saveDates() {
+    const inputs = document.querySelectorAll(".dateInput");
+    const dates = Array.from(inputs).map(input => input.value);
+    localStorage.setItem("savedDates", JSON.stringify(dates));
+}
+
+// 🔴 Lädt gespeicherte Daten beim Start
+function loadSavedDates() {
+    const savedDates = JSON.parse(localStorage.getItem("savedDates")) || ["2024-05-21"];
+    savedDates.forEach(date => addDateField(date));
+}
+
+// 🔥 Reset-Funktion: Löscht alle Daten und Felder
+function resetDates() {
+    localStorage.removeItem("savedDates");
+    document.getElementById("dateFields").innerHTML = "";
+    document.getElementById("results").innerHTML = "";
+    addDateField("2024-05-21"); // Standard-Datum wieder hinzufügen
 }

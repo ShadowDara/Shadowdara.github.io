@@ -1,5 +1,3 @@
 # Shadowdara.github.io
 
-- Branch: testing
-
-Because this Branch is only for testing, it will obviously full of bugs!
+This is my fun Website, pls dont enjoy it!
