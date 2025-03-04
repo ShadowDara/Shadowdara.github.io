@@ -4,71 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../assets/icons/Dara-3.ico" type="ico">
+    <link rel="stylesheet" href="../assets/css/style_new.css">
     <title>Datumsrechner</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            padding: 20px;
-        }
-
-        h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        .date-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        input[type="date"] {
-            padding: 10px;
-            font-size: 18px;
-            border: none;
-            border-radius: 10px;
-            text-align: center;
-            outline: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 12px 20px;
-            font-size: 18px;
-            border: none;
-            border-radius: 10px;
-            background-color: #ff9800;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
-            background-color: #e68900;
-        }
-
-        p {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
     <h2>Berechne die Zeit seit mehreren Daten</h2>
@@ -82,47 +19,6 @@
 
     <div id="results"></div>
 
-    <script>
-        function addDateField() {
-            const container = document.getElementById("dateFields");
-            const newInput = document.createElement("input");
-            newInput.type = "date";
-            newInput.className = "dateInput";
-            container.appendChild(newInput);
-        }
-
-        function calculateAllTimes() {
-            const inputs = document.querySelectorAll(".dateInput");
-            const resultsDiv = document.getElementById("results");
-            resultsDiv.innerHTML = "";
-
-            inputs.forEach((input, index) => {
-                const inputDate = input.value;
-                if (!inputDate) return;
-
-                const [year, month, day] = inputDate.split("-");
-                const startDate = new Date(year, month - 1, day);
-                const now = new Date();
-
-                let years = now.getFullYear() - startDate.getFullYear();
-                let months = now.getMonth() - startDate.getMonth();
-                let days = now.getDate() - startDate.getDate();
-
-                if (days < 0) {
-                    months--;
-                    days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-                }
-                if (months < 0) {
-                    years--;
-                    months += 12;
-                }
-
-                const resultText = `Datum ${index + 1}: ${days} Tage, ${months} Monate, ${years} Jahre`;
-                const resultP = document.createElement("p");
-                resultP.innerText = resultText;
-                resultsDiv.appendChild(resultP);
-            });
-        }
-    </script>
+    <script src="../assets/js/calculate.js"></script>
 </body>
 </html>
