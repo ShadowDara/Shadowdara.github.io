@@ -1,0 +1,113 @@
+body {
+    background-color: #111;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.main1 {
+    padding-top: 0;
+    background-color: #545050;
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+
+    font-family: Arial, sans-serif;
+    color: #fff;
+    font-weight: bold; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    padding: 0;
+}
+
+.nav-list li {
+    background-color: orange;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.nav-list a {
+    color: #000000;
+}
+
+.nav-list .this {
+    background-color: darkorange;
+}
+
+.nav-list .other:hover {
+    background-color: darkorange;
+    cursor: pointer;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.image-container img {
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 240px; /* Hier erhöhen bei 6 Tab */
+    }
+
+    .nav-list li {
+        display: block;
+        width: 100px;
+        text-align: center;
+    }
+
+    .image-container img {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .main{
+        padding-top: 240px; /* Hier erhöhen bei 6 Tab */
+    }
+
+    .main1 {
+        width: 100%;
+    }
+}
