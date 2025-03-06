@@ -3,7 +3,7 @@
 This is my fun Website, pls dont enjoy it!
 
 ## File Tree
-
+```
 /my-website
 │── /assets            # All static files
 │    ├── /css         # Stylesheets
@@ -28,3 +28,4 @@ This is my fun Website, pls dont enjoy it!
 │── index.html         # Main homepage
 │── README.md          # Documentation about the project
 │── .gitignore         # Ignore unnecessary files (for Git projects)
+```
