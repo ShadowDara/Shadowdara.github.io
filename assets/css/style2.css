@@ -29,6 +29,7 @@ header {
 
 main {
     flex: 1;
+    width: 100%;
 }
 
 nav ul {
@@ -52,23 +53,14 @@ nav ul li a:hover {
     color: #ff9800;
 }
 
-.nav ul {
-    list-style-type: none;
-    padding: 20px;
-}
-
-.nav ul li {
-    padding: 10%;
-}
-
-.nav ul li a {
+.nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
-.nav ul li a:hover {
+.nav a:hover {
     color: #ff9800;
 }
 
