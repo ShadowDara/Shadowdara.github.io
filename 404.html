@@ -1,42 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://shadowdara.github.io/assets/css/style2.css">
-    <link rel="icon" href="https://shadowdara.github.io/assets/icons/Dara-3.ico">
-    <title>404 - ShadowDara</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 – Page Not Found</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0a0a0f;
+      color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 8rem;
+      color: #ff5f5f;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #aaa;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #3333ff;
+      padding: 10px 25px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #5555ff;
+    }
+
+    svg {
+      margin-top: 30px;
+      fill: #888;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
+    <h1>404</h1>
+    <h2>Oops! Page not found</h2>
+    <p>This page does not exist or has been moved.</p>
+    <a href="https://weuritz8u.github.io">Back to the homepage</a>
 
-    <header>
-        <h1>Shadowdara</h1>
-        <nav>
-            <ul>
-                <li><a href="https://shadowdara.github.io/index.html">Home</a></li>
-                <li><a href="https://shadowdara.github.io/pages/news.html">News</a></li>
-                <li><a href="https://discord.gg/9Jh8B8pkJa">Discord</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <div class="center-absolute">
-            <div class="center-flex">
-                <h1>404</h1>
-                <h1>Diese Seite wurde nicht gefunden.</h1>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <nav>
-            <ul>
-                <li><a href="https://github.com/ShadowDara">ShadowDara</a></li>
-                <li><a href="https://shadowdara.github.io/pages/code.html">Source Code</a></li>
-            </ul>
-        </nav>
-    </footer>
-
+    <!-- Optional Home Icon -->
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+        <path d="M12 3l9 8h-3v9h-12v-9h-3l9-8zm0 2.21l-6 5.37v9.42h4v-6h4v6h4v-9.42l-6-5.37z"/>
+      </svg>
+    </div>
+  </div>
 </body>
+
 </html>
