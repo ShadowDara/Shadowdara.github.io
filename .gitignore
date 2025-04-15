@@ -1,1 +1,6 @@
 /test/
+*.lua
+*.py
+dev_envirment_dara/localhost_8000.htm
+dev_envirment_dara/other_vs_code
+*.bat
