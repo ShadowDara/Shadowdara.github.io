@@ -1,4 +1,8 @@
-# Shadowdara.github.io <img href="https://shadowdara.github.io/assets/icon.svg">
+# Shadowdara.github.io
+
+<div align="center">
+<img height="130" src="https://shadowdara.github.io/assets/icon.svg" alt="Icon" />
+</div>
 
 <h2><a href="https://shadowdara.github.io">Check out the Page here!</a></h2>
 
