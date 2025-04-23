@@ -1,6 +1,6 @@
-# Github Picture Mode Maker
+# Picture Mode Maker
 
-HTML for creating Github README Pictures for both ligth and Darkmode
+HTML for creating Pictures for both ligth and Darkmode
 
 ```
 <picture>
