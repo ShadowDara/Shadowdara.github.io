@@ -6,17 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/style.css">
+    <script defer src="/assets/settings.js"></script>
     <title>404 - Tech Tricks</title>
 </head>
 
 <body>
-    <header></header>
+    <header>
+        <p><b><a href="/index.html"><button>Home</button></a></b></p>
+        <p><b><button id="openInfoBtn">Infos</button></b></p>
+    </header>
+
     <main>
         <h1 style="font-size: 6rem;">404</h1>
         <h4>Page not found!</h4>
         <p><a href="/index.html">Back to the Homepage</a></p>
     </main>
+    
     <footer>Made with ❤️ by Shadowdara</footer>
+
+    <div id="infos" class="modal"></div>
+
 </body>
 
 </html>

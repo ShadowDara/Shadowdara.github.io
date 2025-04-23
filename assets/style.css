@@ -6,6 +6,8 @@
     --bg-color: #1e1e2f;
     --bar-bg-color: #191919;
     --text-color: #ecf0f1;
+    --title-color: #e74c3c;
+    --pp-title-color: #ff4e3a;
     --pop-up-bg-color: #2d2d51;
 }
 
@@ -33,10 +35,11 @@ header {
     text-align: right;
 }
 
-header p {
+header p, header a {
     display: inline;
     font-size: 1.1rem;
     margin: 0 5% auto;
+    color: var(--text-color)
 }
 
 footer {
@@ -51,6 +54,7 @@ footer {
 .container {
     display: flex;
     gap: 20px;
+    justify-content: center;
 }
 
 .container-box {
@@ -61,12 +65,10 @@ header button {
     all: unset;
 }
 
-.output {}
-
 h1 {
     font-size: 3rem;
     margin: 0;
-    color: #e74c3c;
+    color: var(--title-color);
 }
 
 h4 {
@@ -88,7 +90,11 @@ a:hover {
 
 p {
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: 1.3rem;
+}
+
+a {
+    font-size: 1.4rem;
 }
 
 input {
@@ -100,7 +106,7 @@ input {
 button {
     border: none;
     background-color: #575775;
-    color: #ecf0f1;
+    color: var(--text-color);
     font-size: 1.3rem;
     padding: 13px 13px;
     border-radius: 15px;
@@ -134,6 +140,11 @@ button:hover {
 }
 
 .modal-content h2 {
+    color: var(--pp-title-color)
+}
+
+.modal-content p, .modal-content a {
+    font-size: 1.4rem;
     color: var(--text-color);
 }
 
@@ -184,3 +195,7 @@ button:hover {
     }
   }*/
 }
+
+@media (max-width:768px) {}
+
+@media (max-width:480px) {}

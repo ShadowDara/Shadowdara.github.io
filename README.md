@@ -11,3 +11,9 @@
 <div align="center">
 <img src="https://github-readme-stats.vercel.app/api/pin/?username=shadowdara&theme=midnight-purple&repo=Tech-Tricks" />
 </div>
+
+<br>
+
+Info obviously you can download the code and open it your browser, but the website is not contizipated for offline use! You need to start a local HTTP Server in the Root Directory that the HTML Links work!
+
+but feel free to contribute ;)
