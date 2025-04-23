@@ -35,7 +35,8 @@ header {
     text-align: right;
 }
 
-header p, header a {
+header p,
+header a {
     display: inline;
     font-size: 1.1rem;
     margin: 0 5% auto;
@@ -69,6 +70,11 @@ h1 {
     font-size: 3rem;
     margin: 0;
     color: var(--title-color);
+    word-break: break-all;
+}
+
+.title {
+    font-size: 6rem;
 }
 
 h4 {
@@ -143,7 +149,8 @@ button:hover {
     color: var(--pp-title-color)
 }
 
-.modal-content p, .modal-content a {
+.modal-content p,
+.modal-content a {
     font-size: 1.4rem;
     color: var(--text-color);
 }
@@ -177,6 +184,8 @@ button:hover {
         --bg-color: #1e1e2f;
         --bar-bg-color: #191919;
         --text-color: #ecf0f1;
+        --title-color: #e74c3c;
+        --pp-title-color: #ff4e3a;
         --pop-up-bg-color: #2d2d51;
     }
 
@@ -196,6 +205,14 @@ button:hover {
   }*/
 }
 
-@media (max-width:768px) {}
+@media (max-width:768px) {
+    .title {
+        font-size: 4rem;
+    }
+}
 
-@media (max-width:480px) {}
+@media (max-width:480px) {
+    .title {
+        font-size: 2.6rem;
+    }
+}

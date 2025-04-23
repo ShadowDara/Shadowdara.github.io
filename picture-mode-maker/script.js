@@ -1,5 +1,5 @@
-// JS Code for creating Github README Pictures for both ligth
-// and Darkmode
+// JS Code for creating Github README Pictures for both
+// ligth and Darkmode
 
 document.getElementById('generate').addEventListener("click", async function () {
     const link1 = document.getElementById('link1')

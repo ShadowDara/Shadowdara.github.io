@@ -6,9 +6,10 @@ const info_pop_up = `<div class="modal-content"><span class="closeBtn">&times;</
     </div>
 </div>`
 
+const infos = document.getElementById("infos");
+
 infos.innerHTML = info_pop_up
 
-const infos = document.getElementById("infos");
 const openBtn = document.getElementById("openInfoBtn");
 const closeBtn = document.querySelector(".closeBtn");
 
