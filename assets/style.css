@@ -1,7 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #1e1e2f;
+    --bar-bg-color: #191919;
+    --text-color: #ecf0f1;
+    --pop-up-bg-color: #2d2d51;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #1e1e2f;
+    background-color: var(--bg-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #ecf0f1;
     display: flex;
@@ -11,6 +22,46 @@ body {
     height: 100vh;
     text-align: center;
 }
+
+header {
+    margin: 0px;
+    padding: 0.5rem;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    background-color: var(--bar-bg-color);
+    text-align: right;
+}
+
+header p {
+    display: inline;
+    font-size: 1.1rem;
+    margin: 0 5% auto;
+}
+
+footer {
+    margin: 0px;
+    padding: 0.5rem;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    background-color: var(--bar-bg-color);
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.container-box {
+    text-align: left;
+}
+
+header button {
+    all: unset;
+}
+
+.output {}
 
 h1 {
     font-size: 3rem;
@@ -36,7 +87,7 @@ a:hover {
 }
 
 p {
-    color: #ecf0f1;
+    color: var(--text-color);
     font-size: 1rem;
 }
 
@@ -57,4 +108,79 @@ button {
 
 button:hover {
     background-color: #2f2f3f;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    color: #000000;
+}
+
+.modal-content {
+    background-color: var(--pop-up-bg-color);
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 16px;
+    width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.4s ease;
+}
+
+.modal-content h2 {
+    color: var(--text-color);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.closeBtn {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.closeBtn:hover {
+    color: #e74c3c;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #1e1e2f;
+        --bar-bg-color: #191919;
+        --text-color: #ecf0f1;
+        --pop-up-bg-color: #2d2d51;
+    }
+
+    /*
+    a:hover {
+      color: #24c8db;
+    }
+  
+    input,
+    button {
+      color: #ffffff;
+      background-color: #0f0f0f98;
+    }
+    button:active {
+      background-color: #0f0f0f69;
+    }
+  }*/
 }
