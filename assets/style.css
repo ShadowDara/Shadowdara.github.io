@@ -103,7 +103,7 @@ a {
     font-size: 1.4rem;
 }
 
-input {
+input, textarea {
     background-color: #575775;
     color: #ecf0f1;
     font-size: 1rem;

@@ -7,7 +7,8 @@
     <link rel="icon" href="/assets/favicon.ico">
     <link rel="stylesheet" href="/assets/style.css">
     <script defer src="/assets/settings.js"></script>
-    <title>Home - Tech Tricks</title>
+    <script defer src="/line_formatter/script.js"></script>
+    <title>Line Formatter</title>
 </head>
 
 <body>
@@ -17,13 +18,19 @@
     </header>
 
     <main>
-        <h1 class="title">Shadowdara.github.io</h1>
-        <h4>Trust me, a good Website!</h4>
+        <h1>Line Formatter</h1>
+
+        <p><a href="https://github.com/ShadowDara/Shadowdara.github.io/tree/main/line_formatter">More Infos on Github!</a></p>
+
+        <textarea id="input1" rows="4" cols="50"></textarea><br>
+
+        <p><button id="generate">Generate</button></p>
+
         <div>
-            <p><a href="/picture-mode-maker/index.html">Picture Mode Maker</a></p>
-            <p><a href="/line_formatter/index.html">Line Formatter</a></p>
+            <p><div id="output"></div></p>
         </div>
-        <h4>More Conten Comming soon!</h4>
+
+        <p><div id="copy-button"></div></p>
     </main>
     
     <footer>Made with ❤️ by Shadowdara</footer>
