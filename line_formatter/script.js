@@ -3,24 +3,36 @@ function formatTextToSingleLine(text) {
     return formattedText;
 }
 
-document.getElementById('generate').addEventListener("click", function () {
-    const input1 = document.getElementById('input1');
-    const content = formatTextToSingleLine(input1.value);
+function formatTextTomultiLine(text) {
+    let formattedText = text.replace('\\t', /\t/g).replace('\\n', /\n/g);
+    return formattedText;
+}
 
+function do_copy(content){
     document.getElementById('output').innerText = content;
 
     const copyButton = document.createElement("button");
     copyButton.id = 'b-copy';
-    copyButton.innerText = 'Copy Link';
+    copyButton.innerText = 'Copy Text';
 
     document.getElementById('copy-button').innerHTML = '';
     document.getElementById('copy-button').appendChild(copyButton);
 
     copyButton.addEventListener("click", function () {
         navigator.clipboard.writeText(content).then(function () {
-            copyButton.innerText = "Link copied";
-        }).catch(function (err) {
-            console.error("Fehler beim Kopieren: ", err);
-        });
+            copyButton.innerText = "Textk copied";
+        })
     });
+}
+
+document.getElementById('generate_sin').addEventListener("click", function () {
+    const input1 = document.getElementById('input1');
+    const content = formatTextToSingleLine(input1.value);
+    do_copy(content)
+});
+
+document.getElementById('generate_mul').addEventListener("click", function () {
+    const input1 = document.getElementById('input1');
+    const content = formatTextTomultiLine(input1.value);
+    do_copy(content)
 });
