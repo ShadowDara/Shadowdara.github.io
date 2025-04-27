@@ -4,7 +4,7 @@ function formatTextToSingleLine(text) {
 }
 
 function formatTextTomultiLine(text) {
-    let formattedText = text.replace('\\t', /\t/g).replace('\\n', /\n/g);
+    let formattedText = text.replace(/\\t/g, '\t').replace(/\\n/g, '\n');
     return formattedText;
 }
 
@@ -24,15 +24,3 @@ function do_copy(content){
         })
     });
 }
-
-document.getElementById('generate_sin').addEventListener("click", function () {
-    const input1 = document.getElementById('input1');
-    const content = formatTextToSingleLine(input1.value);
-    do_copy(content)
-});
-
-document.getElementById('generate_mul').addEventListener("click", function () {
-    const input1 = document.getElementById('input1');
-    const content = formatTextTomultiLine(input1.value);
-    do_copy(content)
-});

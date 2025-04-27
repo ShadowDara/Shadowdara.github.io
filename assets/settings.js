@@ -26,5 +26,3 @@ window.onclick = function (event) {
         infos.style.display = "none";
     }
 }
-
-document.getElementById('generate').addEventListener("click", async function () { });
