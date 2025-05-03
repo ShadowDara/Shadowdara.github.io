@@ -4,12 +4,4 @@ set -e
 
 npm run build
 
-cd dist
-
-git init
-git add -A
-git commit -m 'New Deployment'
-
-git push -f git@github.com:shadowdara/shadowdara.github.io master:gh-pages
-
-cd -
+npm run deploy
