@@ -1,10 +1,10 @@
 <template>
   <!-- Nur anzeigen, wenn Route exakt /projects ist -->
   <div v-if="route.path === '/projects'">
-    <h2>My Projects</h2>
+    <h1>My Projects</h1>
 
     <div>
-      <router-link to="/cmd_shortcut">CMD Shortcut</router-link>
+      <h3><router-link to="/projects/cmd_shortcut">CMD Shortcut</router-link></h3> <p>A little Programm to open the Terminal in your current Folder!</p>
     </div>
   </div>
 

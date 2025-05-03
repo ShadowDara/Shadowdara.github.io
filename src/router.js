@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Blog from './blog/main.vue'
-import Blog_03_05_2025 from './blog/03.05.2025.vue'
+import MarkdownBlog from '@/pages/MarkdownBlog.vue'
 
 import Home from './pages/Home.vue'
 import Webtools from './pages/Webtools.vue'
@@ -18,16 +17,12 @@ const routes = [
   },
   {
     path: '/blog',
-    component: Blog,
-    children: [
-      {
-        path: '/blog/03.05.2025',
-        component: Blog_03_05_2025
-      }
-    ]
+    name: 'Blog',
+    component: MarkdownBlog,
   },
   {
     path: '/projects',
+    name: 'Projects',
     component: Projects,
     children: [
       {
@@ -38,8 +33,10 @@ const routes = [
   },
   {
     path: '/webtools',
+    name: 'Webtools',
     component: Webtools
   },
+
   // to create a 404 page
   {
     path: '/:pathMatch(.*)*',

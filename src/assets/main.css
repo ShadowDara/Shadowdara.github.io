@@ -14,6 +14,10 @@ body {
     margin: auto;
 }
 
+.d4r-box h1 {
+    color: #a8ffeb;
+}
+
 .d4r-box h2 {
     color: #64ffda;
     margin-top: 1.2rem;
@@ -37,4 +41,10 @@ body {
     height: 1px;
     background: #444;
     margin: 1.5rem 0;
+}
+
+@media (max-width:480px) {
+    .d4r-box {
+        max-width: 95%;
+    }
 }

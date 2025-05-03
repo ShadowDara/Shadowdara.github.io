@@ -2,7 +2,7 @@
     <!-- Standard start page -->
     <links />
 
-    <h2>The Homepage</h2>
+    <h1>The Homepage</h1>
     <p>Hey i am Shadowdara</p>
     <p>This is my Vue Website</p>
     <p>Look at my Webtools please!</p>

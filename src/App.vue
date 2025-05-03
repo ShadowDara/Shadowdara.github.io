@@ -8,7 +8,7 @@
       <router-link to="/blog">Blog</router-link> ·
       <router-link to="/projects">Projects</router-link> ·
       <router-link to="/webtools">Webtools</router-link> ·
-      <a href="https://github.com/shadowdara.github.io">Source Code</a>
+      <a href="https://github.com/shadowdara/shadowdara.github.io" target="_blank">Source Code</a>
     </div>
     <hr>
 
