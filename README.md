@@ -1,18 +1,29 @@
-# Shadowdara.github.io
+# meine-vue-seite
 
-<h2><a href="https://shadowdara.github.io">Check out the Page here!</a></h2>
+This template should help get you started developing with Vue 3 in Vite.
 
-## Content
-- [Picture Mode Maker](/picture-mode-maker/README.md)
-- [Line Formatter](/line_formatter/README.md)
+## Recommended IDE Setup
 
-<br>
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-Info obviously you can download the code and open it your browser, but the website is not contizipated for offline use! You need to start a local HTTP Server in the Root Directory that the HTML Links work!
+## Customize configuration
 
-but feel free to contribute ;)
+See [Vite Configuration Reference](https://vite.dev/config/).
 
-## To Do
+## Project Setup
 
-- [ ] add localstorage
-- [ ] add last used
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
