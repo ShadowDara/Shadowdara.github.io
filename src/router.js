@@ -1,13 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Blog from '../blog/main.vue'
-import Blog_03_05_2025 from '../blog/03.05.2025.vue'
+import Blog from './blog/main.vue'
+import Blog_03_05_2025 from './blog/03.05.2025.vue'
 
-import Home from '../pages/Home.vue'
-import Webtools from '../pages/Webtools.vue'
+import Home from './pages/Home.vue'
+import Webtools from './pages/Webtools.vue'
 
-import Projects from '../projects/Projects.vue'
-import cmd_shortcut from '../projects/open_terminal_on_shortcut.vue'
+import Projects from './projects/Projects.vue'
+import cmd_shortcut from './projects/open_terminal_on_shortcut.vue'
+
+import NotFound from './pages/NotFound.vue'
 
 const routes = [
   {
@@ -37,7 +39,12 @@ const routes = [
   {
     path: '/webtools',
     component: Webtools
-  }
+  },
+  // to create a 404 page
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound }
 ]
 
 const router = createRouter({
