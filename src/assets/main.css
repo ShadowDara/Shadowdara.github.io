@@ -23,6 +23,10 @@ body {
     margin-top: 1.2rem;
 }
 
+.d4r-box h3 {
+    color: #00ffc3;
+}
+
 .d4r-box a {
     color: #26c6da;
     text-decoration: none;

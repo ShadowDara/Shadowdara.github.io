@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import MarkdownBlog from '@/pages/MarkdownBlog.vue'
+import MarkdownBlog from './pages/MarkdownBlog.vue'
 
 import Home from './pages/Home.vue'
 import Webtools from './pages/Webtools.vue'
