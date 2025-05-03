@@ -43,7 +43,13 @@ body {
     margin: 1.5rem 0;
 }
 
-@media (max-width:480px) {
+@media (max-width: 720px) {
+    .d4r-box {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
     .d4r-box {
         max-width: 95%;
     }

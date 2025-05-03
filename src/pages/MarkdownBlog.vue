@@ -17,7 +17,7 @@ const md = new MarkdownIt()
 
 onMounted(async () => {
   try {
-    const response = await fetch('/posts/beispiel.md')
+    const response = await fetch('/posts/devblog.md')
     if (!response.ok) throw new Error(`HTTP ${response.status}`)
     const raw = await response.text()
 
