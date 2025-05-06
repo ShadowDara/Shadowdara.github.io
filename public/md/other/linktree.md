@@ -48,6 +48,8 @@ subrepositorys are not included.
 │    ├── / (vue build files)
 │── / favicon.ico
 │── / index.html
+│── / 404.html
+│── / README.md
 ```
 
 *Last updated in Version: 3.0.1*
