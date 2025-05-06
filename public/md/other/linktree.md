@@ -1,7 +1,11 @@
 # Linktree
 
+a complete link structure for the website, pages from
+subrepositorys are not included.
+
 ```
 / (root)
+
 │── / # (Vue Router Paths)
 │    ├── / home
 │    ├── / devblog
