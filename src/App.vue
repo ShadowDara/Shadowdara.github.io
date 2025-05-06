@@ -7,7 +7,8 @@
       <router-link to="/">Home</router-link> ·
       <router-link to="/blog">Blog</router-link> ·
       <router-link to="/projects">Projects</router-link> ·
-      <router-link to="/webtools">Webtools</router-link>
+      <router-link to="/webtools">Webtools</router-link> ·
+      <router-link to="/about_me">About me</router-link>
     </div>
     <hr>
 

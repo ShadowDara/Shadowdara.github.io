@@ -1,35 +1,35 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-import MarkdownBlog from './pages/MarkdownBlog.vue'
+import DevBlog from './pages/DevBlog.vue'
+import AboutMe from './pages/About_me.vue'
 
 import Home from './pages/Home.vue'
 import Webtools from './pages/Webtools.vue'
 
-import Projects from './projects/Projects.vue'
-import cmd_shortcut from './projects/open_terminal_on_shortcut.vue'
+import Projects from './pages/Projects.vue'
 
 import NotFound from './pages/NotFound.vue'
 
 const routes = [
   {
     path: '/',
+    name: 'Home',
     component: Home
   },
   {
     path: '/blog',
-    name: 'Blog',
-    component: MarkdownBlog,
+    name: 'Dev Blog',
+    component: DevBlog
+  },
+  {
+    path: '/about_me',
+    name: 'About me',
+    component: AboutMe
   },
   {
     path: '/projects',
     name: 'Projects',
-    component: Projects,
-    children: [
-      {
-        path: '/projects/cmd_shortcut',
-        component: cmd_shortcut
-      }
-    ]
+    component: Projects
   },
   {
     path: '/webtools',
@@ -45,7 +45,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 })
 

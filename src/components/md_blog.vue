@@ -7,25 +7,32 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import MarkdownIt from 'markdown-it'
+import { ref, watch, onMounted } from 'vue'
 import fm from 'front-matter'
+import MarkdownIt from 'markdown-it'
+
+const props = defineProps({
+  src: String // ← erwartet Pfad zur Markdown-Datei
+})
 
 const htmlContent = ref('')
 const frontmatter = ref({})
 const md = new MarkdownIt()
 
-onMounted(async () => {
+async function loadMarkdown(file) {
   try {
-    const response = await fetch('/posts/devblog.md')
+    const response = await fetch(file)
     if (!response.ok) throw new Error(`HTTP ${response.status}`)
     const raw = await response.text()
-
     const parsed = fm(raw)
     frontmatter.value = parsed.attributes
     htmlContent.value = md.render(parsed.body)
   } catch (err) {
-    console.error('Markdown lloading errored:', err)
+    console.error('Markdown loading failed:', err)
   }
-})
+}
+
+watch(() => props.src, (newVal) => {
+  if (newVal) loadMarkdown(newVal)
+}, { immediate: true }) // ← sofort laden und bei Änderung neu laden
 </script>
