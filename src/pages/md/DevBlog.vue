@@ -1,5 +1,5 @@
 <template>
-  <blog_code src="/posts/devblog.md" />
+  <blog_code src="/md/blog/devblog.md" />
   <hr />
   <h1>The End · <a href="./">Home</a></h1>
   <links_base />

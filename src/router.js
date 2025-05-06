@@ -1,14 +1,21 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import DevBlog from './pages/DevBlog.vue'
-import AboutMe from './pages/About_me.vue'
+import Home from './pages/main/Home.vue'
+import home_redirection from './components/home_redirection.vue'
 
-import Home from './pages/Home.vue'
-import Webtools from './pages/Webtools.vue'
+import DevBlog from './pages/md/DevBlog.vue'
 
-import Projects from './pages/Projects.vue'
+import Webtools from './pages/main/Webtools.vue'
 
-import NotFound from './pages/NotFound.vue'
+import Projects from './pages/main/Projects.vue'
+
+import AboutMe from './pages/md/About_me.vue'
+
+import More from './pages/main/More.vue'
+import Changelog from './pages/md/page_changelog.vue'
+import pageLinktree from './pages/md/page_linktree.vue'
+
+import NotFound from './components/NotFound.vue'
 
 const routes = [
   {
@@ -17,7 +24,12 @@ const routes = [
     component: Home
   },
   {
-    path: '/blog',
+    path: '/home',
+    name: 'Home - Redirection',
+    component: home_redirection
+  },
+  {
+    path: '/devblog',
     name: 'Dev Blog',
     component: DevBlog
   },
@@ -35,6 +47,21 @@ const routes = [
     path: '/webtools',
     name: 'Webtools',
     component: Webtools
+  },
+  {
+    path: '/more',
+    name: 'More Content',
+    component: More
+  },
+  {
+    path: '/more/changelog',
+    name: 'Changelog',
+    component: Changelog
+  },
+  {
+    path: '/more/page_linktree',
+    name: 'Page Linktree',
+    component: pageLinktree
   },
 
   // to create a 404 page
