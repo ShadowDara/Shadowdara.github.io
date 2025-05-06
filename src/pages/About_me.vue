@@ -1,5 +1,5 @@
 <template>
-    <blog_code src="/src/posts/about_me.md" />
+    <blog_code src="/posts/about_me.md" />
 </template>
 
 <script setup>
