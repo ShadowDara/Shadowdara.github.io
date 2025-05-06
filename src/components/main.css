@@ -27,6 +27,10 @@ body {
     color: #00ffc3;
 }
 
+.d4r-box p {
+    line-height: 1.4rem;
+}
+
 .d4r-box a {
     color: #26c6da;
     text-decoration: none;
