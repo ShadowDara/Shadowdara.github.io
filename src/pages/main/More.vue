@@ -8,8 +8,12 @@
     <b><a href="/#/more/page_linktree">Full Link Tree of the page</a></b>
     <hr>
     <p><i>More will be coming soon of course!</i></p>
+    <hr>
+    <h2>Links</h2>
+    <links_base />
 </template>
 
 <script setup>
 import version from '@/components/page_version.vue'
+import links_base from '@/components/links_base.vue';
 </script>
