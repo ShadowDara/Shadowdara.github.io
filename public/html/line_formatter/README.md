@@ -1,6 +1,6 @@
 # Line Formatter
 
-Convert the your selected text ***[here](https://shadowdara.github.io/line_formatter/)***
+Convert the your selected text ***[here](https://shadowdara.github.io/html/line_formatter/)***
 from
 
 ```
@@ -16,4 +16,4 @@ to
 Hallo,\nthis\n\tmy\n\ttext
 ```
 
-and back to normal with the Line Extender ***[here](https://shadowdara.github.io/line_formatter/line_extender/)***
+and back to normal with the Line Extender ***[here](https://shadowdara.github.io/html/line_formatter/line_extender/)***

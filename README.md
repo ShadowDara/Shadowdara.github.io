@@ -3,8 +3,8 @@
 <h2><a href="https://shadowdara.github.io">Check out the Page here!</a></h2>
 
 ## Content
-- [Picture Mode Maker](/picture-mode-maker/README.md)
-- [Line Formatter](/line_formatter/README.md)
+- [Picture Mode Maker](/public/html/picture-mode-maker/README.md)
+- [Line Formatter](/public/html/line_formatter/README.md)
 
 <br>
 
