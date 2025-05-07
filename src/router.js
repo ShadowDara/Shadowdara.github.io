@@ -1,7 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
+import home_redirection from './components/redirection/home.vue'
 import Home from './pages/main/Home.vue'
-import home_redirection from './components/home_redirection.vue'
+
+import post_redirection from './components/redirection/posts.vue'
+import Posts from './pages/main/Posts.vue'
 
 import DevBlog from './pages/md/DevBlog.vue'
 
@@ -25,8 +28,16 @@ const routes = [
   },
   {
     path: '/home',
-    name: 'Home - Redirection',
     component: home_redirection
+  },
+  {
+    path: '/posts',
+    component: post_redirection
+  },
+  {
+    path: '/posts/home',
+    name: 'Posts',
+    component: Posts
   },
   {
     path: '/devblog',

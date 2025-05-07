@@ -5,6 +5,8 @@
     <hr>
     <b><a href="/#/more/changelog">Page Changelog</a></b>
     <hr>
+    <b><a href="https://github.com/shadowdara/shadowdara.github.io">Page Source Code</a></b>
+    <hr>
     <b><a href="/#/more/page_linktree">Full Link Tree of the page</a></b>
     <hr>
     <p><i>More will be coming soon of course!</i></p>

@@ -5,6 +5,7 @@
     <div>
       <!-- Home is standard -->
       <router-link to="/">Home</router-link> ·
+      <router-link to="/posts/home">Posts</router-link> ·
       <router-link to="/devblog">Blog</router-link> ·
       <router-link to="/projects">Projects</router-link> ·
       <router-link to="/webtools">Webtools</router-link> ·

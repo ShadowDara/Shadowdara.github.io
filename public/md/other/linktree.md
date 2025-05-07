@@ -3,11 +3,12 @@
 a complete link structure for the website, pages from
 subrepositorys are not included.
 
-```
+```md
 / (root)
 
 │── / # (Vue Router Paths)
 │    ├── / home
+│    ├── / posts
 │    ├── / devblog
 │    ├── / about_me
 │    ├── / projects
