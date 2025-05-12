@@ -9,6 +9,7 @@ import Posts from './pages/main/Posts.vue'
 import DevBlog from './pages/md/DevBlog.vue'
 
 import Webtools from './pages/main/Webtools.vue'
+import no_fucking_cors from './pages/no_fucking_cors.vue'
 
 import Projects from './pages/main/Projects.vue'
 
@@ -19,6 +20,7 @@ import Changelog from './pages/md/page_changelog.vue'
 import pageLinktree from './pages/md/page_linktree.vue'
 
 import NotFound from './components/NotFound.vue'
+import No_fucking_cors from './pages/no_fucking_cors.vue'
 
 const routes = [
   {
@@ -58,6 +60,11 @@ const routes = [
     path: '/webtools',
     name: 'Webtools',
     component: Webtools
+  },
+  {
+    path: '/webtools/nofuckingcors',
+    name: 'NoFuckingCORS',
+    component: no_fucking_cors
   },
   {
     path: '/more',

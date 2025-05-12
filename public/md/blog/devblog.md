@@ -2,6 +2,20 @@
 
 ---
 
+## 12.05.2025
+
+Yesterday i tried to look at Flutter and i will defetly continue
+today with this project and tried to repair an very old computer
+again, but the setup has still not finished yet. Probably it works
+this time to install a new OS.
+
+I although learned about a new programming
+language which is called `dafny`. The language is mostly used for
+debugging and checking if a function really give the output, it should.
+Pretty interresting tbh!
+
+---
+
 ## 06.05.2025
 
 This is so scuffed omg, when i build exexcutables for Python

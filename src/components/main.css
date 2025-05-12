@@ -36,12 +36,21 @@ body {
     text-decoration: none;
 }
 
-.d4r-box code, pre {
+.d4r-box pre {
     background: #2a2a2a;
     padding: 8px;
     border-radius: 6px;
     display: block;
     margin: 8px 0;
+    color: #2bff8a;
+}
+
+.d4r-box code {
+    background: #000000;
+    font-size: 1rem;
+    margin: 8px 0;
+    padding: 2px 5px;
+    color: #2bff8a;
 }
 
 .d4r-box hr {
@@ -49,6 +58,19 @@ body {
     height: 1px;
     background: #444;
     margin: 1.5rem 0;
+}
+
+.d4r-box button, .d4r-box input {
+    background: #0b0b0b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.d4r-box button:hover, .d4r-box input:hover {
+    background: #4d4d4d;
 }
 
 @media (max-width: 720px) {
