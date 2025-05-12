@@ -16,7 +16,7 @@ body {
     padding: 0;
     background-color: var(--bg-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-color);
+    color: #ecf0f1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,8 +104,9 @@ a {
 }
 
 input, textarea {
-    background-color: var(--bar-bg-color);
-    color: var(--text-color);
+    background-color: #575775;
+    color: #ecf0f1;
+    font-size: 1rem;
 }
 
 button {
@@ -118,7 +119,7 @@ button {
 }
 
 button:hover {
-    background-color: var(--bar-bg-color);
+    background-color: #2f2f3f;
 }
 
 .modal {
