@@ -1,6 +1,6 @@
 # Picture Mode Maker
 
-[Use here](https://shadowdara.github.io/picture-mode-maker/)
+[Use here](https://shadowdara.github.io/html/picture-mode-maker/)
 
 HTML for creating Pictures for both ligth and Darkmode
 
