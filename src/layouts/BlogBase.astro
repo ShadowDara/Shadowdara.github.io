@@ -1,0 +1,32 @@
+---
+import { b } from "../consts";
+import "../styles/blog.css";
+---
+
+<header>
+    <h2>
+        <span><a href={b + "/"}>Home</a></span>
+        ·
+        <span><a href={b + "/blog"}>Blog</a></span>
+    </h2>
+</header>
+<div class="blog">
+    <hr />
+</div>
+
+<slot />
+
+<div class="blog">
+    <hr />
+</div>
+<footer>
+    <h3>
+        <span><a href={b + "/blog"}>Start</a></span>
+        ·
+        <span><a href={b + "/blog/i/full_list"}>All</a></span>
+        ·
+        <span><a href={b + "/blog/i/pinned"}>Pinned</a></span>
+        ·
+        <span><a href={b + "/blog/i/devblog"}>Devblog</a></span>
+    </h3>
+</footer>

@@ -1,0 +1,90 @@
+body {
+    background: #111;
+    padding: 2rem;
+}
+
+.d4r-box-blog {
+    background: #1e1e1e;
+    color: #e0e0e0;
+    font-family: 'Fira Code', monospace;
+    padding: 0.4rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: auto;
+}
+
+.d4r-box-blog h1 {
+    color: #a8ffeb;
+}
+
+.d4r-box-blog h2 {
+    color: #64ffda;
+    margin-top: 1.2rem;
+}
+
+.d4r-box-blog h3 {
+    color: #00ffc3;
+}
+
+.d4r-box-blog p {
+    line-height: 1.7rem;
+    font-size: 1.1rem;
+}
+
+.d4r-box-blog a {
+    color: #26c6da;
+    text-decoration: none;
+}
+
+.d4r-box-blog pre {
+    background: #24292e;
+    padding: 8px;
+    border-radius: 6px;
+    display: block;
+    margin: 8px 0;
+    color: #2bff8a;
+}
+
+.d4r-box-blog code {
+    background: #24292e;
+    font-size: 1rem;
+    margin: 8px 0;
+    padding: 2px 5px;
+    color: #2bff8a;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.d4r-box-blog hr {
+    border: none;
+    height: 1px;
+    background: #444;
+    margin: 2.5rem 0;
+}
+
+.d4r-box-blog button, .d4r-box-blog input {
+    background: #0b0b0b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.d4r-box-blog button:hover, .d4r-box-blog input:hover {
+    background: #4d4d4d;
+}
+
+.blog hr {
+    margin: 0;
+}
+
+@media (max-width: 720px) {
+    body {
+        padding: 0;
+    }
+    .d4r-box-blog {
+        max-width: 100%;
+    }
+}

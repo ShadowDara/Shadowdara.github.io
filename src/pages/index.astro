@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Links from "../components/Links.astro";
+import Blog from "../components/Blog.astro";
+import About_me from "../components/About_me.astro"
+import Projects from "../components/Projects.astro";
+import Settings from "../components/Settings.astro";
+import { p, b } from '../consts';
+---
+
+<Layout title={p.SITE_TITLE} description={p.SITE_DESCRIPTION}>
+    <main class="justify-center">
+        <!-- Column 1 -->
+        <div class="flex flex-col aaaaaa d4r-top">
+            <!-- Dara Picture -->
+            <!--
+
+            Discord pfp
+            https://cdn.discordapp.com/avatars/843919195187183637/5823bcb2a54d518faf6e1bd3c1cee36e.webp?size=256
+            
+            -->
+            <div class="d4r-box">
+                <img id="dara" src=`${b}/assets/dara_v4.png` fetchpriority="high" />
+            </div>
+
+            <!-- Name and connections -->
+            <div class="d4r-box">
+                <h1 class="text-center">Shadowdara</h1>
+                <p class="text-center">Hi :3, i am Shadowdara</p>
+            </div>
+
+            <!-- More -->
+            <Settings></Settings>
+
+            <!-- Links -->
+            <div class="d4r-box">
+                <h1 class="text-center">Links</h1>
+                <Links />
+            </div>
+
+            <!-- Skills -->
+            <div class="d4r-box">
+                <h1 class="text-center">Skills</h1>
+                <p class="text-center">404 - Not Found :3 <i>(haha soon...)</i></p>
+            </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="flex flex-1 flex-col d4r-top">
+            <!-- About me Story -->
+            <div class="d4r-box d4r-text-box">
+                <h1 class="text-center">About Me</h1>
+                <About_me />
+            </div>
+
+            <!-- Projects and Stuff -->
+            <div class="d4r-box">
+                <h1 class="text-center">Recent Projects</h1>
+                <Projects />
+            </div>
+
+            <!-- Blog 
+            <div class="d4r-box">
+                <h1 class="text-center">Blog</h1>
+                <Blog />
+            </div>
+            -->
+        </div>
+    </main>
+</Layout>
+
+<style>
+    .aaaaaa {
+        width: 35%;
+    }
+
+    @media (max-width: 748px) {
+        .aaaaaa {
+            width: 100%;
+        }
+    }
+</style>

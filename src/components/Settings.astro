@@ -1,0 +1,155 @@
+---
+import { b } from "../consts";
+---
+
+<!-- Popup Window -->
+<button id="openModalBtn" class="settings_btn"><h3>More Content</h3></button>
+
+<div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal">
+        <!-- Close Button -->
+        <button id="closeModalBtn" class="close-btn">×</button>
+
+        <!-- Heading -->
+        <h3 class="text-center">More Content</h3>
+
+        <!-- Blog -->
+        <a href=`${b}/blog`
+            ><div class="settings-box text-center">
+                <p>Blog</p>
+            </div></a
+        >
+
+        <!-- Source -->
+        <a href=`${b}/info`
+            ><div class="settings-box text-center">
+                <p>Info</p>
+            </div></a
+        >
+    </div>
+</div>
+
+<style>
+    .settings-box {
+        color: var(--box-bg-color);
+        background-color: var(--settings-inner-box-component);
+        font-family: "Fira Code", monospace;
+        color: var(--settings-inner);
+        padding: 0.5rem;
+        margin: 0.7rem 0rem;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 100%;
+        word-break: break-all;
+        display: flex;
+        flex-direction: column;
+        transition:
+            transform 1s ease,
+            background-color 1s ease;
+    }
+
+    .settings-box:hover {
+        background-color: var(--settings-inner-box-component-h);
+    }
+
+    .settings-box p {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    .settings_btn {
+        font-family: monospace;
+        background-color: rgb(0, 0, 0);
+        color: var(--h3-color);
+        padding: 0.6rem;
+        border-radius: 20px;
+        margin: 0.6rem;
+        font-size: 1.4rem;
+        transition:
+            transform 2s ease,
+            background-color 2s ease;
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        word-break: break-all;
+    }
+
+    .settings_btn:hover {
+        background-color: #adff2f;
+        color: black;
+        font-weight: bold;
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.79);
+        display: grid;
+        place-items: center;
+        z-index: 50;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+    }
+
+    /* Show Modal */
+    .modal-overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Modal Box */
+    .modal {
+        background: rgba(0, 0, 0, 0.76);
+        color: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        max-width: 400px;
+        width: 90%;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Show Animation */
+    .modal-overlay.show .modal {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Close Button */
+    .close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .modal h3 {
+        font-size: 1.7rem;
+    }
+</style>
+
+<script lang="js">
+    const openModalBtn = document.getElementById("openModalBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const modalOverlay = document.getElementById("modalOverlay");
+
+    openModalBtn.addEventListener("click", () => {
+        modalOverlay.classList.add("show");
+    });
+
+    closeModalBtn.addEventListener("click", () => {
+        modalOverlay.classList.remove("show");
+    });
+
+    modalOverlay.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove("show");
+        }
+    });
+</script>

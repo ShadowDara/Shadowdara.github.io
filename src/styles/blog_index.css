@@ -1,0 +1,41 @@
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    line-height: 2.2rem;
+    margin: 1rem 0rem;
+}
+
+.post-header .title {
+    text-align: left;
+    text-decoration: underline;
+}
+
+.post-header .date {
+    text-align: right;
+}
+
+/* Description Tooltip */
+.tooltip-container {
+    position: relative;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    /* über dem Element */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { p, b } from '../consts';
+---
+
+<Layout title={p.SITE_TITLE_404} description={p.SITE_DESCRIPTION_404}>
+    <main class="flex flox-col justify-center">
+        <div class="d4r-box-min d4r-box text-center flex place-self-center">
+            <h1>404</h1>
+            <h2>Page not Found</h2>
+            <br>
+            <p>This Content is not available on this Page <b>:(</b></p>
+            <br>
+            <p><a href={b} class="italic text-xl">Back to the Homepage</a></p>
+        </div>
+    </main>
+</Layout>
+
+<style>
+main {
+    margin-top: 16%;
+}
+
+.d4r-box-min {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: fit-content;
+}
+</style>
