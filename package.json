@@ -5,10 +5,11 @@
   "author": "Shadowdara",
   "scripts": {
     "dev": "astro dev",
+    "postbuild": "node scripts/post-build.js",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "deploy": "astro build && echo 'disable jekyll' > dist/.nojekyll && gh-pages -d dist -b gh-pages"
+    "deploy": "astro build && npm run postbuild && gh-pages -d dist -b gh-pages"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
