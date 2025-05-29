@@ -52,3 +52,109 @@ export const main_links = [
     }
     */
 ]
+
+interface AllLinksItem {
+    id: string; // Assuming item.id is always a string
+    link: string;
+    name: string;
+    blanc: boolean;
+}
+
+interface LinkSortData {
+    [key: string]: string[];
+}
+
+//Sorting for the links
+export const link_sort: LinkSortData = {
+    "main": [
+        "home",
+        "upptime",
+    ],
+    "socials": [
+        "discord",
+        "reddit",
+    ],
+    "coding": [
+        "github",
+        "modrinth",
+        "itch_io",
+    ],
+    /*
+    "projects": [],
+    "more": [],
+    */
+    "startpage": [
+        "github",
+        "modrinth",
+        "discord",
+        "reddit",
+        "linktree",
+    ]
+}
+
+
+// Links for the Links Page
+export const all_links: AllLinksItem[] = [
+    {
+        id: "home",
+        name: "Home",
+        link: `${b}/`,
+        blanc: false
+    },
+    {
+        id: "upptime",
+        name: "Upptime",
+        link: "https://shadowdara.github.io/upptime",
+        blanc: true
+    },
+
+    {
+        id: "github",
+        name: "Github",
+        link: "https://github.com/shadowdara",
+        blanc: true
+    },
+    {
+        id: "modrinth",
+        name: "Modrinth",
+        link: "https://modrinth.com/user/shadowdara",
+        blanc: true
+    },
+    {
+        id: "itch_io",
+        name: "Itch.io Profile",
+        link: "https://shadowdara.itch.io",
+        blanc: true
+    },
+    {
+        id: "discord",
+        name: "Discord",
+        link: "https://discord.gg/9Jh8B8pkJa",
+        blanc: true
+    },
+    {
+        id: "reddit",
+        name: "Reddit",
+        link: "https://reddit.com/u/shadowdara",
+        blanc: true
+    },
+    {
+        id: "linktree",
+        name: "Linktree",
+        link: "https://linktr.ee/shadowdara",
+        blanc: true
+    },
+
+    {
+        id: "2",
+        name: "Fandom.com",
+        link: "https://community.fandom.com/wiki/User:Shadowdara",
+        blanc: true
+    },
+    {
+        id: "3",
+        name: "Lego-Ninjago.Fandom.com",
+        link: "https://lego-ninjago.fandom.com/de/wiki/Benutzer:Shadowdara",
+        blanc: true
+    }
+]

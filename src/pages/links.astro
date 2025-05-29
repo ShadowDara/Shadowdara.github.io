@@ -1,0 +1,102 @@
+---
+import "../styles/links.css";
+import { all_links, link_sort } from "../consts";
+import { p, b } from "../consts";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title={p.SITE_TITLE} description={p.SITE_DESCRIPTION}>
+    <main class="text-center">
+        <!-- Left Part (Overview/Categories) -->
+        <div class="left-part">
+            <a href="#all">
+                <div class="d4r-box">
+                    <h1>All Links</h1>
+                </div>
+            </a>
+            {
+                Object.keys(link_sort).map((categoryKey) => (
+                    <a href={`#${categoryKey}`}>
+                        <div class="d4r-box">
+                            <h1>{categoryKey.toUpperCase()}</h1>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+
+        <!-- Right Part -->
+        <div class="right-part">
+            {
+                Object.keys(link_sort).map((categoryKey) => {
+                    const categoryIds = link_sort[categoryKey];
+
+                    const filteredLinks = all_links.filter((item) =>
+                        categoryIds.includes(item.id),
+                    );
+
+                    return (
+                        <div class="d4r-box">
+                            <div class="secret-title">
+                                <p id={categoryKey}>
+                                    {categoryKey.toUpperCase()}
+                                </p>
+                            </div>
+                            {(
+                                filteredLinks.map((item) => (
+                                    <a
+                                        href={item.link}
+                                        target={item.blanc ? "_blank" : "_self"}
+                                        rel="noopener noreferrer"
+                                    >
+                                        <div class="link">{item.name}</div>
+                                    </a>
+                                ))
+                            )}
+                        </div>
+                    );
+                })
+            }
+            <div class="d4r-box">
+                <div class="secret-title">
+                    <p id="all">All Links</p>
+                </div>
+                {
+                    all_links.map((item) => (
+                        <a
+                            href={item.link}
+                            target={item.blanc ? "_blank" : "_self"}
+                            rel="noopener noreferrer"
+                        >
+                            <div class="link">{item.name}</div>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        justify-content: center;
+    }
+
+    .left-part {
+        width: 25%;
+    }
+
+    .right-part {
+        width: 35%;
+    }
+
+    @media (max-width: 748px) {
+        .left-part {
+            width: 100%;
+        }
+
+        .right-part {
+            width: 100%;
+        }
+    }
+</style>

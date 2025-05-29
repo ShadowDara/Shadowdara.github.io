@@ -1,38 +1,25 @@
 ---
-import { b, main_links } from "../consts";
+import "../styles/links.css";
+import { b, all_links, link_sort } from "../consts";
 ---
 
 <!-- Links -->
- {
-    main_links.map((item) => (
-        
-            <a
-                href={item.link}
-                target={item.blanc ? "_blank" : "_self"}
-                rel="noopener noreferrer"
-            >
-                <div class="link">{item.name}</div>
-            </a>
-    ))
+{Object.keys(link_sort).map((categoryKey) => {
+        if (categoryKey === "startpage") {
+            const categoryIds = link_sort[categoryKey];
+
+            const filteredLinks = all_links.filter((item) =>
+                categoryIds.includes(item.id)
+            );
+            return filteredLinks.map((item) => (
+                <a
+                    href={item.link}
+                    target={item.blanc ? "_blank" : "_self"}
+                    rel="noopener noreferrer"
+                >
+                    <div class="link">{item.name}</div>
+                </a>
+            ));
+        }
+    })
 }
-
-<style>
-    .link {
-        padding: 0.5rem;
-        background-color: var(--link-box-color);
-        border-radius: 30px;
-        margin: 0.4rem;
-        text-align: center;
-        font-size: 1.3rem;
-        transition:
-            transform 0.5s ease,
-            background-color 0.5s ease;
-        color: var(--link-color);
-        text-decoration: underline;
-        font-weight: bold;
-    }
-
-    .link:hover {
-        background-color: var(--link-box-color-hover);
-    }
-</style>
