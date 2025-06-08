@@ -43,14 +43,7 @@ export const main_links = [
         name: "Linktree",
         link: "https://linktr.ee/shadowdara",
         blanc: true
-    },
-    /*
-    {
-        name: "Blog",
-        link: `${b}/blog`,
-        blanc: false
     }
-    */
 ]
 
 interface AllLinksItem {

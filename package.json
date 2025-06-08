@@ -1,7 +1,7 @@
 {
   "name": "personal_webpage_shadowdara",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Shadowdara",
   "scripts": {
     "dev": "astro dev",

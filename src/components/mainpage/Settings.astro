@@ -1,9 +1,13 @@
 ---
-import { b } from "../consts";
+import { b } from "../../consts";
 ---
 
 <!-- Popup Window -->
-<button id="openModalBtn" class="settings_btn"><h3>More Content</h3></button>
+<button id="openModalBtn" class="settings_btn">
+    <h3>
+        More Content
+    </h3>
+</button>
 
 <div id="modalOverlay" class="modal-overlay hidden">
     <div class="modal">
@@ -14,32 +18,32 @@ import { b } from "../consts";
         <h3 class="text-center">More Content</h3>
 
         <!-- Blog -->
-        <a href=`${b}/blog`
-            ><div class="settings-box text-center">
+        <a href=`${b}/blog`>
+            <div class="settings-box text-center">
                 <p>Blog</p>
-            </div></a
-        >
+            </div>
+        </a>
 
-        <!-- Info -->
-        <a href=`${b}/info`
-            ><div class="settings-box text-center">
-                <p>Info</p>
-            </div></a
-        >
-
-        <!-- All Links -->
-        <a href=`${b}/links`
-            ><div class="settings-box text-center">
-                <p>All Links</p>
-            </div></a
-        >
+        <!-- My Webpages -->
+        <a href=`${b}/pages`>
+            <div class="settings-box text-center">
+                <p>Webpages</p>
+            </div>
+        </a>
 
         <!-- Downloads -->
-        <a href=`${b}/downloads`
-            ><div class="settings-box text-center">
+        <a href=`${b}/downloads`>
+            <div class="settings-box text-center">
                 <p>Downloads</p>
-            </div></a
-        >
+            </div>
+        </a>
+
+        <!-- All Links -->
+        <a href=`${b}/links`>
+            <div class="settings-box text-center">
+                <p>My Links</p>
+            </div>
+        </a>
     </div>
 </div>
 

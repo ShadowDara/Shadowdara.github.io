@@ -1,10 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Links from "../components/Links.astro";
-import About_me from "../components/About_me.astro"
-import Projects from "../components/Projects.astro";
-import Settings from "../components/Settings.astro";
-import { p, b } from '../consts';
+import Links from "../components/mainpage/Links.astro";
+import About_me from "../components/About_me.astro";
+import Projects from "../components/mainpage/Projects.astro";
+import Downloads from "../components/mainpage/Downloads.astro";
+import Settings from "../components/mainpage/Settings.astro";
+import Skills from "../components/mainpage/Skills.astro";
+import { p, b } from "../consts";
 ---
 
 <Layout title={p.SITE_TITLE} description={p.SITE_DESCRIPTION}>
@@ -13,13 +15,15 @@ import { p, b } from '../consts';
         <div class="flex flex-col aaaaaa d4r-top">
             <!-- Dara Picture -->
             <!--
-
             Discord pfp
             https://cdn.discordapp.com/avatars/843919195187183637/5823bcb2a54d518faf6e1bd3c1cee36e.webp?size=256
-            
             -->
             <div class="d4r-box">
-                <img id="dara" src=`${b}/assets/dara_v4.png` fetchpriority="high" />
+                <img
+                    id="dara"
+                    src=`${b}/assets/dara_v4.png`
+                    fetchpriority="high"
+                />
             </div>
 
             <!-- Name and connections -->
@@ -29,7 +33,7 @@ import { p, b } from '../consts';
             </div>
 
             <!-- More -->
-            <Settings></Settings>
+            <Settings />
 
             <!-- Links -->
             <div class="d4r-box">
@@ -40,7 +44,22 @@ import { p, b } from '../consts';
             <!-- Skills -->
             <div class="d4r-box">
                 <h1 class="text-center">Skills</h1>
-                <p class="text-center">404 - Not Found :3 <i>(haha soon...)</i></p>
+                <div class="flex flex-col gap-5">
+                    <Skills />
+                    <!-- Explanation, Subtext -->
+                    <div class="">
+                        <p class="italic">
+                            Click on one of these ICONS for more information ;)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Last Updated -->
+            <div class="d4r-box">
+                <p class="text-center italic text-(--link-box-color)">
+                    Last Updated: 07.06.2025
+                </p>
             </div>
         </div>
 
@@ -56,6 +75,18 @@ import { p, b } from '../consts';
             <div class="d4r-box">
                 <h1 class="text-center">Recent Projects</h1>
                 <Projects />
+            </div>
+
+            <!-- Downloads -->
+            <!-- -->
+            <div class="d4r-box">
+                <h1 class="text-center">Recent Downloads</h1>
+                <Downloads />
+            </div>
+
+            <!-- Blog -->
+            <div class="d4r-box">
+                <h1 class="text-center">Blog</h1>
             </div>
         </div>
     </main>

@@ -86,6 +86,19 @@ main {
     align-self: center;
 }
 
+.d4r-box .skills img {
+    width: fit-content;
+    border-radius: 5px;
+    height: 2rem;
+}
+
+.d4r-box .skills {
+    padding: 0.8rem;
+    border-radius: 10px;
+    background-color: #2e2e2e;
+    font-size: 1.3rem;
+}
+
 .d4r-text-box p {
     margin: 0 0.9rem;
 }

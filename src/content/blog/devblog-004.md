@@ -1,5 +1,5 @@
 ---
-title: 'Devblog 003'
+title: 'Devblog 004'
 description: 'Creating a Texteditor'
 pubDate: 'May 29 2025'
 heroImage: ''
@@ -11,3 +11,15 @@ tags: [
 # 29.05.2025
 
 Currently i am adding a links page to my Webpage, it hasen't finiedh yet!
+
+And y keyboard does not work properly anyore on the Laptop, this makes me
+so angry and i am at the moment really nervous + IDK what project is should
+do next!
+
+# 06.06.2025
+
+i am continuing on the website here and i am very sad tbh, nevermind! I made
+website for series link posting to watch them easily which is hosted on vercel
+with nextjs and a big datacache file in Javascript. Idk, maybe it is better for
+the server to use a json file which will be read by the server... Idk, i need
+to check that out!

@@ -1,0 +1,22 @@
+main {
+    margin: 0;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.download {
+    background-color: var(--project-box-color);
+    border-radius: 30px;
+    padding: 1.1rem 1.1rem;
+    margin: 1rem;
+}
+
+.download p {
+    font-size: 1.1rem;
+    color: var(--project-box-text-color);
+}
+
+.download a {
+    color: var(--project-h2-color);
+}
