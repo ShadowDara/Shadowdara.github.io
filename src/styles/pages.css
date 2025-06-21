@@ -8,15 +8,28 @@ main {
 .download {
     background-color: var(--project-box-color);
     border-radius: 30px;
-    padding: 1.1rem 1.1rem;
-    margin: 1rem;
+    padding: 1.1rem;
+    margin: 0.6rem;
 }
 
 .download p {
     font-size: 1.1rem;
+    margin: 0.3rem 0.2rem;
     color: var(--project-box-text-color);
 }
 
 .download a {
     color: var(--project-h2-color);
+    text-decoration: underline;
+}
+
+@media (max-width: 748px) {
+    .download {
+        padding: 0.4rem;
+        margin: 0.3rem 0rem;
+    }
+
+    .download p {
+        margin: 0.3rem 0.2rem;
+    }
 }
