@@ -17,15 +17,18 @@ main {
     background: #000000;
 }
 
+/*
+----> Default
+*/
 
 .d4r-box {
-    font-family: 'Fira Code', monospace;
     padding: 1.5rem;
     border-radius: 20px;
     word-wrap: none;
     word-break: normal;
     margin: 4rem;
     width: 25%;
+    font-family: 'Fira Code', monospace;
 }
 
 .d4r-box h1 {
@@ -80,6 +83,7 @@ main {
 .subtext span a {
     text-decoration: none;
     color: #ffffff;
+    padding: 0rem 0.3rem;
 }
 
 .subtext span a:hover {
@@ -122,6 +126,21 @@ main {
     color: #000000;
 }
 
+/*
+----> Redirection
+*/
+
+.redirection {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Fira Code', monospace;
+    gap: 20px;
+}
 
 @media (max-width: 748px) {
     .d4r-box {
