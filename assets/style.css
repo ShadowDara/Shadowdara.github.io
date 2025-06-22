@@ -161,6 +161,20 @@ main {
     letter-spacing: -1px;
 }
 
+.container404 a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0rem 0.3rem;
+}
+
+.container404 a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    transition:
+        transform 1s ease,
+        background-color 1s ease;
+}
+
 @media (max-width: 748px) {
     .d4r-box {
         width: 96%;
