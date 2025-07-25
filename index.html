@@ -1,66 +1,45 @@
 ---
 layout: default
-title: "Shadowdara"
-header: "Shadowdara"
+title: Blog
 ---
 
-<div class="d4r-box">
-  {% include header.html %}
+<div class="d4r-box-blog">
+  <main>
+    <div>
+      <h2 class="post-header">
+        <span>Title</span>
+        <span class="date">Date</span>
+      </h2>
+    </div>
 
-  <!-- Portfolio -->
-  <div class="inner-box">
-    <a href="https://shadowdara.github.io/portfolio" target="_blank">
-      <div class="settings-box">
-        <p>Portfolio</p>
-      </div>
-    </a>
-  </div>
-
-  <!-- Modrinth -->
-  <div class="inner-box">
-    <a href="https://modrinth.com/user/shadowdara" target="_blank">
-      <div class="settings-box">
-        <p>Modrinth</p>
-      </div>
-    </a>
-  </div>
-
-  <!-- Itch.io 
-  <div class="inner-box">
-    <a href="https://shadowdara.itch.io" target="_blank">
-      <div class="settings-box">
-        <p>Itch.io</p>
-      </div>
-    </a>
-  </div>
-  -->
-
-  <!-- Github -->
-  <div class="inner-box">
-    <a href="https://github.com/shadowdara" target="_blank">
-      <div class="settings-box">
-        <p>Github</p>
-      </div>
-    </a>
-  </div>
-
-  <!-- Linktree -->
-  <div class="inner-box">
-    <a href="https://linktr.ee/shadowdara" target="_blank">
-      <div class="settings-box">
-        <p>Linktree</p>
-      </div>
-    </a>
-  </div>
-
-  <!-- Upptime -->
-  <div class="inner-box">
-    <a href="https://shadowdara.github.io/upptime" target="_blank">
-      <div class="settings-box">
-        <p>Upptime Monitor</p>
-      </div>
-    </a>
-  </div>
-
-  {% include footer.html %}
+    <section>
+      {% assign posts = site.posts | sort: 'date' | reverse %}
+      {% for post in posts limit:5 %}
+        <div class="blog">
+          <hr />
+        </div>
+        <div class="tooltip-container">
+          <a href="{{ post.url }}">
+            {% if post.heroImage %}
+              <img
+                width="720"
+                height="360"
+                src="{{ post.heroImage }}"
+                alt=""
+              />
+            {% endif %}
+            <h3 class="post-header">
+              <span class="title">{{ post.title }}</span>
+              <span class="date">{{ post.date | date: "%d.%m.%Y" }}</span>
+              {% if post.description %}
+                <div class="tooltip-text">
+                  {{ post.description }}
+                </div>
+              {% endif %}
+            </h3>
+          </a>
+        </div>
+      {% endfor %}
+    </section>
+  </main>
 </div>

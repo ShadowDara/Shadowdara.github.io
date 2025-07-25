@@ -1,184 +1,132 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    line-height: 2.2rem;
+    margin: 1rem 0rem;
+}
+
+.post-header .title {
+    text-align: left;
+    text-decoration: underline;
+}
+
+.post-header .date {
+    text-align: right;
+}
+
+/* Description Tooltip */
+.tooltip-container {
+    position: relative;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    /* über dem Element */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
 }
 
 body {
-    width: 100%;
-    height: 100%;
+    background: #111;
+    padding: 2rem;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: #000000;
-}
-
-/*
-----> Default
-*/
-
-.d4r-box {
-    padding: 1.5rem;
-    border-radius: 20px;
-    word-wrap: none;
-    word-break: normal;
-    margin: 4rem;
-    width: 25%;
+.d4r-box-blog {
+    background: #1e1e1e;
+    color: #e0e0e0;
     font-family: 'Fira Code', monospace;
-}
-
-.d4r-box h1 {
-    color: #ffffff;
-    font-size: 2rem;
-    margin: 0.4rem;
-}
-
-.d4r-box p {
-    font-size: 1.2rem;
-}
-
-.name {
-    background-color: #00000059;
-    border-radius: 20px;
+    padding: 0.4rem 1.5rem;
+    border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border: 3px solid #ffffff;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 0.4rem;
-    flex: 1 1 0%;
-    min-width: fit-content;
-    text-align: center;
-    transition:
-        transform 1s ease,
-        background-color 1s ease;
+    max-width: 800px;
+    margin: auto;
 }
 
-.name:hover {
-    background-color: #ffffff;
-    border: 8px solid #000000;
+.d4r-box-blog h1 {
+    color: #a8ffeb;
 }
 
-.name h1:hover {
-    color: #000000;
+.d4r-box-blog h2 {
+    color: #64ffda;
+    margin-top: 1.2rem;
 }
 
-.name img {
-    height: fit-content;
-    width: 2.7rem;
-    align-self: center;
-    border-radius: 10px;
+.d4r-box-blog h3 {
+    color: #00ffc3;
 }
 
-.subtext {
-    margin: 1.6rem 0.7rem;
-    font-style: italic;
-    text-align: center;
+.d4r-box-blog p {
+    line-height: 1.7rem;
+    font-size: 1.1rem;
 }
 
-.subtext span a {
+.d4r-box-blog a {
+    color: #26c6da;
     text-decoration: none;
-    color: #ffffff;
-    padding: 0rem 0.3rem;
 }
 
-.subtext span a:hover {
-    text-decoration: underline;
-    font-weight: bold;
-    transition:
-        transform 1s ease,
-        background-color 1s ease;
+.d4r-box-blog pre {
+    background: #24292e;
+    padding: 8px;
+    border-radius: 6px;
+    display: block;
+    margin: 8px 0;
+    color: #2bff8a;
 }
 
-.inner-box {
-    margin: 1.3rem 0;
-}
-
-.settings-box {
-    color: #ffffff;
-    background-color: #000000;
-    font-family: "Fira Code", monospace;
-    padding: 0.5rem;
-    margin: 0.7rem 0rem;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 100%;
+.d4r-box-blog code {
+    background: #24292e;
+    font-size: 1rem;
+    margin: 8px 0;
+    padding: 2px 5px;
+    color: #2bff8a;
     word-break: break-all;
-    transition:
-        transform 1s ease,
-        background-color 1s ease;
-    text-align: center;
-    font-weight: bold;
-    text-decoration: underline;
-    border: 4px solid #ffffff;
+    word-wrap: break-word;
 }
 
-.settings-box:hover {
-    background-color: #ffffff;
-    border: 8px solid #000000;
+.d4r-box-blog hr {
+    border: none;
+    height: 1px;
+    background: #444;
+    margin: 2.5rem 0;
 }
 
-.settings-box:hover p {
-    color: #000000;
+.d4r-box-blog button, .d4r-box-blog input {
+    background: #0b0b0b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/*
-----> Redirection
-*/
-
-.redirection {
-    background-color: #000000;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-family: 'Fira Code', monospace;
-    gap: 20px;
+.d4r-box-blog button:hover, .d4r-box-blog input:hover {
+    background: #4d4d4d;
 }
 
-/*
-----> 404
-*/
-
-.container404 {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-    color: #ffffff;
-    font-family: 'Fira Code', monospace;
+.blog hr {
+    margin: 0;
 }
 
-.container404 h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-}
-
-.container404 a {
-    text-decoration: none;
-    color: #ffffff;
-    padding: 0rem 0.3rem;
-}
-
-.container404 a:hover {
-    text-decoration: underline;
-    font-weight: bold;
-    transition:
-        transform 1s ease,
-        background-color 1s ease;
-}
-
-@media (max-width: 748px) {
-    .d4r-box {
-        width: 96%;
-        margin: 1.5% 2%;
-        padding: 1rem;
+@media (max-width: 720px) {
+    body {
+        padding: 0;
+    }
+    .d4r-box-blog {
+        max-width: 100%;
     }
 }
