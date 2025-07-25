@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <rss version="2.0">
+    <channel>
+        <title>My Portfolio</title>
+        <link>https://portfolio-blog-starter.vercel.app</link>
+        <description>This is my portfolio RSS feed</description>
+        <item>
+          <title>Checkstaticfiles</title>
+          <link>https://portfolio-blog-starter.vercel.app/blog/checkstaticfiles</link>
+          <description>a simple go package to include staicfiles to the binary</description>
+          <pubDate>Fri, 25 Jul 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Bypass Admin Rights</title>
+          <link>https://portfolio-blog-starter.vercel.app/blog/bypass-admin</link>
+          <description>Run a programming with bypassing admin rights, but works not for all sadly</description>
+          <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Autorun for USB Devices</title>
+          <link>https://portfolio-blog-starter.vercel.app/blog/autorun-for-usb</link>
+          <description>This a code configgering USB-Sticks and running programms automatically with them</description>
+          <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Devblog 004</title>
+          <link>https://portfolio-blog-starter.vercel.app/blog/devblog-004</link>
+          <description>Creating a Texteditor</description>
+          <pubDate>Thu, 29 May 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Devblog 003</title>
+          <link>https://portfolio-blog-starter.vercel.app/blog/devblog-003</link>
+          <description></description>
+          <pubDate>Thu, 22 May 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Devblog 002</title>
+          <link>https://portfolio-blog-starter.vercel.app/blog/devblog-002</link>
+          <description>I learned a new programming Language: Dafny!</description>
+          <pubDate>Mon, 12 May 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Devblog 001</title>
+          <link>https://portfolio-blog-starter.vercel.app/blog/devblog-001</link>
+          <description>My new Develeper Blog!!!</description>
+          <pubDate>Tue, 06 May 2025 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+  </rss>
