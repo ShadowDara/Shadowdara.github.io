@@ -1,7 +1,9 @@
-# shadowdara.github.io
+# Shadowdara.github.io
 
-My Personal Page
+My Webpage
 
-```sh
-bundle exec jekyll serve
-```
+## Credits
+
+Vercel
+
+https://vercel.com/templates/next.js/portfolio-starter-kit

@@ -1,0 +1,44 @@
+---
+title: 'Bypass Admin Rights'
+publishedAt: '2025-07-20'
+summary: 'Run a programming with bypassing admin rights, but works not for all sadly'
+---
+run `.exe` file and ignore the admin rights!
+
+## How to
+
+*pls consider this does not work for every programm, for example it is working for **steam.***
+
+1. create a new text file and paste the code down below
+2. change "`file.exe`" in the `.bat` file to the name your `.exe` file *(in the preview `.bat` file it is the steamsetup)*
+3. These 2 files must be in the same folder
+4. safe the textfile with `.bat` as file extension
+5. double click to run the `.bat` file
+
+```bat
+@echo off
+
+@rem ==================================================
+@rem
+@rem Run without Admin Rights
+@rem
+@rem A Batch Script which allows to run a programm with
+@rem bypassing administrator rights
+@rem
+@rem Credits Shadowdara
+@rem https://github.com/shadowdara/scripts
+@rem
+@rem ==================================================
+
+set __COMPAT_LAYER=RunAsInvoker
+start steamsetup.exes
+
+echo Finished
+echo
+echo Credit and More:
+echo https://github.com/shadowdara/scripts
+
+@pause
+```
+
+*Please give credit when republishing*
