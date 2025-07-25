@@ -7,6 +7,12 @@ const navItems = {
   '/blog': {
     name: 'blog',
   },
+  '/blog/generators': {
+    name: 'generators'
+  },
+  '/blog/about': {
+    name: 'about'
+  }
 }
 
 export function Navbar() {
