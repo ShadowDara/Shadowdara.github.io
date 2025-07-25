@@ -2,49 +2,85 @@
   <rss version="2.0">
     <channel>
         <title>My Portfolio</title>
-        <link>https://portfolio-blog-starter.vercel.app</link>
+        <link>https://shadowdara.github.io</link>
         <description>This is my portfolio RSS feed</description>
         <item>
+          <title>About Me</title>
+          <link>https://shadowdara.github.io/blog/about</link>
+          <description>some Infos about me and the Page</description>
+          <pubDate>Fri, 25 Jul 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
           <title>Checkstaticfiles</title>
-          <link>https://portfolio-blog-starter.vercel.app/blog/checkstaticfiles</link>
+          <link>https://shadowdara.github.io/blog/checkstaticfiles</link>
           <description>a simple go package to include staicfiles to the binary</description>
           <pubDate>Fri, 25 Jul 2025 00:00:00 GMT</pubDate>
         </item>
 <item>
           <title>Bypass Admin Rights</title>
-          <link>https://portfolio-blog-starter.vercel.app/blog/bypass-admin</link>
+          <link>https://shadowdara.github.io/blog/bypass-admin</link>
           <description>Run a programming with bypassing admin rights, but works not for all sadly</description>
           <pubDate>Sun, 20 Jul 2025 00:00:00 GMT</pubDate>
         </item>
 <item>
           <title>Autorun for USB Devices</title>
-          <link>https://portfolio-blog-starter.vercel.app/blog/autorun-for-usb</link>
+          <link>https://shadowdara.github.io/blog/autorun-for-usb</link>
           <description>This a code configgering USB-Sticks and running programms automatically with them</description>
           <pubDate>Tue, 15 Jul 2025 00:00:00 GMT</pubDate>
         </item>
 <item>
           <title>Devblog 004</title>
-          <link>https://portfolio-blog-starter.vercel.app/blog/devblog-004</link>
+          <link>https://shadowdara.github.io/blog/devblog-004</link>
           <description>Creating a Texteditor</description>
           <pubDate>Thu, 29 May 2025 00:00:00 GMT</pubDate>
         </item>
 <item>
           <title>Devblog 003</title>
-          <link>https://portfolio-blog-starter.vercel.app/blog/devblog-003</link>
+          <link>https://shadowdara.github.io/blog/devblog-003</link>
           <description></description>
           <pubDate>Thu, 22 May 2025 00:00:00 GMT</pubDate>
         </item>
 <item>
           <title>Devblog 002</title>
-          <link>https://portfolio-blog-starter.vercel.app/blog/devblog-002</link>
+          <link>https://shadowdara.github.io/blog/devblog-002</link>
           <description>I learned a new programming Language: Dafny!</description>
           <pubDate>Mon, 12 May 2025 00:00:00 GMT</pubDate>
         </item>
 <item>
           <title>Devblog 001</title>
-          <link>https://portfolio-blog-starter.vercel.app/blog/devblog-001</link>
+          <link>https://shadowdara.github.io/blog/devblog-001</link>
           <description>My new Develeper Blog!!!</description>
           <pubDate>Tue, 06 May 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Line Formatter</title>
+          <link>https://shadowdara.github.io/blog/line-formatter</link>
+          <description>a tool to convert /n to a new line</description>
+          <pubDate>Fri, 25 Apr 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Generators</title>
+          <link>https://shadowdara.github.io/blog/generators</link>
+          <description>a web tools</description>
+          <pubDate>Sat, 29 Mar 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Picture Mode Maker</title>
+          <link>https://shadowdara.github.io/blog/picture-mode-maker</link>
+          <description>a web tools</description>
+          <pubDate>Sun, 23 Mar 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Edittime to Filename</title>
+          <link>https://shadowdara.github.io/blog/edit-time-to-filename</link>
+          <description>a powershell script to add the edit time in front of files in a folder</description>
+          <pubDate>Sun, 16 Feb 2025 00:00:00 GMT</pubDate>
+        </item>
+<item>
+          <title>Wifi password</title>
+          <link>https://shadowdara.github.io/blog/wifi-password</link>
+          <description>a simple bat script to read the wifi password of your computer</description>
+          <pubDate>Sat, 18 Jan 2025 00:00:00 GMT</pubDate>
         </item>
     </channel>
   </rss>
