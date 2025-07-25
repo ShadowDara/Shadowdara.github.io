@@ -49,7 +49,7 @@ function switch_mode() {
         document.documentElement.style.setProperty("--text-color", "#000000");
         document.documentElement.style.setProperty("--title-color", "rgb(0, 0, 0)");
         document.documentElement.style.setProperty("--pp-title-color", "rgb(235, 90, 0)");
-        document.documentElement.style.setProperty("--pop-up-bg-color", "rgb(146, 136, 129)");
+        document.documentElement.style.setProperty("--pop-up-bg-color", "rgba(196, 196, 196, 1)");
         document.getElementById("theme").innerText = "Light";
         localStorage.setItem('mode', 'light');
     }
