@@ -82,5 +82,11 @@
           <description>a simple bat script to read the wifi password of your computer</description>
           <pubDate>Sat, 18 Jan 2025 00:00:00 GMT</pubDate>
         </item>
+<item>
+          <title>Simple Timer</title>
+          <link>https://shadowdara.github.io/blog/simpletimer</link>
+          <description>a simple minecraft pack to count your playtime</description>
+          <pubDate>Sun, 15 Sep 2024 00:00:00 GMT</pubDate>
+        </item>
     </channel>
   </rss>
