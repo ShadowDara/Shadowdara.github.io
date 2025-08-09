@@ -1,0 +1,257 @@
+/* CSS Document for the Page */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000000;
+    color: #ffffff;
+    font-family: 'Fira Code', monospace;
+}
+
+main {
+    width: 100%;
+}
+
+/* Viewport Size Classes */
+.db-small {
+    width: 25%;
+}
+
+.db-big {
+    width: 75%;
+}
+
+
+/* Header CSS Code */
+header {
+    width: 100%;
+}
+
+.name {
+    padding: 0.1rem;
+    background-color: #00000059;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 3px solid #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.4rem;
+    flex: 1 1 0%;
+    min-width: fit-content;
+    text-align: center;
+    transition:
+        transform 1s ease,
+        background-color 1s ease;
+}
+
+.name:hover {
+    background-color: #ffffff;
+    border: 8px solid #000000;
+    color: #000000;
+}
+
+.name h1 {
+    padding-top: 0.15rem;
+}
+
+.name img {
+    height: fit-content;
+    width: 2.7rem;
+    align-self: center;
+    border-radius: 10px;
+}
+
+
+/* Footer CSS Code */
+footer {
+    width: 100%;
+}
+
+.subtext {
+    margin: 0.5rem 0.7rem;
+    font-style: italic;
+    text-align: center;
+}
+
+.subtext span a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0rem 0.3rem;
+}
+
+.subtext span a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    transition:
+        transform 1s ease,
+        background-color 1s ease;
+}
+
+
+/* Default Page CSS */
+.d4r-box {
+    border-radius: 20px;
+    word-wrap: none;
+    word-break: normal;
+}
+
+.d4r-box h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin: 0.4rem;
+}
+
+.d4r-box p {
+    font-size: 1.2rem;
+}
+
+.inner-box {
+    margin: 1.3rem 0;
+}
+
+
+/* Box for the text on the Links Pages */
+.settings-box {
+    color: #ffffff;
+    background-color: #000000;
+    font-family: "Fira Code", monospace;
+    padding: 0.5rem;
+    margin: 0.7rem 0rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    word-break: break-all;
+    transition:
+        transform 1s ease,
+        background-color 1s ease;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    border: 4px solid #ffffff;
+}
+
+.settings-box:hover {
+    background-color: #ffffff;
+    border: 8px solid #000000;
+}
+
+.settings-box:hover p {
+    color: #000000;
+}
+
+
+/* CSS for the content Pages */
+.content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    justify-content: center;
+    gap: 17px;
+    align-items: stretch;
+}
+
+.content .content-header {
+    width: 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .content-header a {
+    color: white;
+}
+
+.content .content-header a:hover {
+    font-style: italic;
+}
+
+.content .content-window {
+    width: 70%;
+    padding: 1.6rem 4rem;
+}
+
+.content .content-window p {
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+.content .content-window p:hover {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.radius {
+    border: 3px solid #ffffff;
+    border-radius: 35px;
+    padding: 1rem;
+}
+
+
+/* CSS for the Redirection Page */
+.redirection {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Fira Code', monospace;
+    gap: 20px;
+}
+
+
+/* CSS Code for the 404 Page */
+.container404 {
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Fira Code', monospace;
+}
+
+.container404 h1 {
+    margin: 30px 0;
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.container404 a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0rem 0.3rem;
+}
+
+.container404 a:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    transition:
+        transform 1s ease,
+        background-color 1s ease;
+}
+
+
+/* Mobile View */
+@media (max-width: 748px) {
+
+    /* Viewport Size Classes */
+    .db-small {
+        width: 85%;
+    }
+}
+
+@media (max-width: 480px) {}
