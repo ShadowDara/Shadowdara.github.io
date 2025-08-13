@@ -1,0 +1,23 @@
+---
+layout: content
+title: "Blog"
+header: "Blog"
+permalink: /Blog
+---
+<div class="d4r-box blog-col">
+    <h1>Blog</h1>
+    <table>
+        {% for post in site.posts %}
+        <tr>
+            <td>
+                <a href="{{ post.url | relative_url }}">
+                    {{ post.title }}
+                </a>
+            </td>
+            <td>
+                {{ post.date | date: "%d.%m.%Y" }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>

@@ -1,0 +1,11 @@
+/* CSS Classes */
+
+/* a link Item */
+.link {
+    color: white;
+}
+
+.link:hover {
+    font-weight: bold;
+    font-style: italic;
+}

@@ -245,6 +245,33 @@ footer {
 }
 
 
+/* CSS for the Gist Pages */
+.gist-box {
+    margin-top: 1.5rem;
+}
+
+
+/* CSS for the Blog Post Pages */
+.post ul li {
+    margin-left: 2rem;
+}
+
+
+/* CSS for the Blog Collection Page */
+.blog-col table {
+  border-collapse: separate;
+  border-spacing: 30px 10px; /* horizontal, vertikal */
+}
+
+.blog-col a {
+ color:white
+}
+
+.blog-col a:hover {
+ font-weight: bold;
+ font-style: italic;
+}
+
 /* Mobile View */
 @media (max-width: 748px) {
 
