@@ -4,6 +4,8 @@ title: 'Checkstaticfiles'
 date: 2025-07-25
 categories: blog
 ---
+# Checkstaticfiles
+
 When i tried to make a webserver, i ran into the Issue that i need
 static HTML and CSS files for the Website when i distribute the
 program.

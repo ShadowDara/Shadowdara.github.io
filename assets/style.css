@@ -252,24 +252,77 @@ footer {
 
 
 /* CSS for the Blog Post Pages */
+.post-header {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.post-box {
+    padding-bottom: 4rem;
+}
+
+.post {
+    background-color: #242424;
+    padding: 2rem;
+    border-radius: 25px;
+}
+
+.post p {
+    padding: 0.3rem 0rem;
+    line-height: 1.7rem;
+    font-size: 1rem;
+}
+
+.post hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.post h1 {
+    text-align: center;
+}
+
+.post h2 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.post h4 {
+    font-size: 1.2rem;
+}
+
+.post a {
+    font-size: 1.1rem;
+    color: white;
+}
+
+.post a:hover {
+    font-weight: bold;
+    font-style: italic;
+}
+
 .post ul li {
     margin-left: 2rem;
+    line-height: 1.3rem;
+    padding:  0.2rem 0rem;
 }
 
 
 /* CSS for the Blog Collection Page */
 .blog-col table {
-  border-collapse: separate;
-  border-spacing: 30px 10px; /* horizontal, vertikal */
+    border-collapse: separate;
+    border-spacing: 30px 12px;
+    /* horizontal, vertikal */
 }
 
 .blog-col a {
- color:white
+    color: white;
+    font-size: 1.1rem;
 }
 
 .blog-col a:hover {
- font-weight: bold;
- font-style: italic;
+    font-weight: bold;
+    font-style: italic;
 }
 
 /* Mobile View */
