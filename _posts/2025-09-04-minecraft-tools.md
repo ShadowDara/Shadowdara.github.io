@@ -1,3 +1,9 @@
+---
+layout: post
+title:  "Minecraft Tools"
+date:   2025-09-04
+categories: blog
+---
 # Useful Minecraft Tools
 
 ## Commands

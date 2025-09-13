@@ -93,6 +93,7 @@ footer {
 .subtext span a:hover {
     text-decoration: underline;
     font-weight: bold;
+    color: #3dff0c;
     transition:
         transform 1s ease,
         background-color 1s ease;
@@ -176,6 +177,7 @@ footer {
 
 .content .content-header a:hover {
     font-style: italic;
+    color: #3dff0c;
 }
 
 .content .content-window {
@@ -191,6 +193,7 @@ footer {
 .content .content-window p:hover {
     font-style: italic;
     font-weight: bold;
+    color: #3dff0c;
 }
 
 .radius {
@@ -261,8 +264,41 @@ footer {
     padding-bottom: 4rem;
 }
 
+.post-box a {
+    
+}
+
+.post-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+}
+
+.post-box th,
+.post-box td {
+    border: 1px solid #ccc;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+.post-box th {
+    font-weight: bold;
+}
+
+.post-box .blog-table {}
+
+.post-box img {
+    height: auto;
+    display: block;
+}
+
+.img-50 {
+    max-width: 50%;
+}
+
 .post {
-    background-color: #242424;
+    /*background-color: #242424;*/
     padding: 2rem;
     border-radius: 25px;
 }
@@ -309,6 +345,7 @@ footer {
 .post a:hover {
     font-weight: bold;
     font-style: italic;
+    color: #3dff0c;
 }
 
 .post ul li {
@@ -333,6 +370,7 @@ footer {
 .blog-col a:hover {
     font-weight: bold;
     font-style: italic;
+    color: #3dff0c;
 }
 
 /* Mobile View */
