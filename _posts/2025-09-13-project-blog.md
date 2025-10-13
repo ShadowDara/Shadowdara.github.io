@@ -7,6 +7,10 @@ categories: blog
 
 # Project Blog
 
+## Ziginstaller
+- a NSIS Installer with path for the Zig Language
+- [Download](https://github.com/ShadowDara/ZigInstaller)
+
 ## flua
 - a simple scripting envirment for Lua with an custom API written in
 Rust
