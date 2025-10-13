@@ -7,6 +7,16 @@ categories: blog
 
 # Project Blog
 
+## flua
+- a simple scripting envirment for Lua with an custom API written in
+Rust
+- [Download](https://github.com/ShadowDara/flua)
+
+## Path Viewer
+- a simple GUI Programm to view the available Path Vars on Windows and
+edit them
+- [Download](https://github.com/ShadowDara/Path-Viewer)
+
 ## Video Converter
 - a video converter in Kotlin which uses ffmpeg to convert videos to preset formats
 - [Download](https://github.com/ShadowDara/videoconverter)
@@ -31,6 +41,8 @@ categories: blog
 - A simple Python script which converts 3ma files to obj file
 - [Download](https://github.com/ShadowDara/3ma-to-obj-converter-python)
 
+---
+
 ## Shadow Paths
 - A little Python Game
 - [Download](https://github.com/ShadowDara/Shadow-Paths)
@@ -41,4 +53,4 @@ categories: blog
 
 ---
 
-- *projects are sorted after their last update Time.*
+- *projects are sorted after their last update Time.* **13.10.2025**
