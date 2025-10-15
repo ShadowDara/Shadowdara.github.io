@@ -264,9 +264,7 @@ footer {
     padding-bottom: 4rem;
 }
 
-.post-box a {
-    
-}
+.post-box a {}
 
 .post-box table {
     width: 100%;
@@ -315,10 +313,19 @@ footer {
 }
 
 .post h1 {
+    font-size: 3rem;
+    margin-top: 0;
     text-align: center;
 }
 
 .post h2 {
+    font-size: 2.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.post h3 {
+    font-size: 1.7rem;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
 }
@@ -328,7 +335,8 @@ footer {
 }
 
 .post pre {
-    background-color: #000000;
+    background-color: #1f1f1f;
+    color: #3dff0c;
     padding: 1rem;
     border-radius: 15px;
     line-height: 1.2rem;
@@ -351,7 +359,7 @@ footer {
 .post ul li {
     margin-left: 2rem;
     line-height: 1.3rem;
-    padding:  0.2rem 0rem;
+    padding: 0.2rem 0rem;
 }
 
 
