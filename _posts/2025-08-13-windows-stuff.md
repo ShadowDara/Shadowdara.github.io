@@ -8,6 +8,7 @@ categories: blog
 
 ## Scripts
 - [bypass-admin](/blog/2025/10/15/bypass-admin)
+- [wifi-tricks](/blog/2025/10/16/wifi-trick)
 
 ## Terminals
 

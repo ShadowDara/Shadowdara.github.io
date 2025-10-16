@@ -253,6 +253,11 @@ footer {
     margin-top: 1.5rem;
 }
 
+/* CSS Code for the Blog List Page at /blog/ */
+.bodypost {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
 
 /* CSS for the Blog Post Pages */
 .post-header {
