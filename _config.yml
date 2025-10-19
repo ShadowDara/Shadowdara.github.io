@@ -44,6 +44,7 @@ plugins:
 exclude:
  - TODO
  - README.md
+ - Makefile
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
