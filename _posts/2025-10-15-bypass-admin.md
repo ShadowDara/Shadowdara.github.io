@@ -12,7 +12,7 @@ categories: blog
 Code to run a bat File with by passing Admin Rights, which means
 suppressing them, does not guranteed work!
 
-Copy Code or [Download File](/public/files/bypass_admin.bat)
+Copy Code or [Download File](https://raw.githubusercontent.com/ShadowDara/codefiles/refs/heads/main/bypass_admin.bat)
 
 ```cmd
 @echo off

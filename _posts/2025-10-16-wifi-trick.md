@@ -16,7 +16,7 @@ This is a simple trick to read the already saved / registrated wlan / wifi passw
 - you need to have the password alrealy registered in your computer
 - you need to know your SSID *(the name of the wifi / wlan, e.g. `FritzBox1`)*
 
-You can although copy the code downbelow and safe it as a `.bat` file, after running, it will display all saved in the terminal, *but this is optional.*
+You can although copy the code downbelow and safe it as a `.bat` file, after running, it will display all saved in the terminal, *but this is optional.* or download the file [here](https://raw.githubusercontent.com/ShadowDara/codefiles/refs/heads/main/wifi-trick.bat)
 
 
 **Now start**
