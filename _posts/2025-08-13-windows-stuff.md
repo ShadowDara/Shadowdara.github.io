@@ -4,6 +4,7 @@ title:  "Windows Stuff"
 date:   2025-08-13
 categories: blog
 tag: WindowsStuff
+pinned: true
 ---
 
 # My Windows Stuff

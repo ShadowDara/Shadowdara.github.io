@@ -3,6 +3,7 @@ layout: post
 title: 'Project Blog'
 publishedAt: '2025-09-13'
 categories: blog
+pinned: true
 ---
 
 # Projects

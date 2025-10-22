@@ -1,12 +1,17 @@
 /* CSS for the Blog Collection Page */
 .blog-col table {
     border-collapse: separate;
-    border-spacing: 30px 12px;
-    /* horizontal, vertikal */
+    border-spacing: 30px 12px; /* horizontal, vertikal */
+    width: 800px; /* feste Breite, kann angepasst werden */
+    margin: 0 auto; /* zentriert die Tabelle horizontal */
 }
 
-/* Page Title */
-.blog-col h1:hover {
+/* Page Headings */
+.blog-col h2 {
+    margin-top: 2rem;
+}
+
+.blog-col h1:hover, h2:hover {
     font-weight: bold;
     font-style: italic;
     color: #3dff0c;

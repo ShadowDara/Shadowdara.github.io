@@ -7,3 +7,5 @@
 
 # Compressed CSS Directory
 public/css/** linguist-vendored
+
+_layouts/*.xml linguist-language=HTML

@@ -110,6 +110,11 @@ footer {
 .d4r-box h1 {
     color: #ffffff;
     font-size: 2rem;
+}
+
+.d4r-box h1,
+.d4r-box h2,
+.d4r-box h3 {
     margin: 0.4rem;
 }
 

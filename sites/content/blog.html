@@ -5,38 +5,79 @@ header: "Blog"
 permalink: /blog
 ---
 <div class="d4r-box blog-col">
-    <h1>Blog</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Post Tag</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for post in site.posts %}
-            <tr>
-                <!-- Blog Title -->
-                <td>
-                    <a href="{{ post.url | relative_url }}">
-                        {{ post.title }}
-                    </a>
-                </td>
+    <h1>Blog Entries</h1>
+    <div>
+        <h2>Pinned</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Post Tag</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in site.posts %}
+                {% if post.pinned %}
+                <tr>
+                    <!-- Blog Title -->
+                    <td>
+                        <a href="{{ post.url | relative_url }}">
+                            {{ post.title }}
+                        </a>
+                    </td>
 
-                <!-- Blog Tag-->
-                <td class="blogtag">
-                    {% if post.tag %}
-                    {{ post.tag }}
-                    {% endif %}
-                </td>
+                    <!-- Blog Tag-->
+                    <td class="blogtag">
+                        {% if post.tag %}
+                        {{ post.tag }}
+                        {% endif %}
+                    </td>
 
-                <!-- Blog Date -->
-                <td class="blogdate">
-                    {{ post.date | date: "%d.%m.%Y" }}
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                    <!-- Blog Date -->
+                    <td class="blogdate">
+                        {{ post.date | date: "%d.%m.%Y" }}
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h2>Newest</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Post Tag</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in site.posts %}
+                <tr>
+                    <!-- Blog Title -->
+                    <td>
+                        <a href="{{ post.url | relative_url }}">
+                            {{ post.title }}
+                        </a>
+                    </td>
+
+                    <!-- Blog Tag-->
+                    <td class="blogtag">
+                        {% if post.tag %}
+                        {{ post.tag }}
+                        {% endif %}
+                    </td>
+
+                    <!-- Blog Date -->
+                    <td class="blogdate">
+                        {{ post.date | date: "%d.%m.%Y" }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
