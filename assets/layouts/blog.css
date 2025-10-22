@@ -1,0 +1,53 @@
+/* CSS for the Blog Collection Page */
+.blog-col table {
+    border-collapse: separate;
+    border-spacing: 30px 12px;
+    /* horizontal, vertikal */
+}
+
+/* Page Title */
+.blog-col h1:hover {
+    font-weight: bold;
+    font-style: italic;
+    color: #3dff0c;
+}
+
+.blog-col a {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.blog-col a:hover {
+    font-weight: bold;
+    font-style: italic;
+    color: #3dff0c;
+}
+
+/* CSS for the Blog Table Header */
+.blog-col table thead tr th:hover {
+    font-weight: bold;
+    font-style: italic;
+    color: #3dff0c;
+}
+
+/* CSS for the Blog Tag Row */
+.blog-col table tr .blogtag {
+    text-align: center;
+}
+
+.blog-col table tr .blogtag:hover {
+    font-weight: bold;
+    font-style: italic;
+    color: #3dff0c;
+}
+
+/* CSS for the Blog Date Row */
+.blog-col table tr .blogdate {
+    text-align: center;
+}
+
+.blog-col table tr .blogdate:hover {
+    font-weight: bold;
+    font-style: italic;
+    color: #3dff0c;
+}

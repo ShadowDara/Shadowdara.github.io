@@ -4,6 +4,7 @@ title: 'Railgun Project - 02 - Make a plan'
 publishedAt: 2025-06-21
 categories: blog
 ---
+
 # 02 - Make a plan 📝
 
 <div text-align="center">

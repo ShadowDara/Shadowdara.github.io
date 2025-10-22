@@ -3,6 +3,7 @@ layout: post
 title: 'Bypass Admin'
 publishedAt: '2025-10-15'
 categories: blog
+tag: WindowsStuff
 ---
 
 # Bypass Admin

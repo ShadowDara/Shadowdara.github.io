@@ -3,6 +3,7 @@ layout: post
 title: 'Wifi Trick'
 publishedAt: '2025-10-16'
 categories: blog
+tag: WindowsStuff
 ---
 
 # Wifi Trick

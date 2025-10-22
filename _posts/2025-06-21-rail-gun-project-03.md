@@ -4,6 +4,7 @@ title: 'Railgun Project - 03 - First Calculations'
 publishedAt: 2025-06-21
 categories: blog
 ---
+
 # 03 - First Calculations 🟰
 
 ## Formula 1

@@ -3,8 +3,10 @@ layout: post
 title:  "Windows Stuff"
 date:   2025-08-13
 categories: blog
+tag: WindowsStuff
 ---
-# Windows Stuff
+
+# My Windows Stuff
 
 ## Scripts
 - [bypass-admin](/blog/2025/10/15/bypass-admin)

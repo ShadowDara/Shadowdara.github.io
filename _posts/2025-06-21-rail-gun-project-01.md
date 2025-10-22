@@ -4,6 +4,7 @@ title: 'Railgun Project - 01 Overview'
 publishedAt: 2025-06-21
 categories: blog
 ---
+
 # Railgun Project - 01 Overview 🧰
 
 How to build a Railgun 🔥

@@ -4,3 +4,6 @@
 # Markdown
 *.md linguist-detectable=true
 *.md linguist-documentation=false
+
+# Compressed CSS Directory
+public/css/** linguist-vendored

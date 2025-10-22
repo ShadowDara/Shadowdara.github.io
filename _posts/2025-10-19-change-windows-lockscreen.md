@@ -3,6 +3,7 @@ layout: post
 title: 'Change Windows Lockscreen'
 publishedAt: '2025-10-19'
 categories: blog
+tag: WindowsStuff
 ---
 
 # Change Windows Lockscreen

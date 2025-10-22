@@ -3,7 +3,9 @@ layout: post
 title: 'Autorun for USB Devices'
 publishedAt: '2025-07-15'
 categories: blog
+tag: WindowsStuff
 ---
+
 # Autorun File for USB Devices
 
 This a code configgering USB-Sticks and running programms automatically with them

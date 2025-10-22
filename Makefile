@@ -1,6 +1,13 @@
 # Shortcut to start Jekyll
 
-all: start
+all: run
 
-start:
+run:
+#	$(MAKE) install
+#	npm run build:css
 	bundle exec jekyll serve
+
+install:
+	npm i
+
+.PHONY: run

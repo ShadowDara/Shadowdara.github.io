@@ -3,7 +3,9 @@ layout: post
 title: 'Line Formatter'
 publishedAt: '2025-04-25'
 categories: blog
+tag: WebApp
 ---
+
 # Line Formatter
 
 Convert the your selected text ***[here](/html/line_formatter/index.html)***

@@ -24,6 +24,10 @@ categories: blog
 Rust
 - [Download](https://github.com/ShadowDara/flua)
 
+### MyBlog / Website
+- a little Blog with an HTML Website powered via Jekyll
+- [View](https://shadowdara.github.io/)
+
 ### Windows-Stuff
 - some scripts and cool or tricky stuff for windows
 - [Available Here](/blog/2025/08/13/windows-stuff)
