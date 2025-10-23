@@ -46,6 +46,8 @@ exclude:
  - TODO
  - README.md
  - Makefile
+ - package.json
+ - package-lock.json
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
