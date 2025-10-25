@@ -4,6 +4,7 @@ title: 'Change Windows Lockscreen'
 publishedAt: '2025-10-19'
 categories: blog
 tag: WindowsStuff
+author: Shadowdara
 ---
 
 # Change Windows Lockscreen

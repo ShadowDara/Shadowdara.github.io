@@ -4,6 +4,7 @@ title: 'Wifi Trick'
 publishedAt: '2025-10-16'
 categories: blog
 tag: WindowsStuff
+author: Shadowdara
 ---
 
 # Wifi Trick

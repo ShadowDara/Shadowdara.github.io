@@ -3,6 +3,7 @@ layout: post
 title: 'Firewall and Ports'
 publishedAt: '2025-10-20'
 categories: blog
+author: Shadowdara
 ---
 
 # Firewall and Container Ports

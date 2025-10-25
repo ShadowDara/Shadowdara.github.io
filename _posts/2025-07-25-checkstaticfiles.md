@@ -3,6 +3,7 @@ layout: post
 title: 'Checkstaticfiles'
 date: 2025-07-25
 categories: blog
+author: Shadowdara
 ---
 
 # Checkstaticfiles

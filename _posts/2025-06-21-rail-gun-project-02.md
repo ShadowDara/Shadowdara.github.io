@@ -3,6 +3,7 @@ layout: post
 title: 'Railgun Project - 02 - Make a plan'
 publishedAt: 2025-06-21
 categories: blog
+author: Shadowdara
 ---
 
 # 02 - Make a plan 📝

@@ -4,6 +4,7 @@ title: 'Picture Mode Maker'
 publishedAt: '2025-03-23'
 categories: blog
 tag: WebApp
+author: Shadowdara
 ---
 
 # Picture Mode Maker

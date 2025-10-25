@@ -4,6 +4,7 @@ title: 'Line Formatter'
 publishedAt: '2025-04-25'
 categories: blog
 tag: WebApp
+author: Shadowdara
 ---
 
 # Line Formatter

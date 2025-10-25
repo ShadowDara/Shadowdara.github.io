@@ -3,6 +3,7 @@ layout: post
 title: 'Railgun Project - 01 Overview'
 publishedAt: 2025-06-21
 categories: blog
+author: Shadowdara
 ---
 
 # Railgun Project - 01 Overview 🧰

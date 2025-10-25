@@ -4,6 +4,7 @@ title: 'Autorun for USB Devices'
 publishedAt: '2025-07-15'
 categories: blog
 tag: WindowsStuff
+author: Shadowdara
 ---
 
 # Autorun File for USB Devices

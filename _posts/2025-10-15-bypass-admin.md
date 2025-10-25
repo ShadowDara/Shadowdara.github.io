@@ -4,6 +4,7 @@ title: 'Bypass Admin'
 publishedAt: '2025-10-15'
 categories: blog
 tag: WindowsStuff
+author: Shadowdara
 ---
 
 # Bypass Admin

@@ -3,6 +3,7 @@ layout: post
 title: 'Railgun Project - 03 - First Calculations'
 publishedAt: 2025-06-21
 categories: blog
+author: Shadowdara
 ---
 
 # 03 - First Calculations 🟰
