@@ -17,6 +17,7 @@ files in the running directory. Edit time will NOT be added multiple times
 Download Code [here](https://raw.githubusercontent.com/ShadowDara/codefiles/refs/heads/main/edititme-to-filename.ps1) or copy it
 
 <br>
+
 ```ps1
 # PowerShell-Skript: Rename files to include edit time (LastWriteTime) as prefix
 #
@@ -65,3 +66,7 @@ Read-Host
 <br>
 
 Run the File with Powershell in same Folder as the files you want to rename!
+
+---
+
+*Please give credit for republishing*
