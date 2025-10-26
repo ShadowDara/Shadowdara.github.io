@@ -3,8 +3,9 @@ layout: post
 title: 'Project Blog'
 publishedAt: '2025-09-13'
 categories: blog
-pinned: true
+tag: "project"
 author: Shadowdara
+hidden: true
 ---
 
 # Projects
@@ -78,13 +79,6 @@ edit them
 ### Search Engine
 - File Directory Search Engine powered via Python
 - [Download](https://github.com/ShadowDara/Search-Engine)
-
----
-
-## Writing
-
-### Wiki Entries
-- [Caisson - Skullduggery Plesant Wiki De](https://skulduggery.fandom.com/de/wiki/Caisson)
 
 ---
 

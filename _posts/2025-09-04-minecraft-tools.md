@@ -4,6 +4,7 @@ title:  "Minecraft Tools"
 date:   2025-09-04
 categories: blog
 author: Shadowdara
+hidden: true
 ---
 
 # Useful Minecraft Tools
