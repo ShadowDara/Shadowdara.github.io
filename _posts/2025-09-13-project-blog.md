@@ -12,7 +12,14 @@ hidden: true
 
 *Projects sorted after Update Time.*
 
+More detailed Infos about my projects -> [here](/blog/2025/10/29/project-updates)
+
 ## Year 2025
+
+### Path Viewer
+- a simple GUI Programm to view the available Path Vars on Windows and
+edit them
+- [Download](https://github.com/ShadowDara/Path-Viewer)
 
 ### Filebox
 - a simple file server for temporary download Files
@@ -42,11 +49,6 @@ Rust
 ### Ziginstaller
 - a NSIS Installer with path for the Zig Language
 - [Download](https://github.com/ShadowDara/ZigInstaller)
-
-### Path Viewer
-- a simple GUI Programm to view the available Path Vars on Windows and
-edit them
-- [Download](https://github.com/ShadowDara/Path-Viewer)
 
 ### Video Converter
 - a video converter in Kotlin which uses ffmpeg to convert videos to preset formats
