@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Progressive Web App'
-publishedAt: '2025-10-22'
+title: 'Making a Progressive Web App'
+publishedAt: '2025-11-09'
 categories: blog
 tag: webdev
 author: Shadowdara
