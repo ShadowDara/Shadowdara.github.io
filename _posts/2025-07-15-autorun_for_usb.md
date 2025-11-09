@@ -26,3 +26,7 @@ open=start.bat
 ---
 
 *Please give credit when republishing*
+
+## Issue
+Feel free to open an Issue here if you have some requestions
+or if something does not work etc. [Open Issue](https://github.com/ShadowDara/Shadowdara.github.io/issues/new)

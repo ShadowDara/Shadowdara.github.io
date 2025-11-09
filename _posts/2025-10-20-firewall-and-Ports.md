@@ -49,3 +49,7 @@ sudo firewall-cmd --reload
 sudo firewall-cmd --remove-port=8000/tcp --permanent
 sudo firewall-cmd --reload
 ```
+
+## Issue
+Feel free to open an Issue here if you have some requestions
+or if something does not work etc. [Open Issue](https://github.com/ShadowDara/Shadowdara.github.io/issues/new)

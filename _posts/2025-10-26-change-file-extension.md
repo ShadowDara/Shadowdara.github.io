@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Tools'
+title: 'Change File Extension'
 publishedAt: '2025-10-22'
 categories: blog
 tag: WindowsStuff
