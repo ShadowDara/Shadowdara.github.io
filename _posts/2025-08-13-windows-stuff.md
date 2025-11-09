@@ -6,6 +6,7 @@ categories: blog
 tag: WindowsStuff
 pinned: true
 author: Shadowdara
+hidden: true
 ---
 
 # My Windows Stuff

@@ -8,6 +8,7 @@ run:
 	bundle exec jekyll serve
 
 install:
+	bundle install
 	npm i
 
 .PHONY: run

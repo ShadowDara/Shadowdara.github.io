@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Change File Extension'
-publishedAt: '2025-10-22'
+publishedAt: '2025-10-26'
 categories: blog
 tag: WindowsStuff
 author: Shadowdara
@@ -17,13 +17,9 @@ This is a file to change the file extensions of *(all)* files in the same folder
 ### How
 
 - **Download the [`change_file_extension.ps1`](https://raw.githubusercontent.com/ShadowDara/codefiles/refs/heads/main/change-file-extension.ps1) file** or copy the Code down below!
-
 - *copy it in the folder with the files you need to change the extension*
-
 - then run the file with `Powershell` *(rightclick -> run with Powershell)*!
-
 - first type the old extension, then the new one
-
 - the script will rename every file with the old to the new extension.
 
 ```ps1
