@@ -9,7 +9,7 @@ author: Shadowdara
 
 # Line Formatter
 
-Convert the your selected text ***[here](/html/line_formatter/index.html)***
+Convert the your selected text ***[here](../../../../html/line_formatter/index.html)***
 from
 
 ```
@@ -25,4 +25,4 @@ to
 Hallo,\nthis\n\tmy\n\ttext
 ```
 
-and back to normal with the Line Extender ***[here](html/line_formatter/line_extender.html)***
+and back to normal with the Line Extender ***[here](../../../../html/line_formatter/line_extender.html)***
