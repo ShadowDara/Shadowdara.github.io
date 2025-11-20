@@ -16,7 +16,7 @@ suppressing them, does not guranteed work!
 
 Copy Code or [Download File](https://raw.githubusercontent.com/ShadowDara/codefiles/refs/heads/main/bypass_admin.bat)
 
-```cmd
+```bat
 @echo off
 
 @rem Run without Admin Rights
