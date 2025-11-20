@@ -81,3 +81,7 @@ the repository for better clearance.
 ### Issue
 Feel free to open an Issue here if you have some requestions
 or if something does not work etc. [Open Issue](https://github.com/ShadowDara/Shadowdara.github.io/issues/new)
+
+### Credit
+I just want to mention that this stackoverflow post helped me a lot:
+https://stackoverflow.com/questions/78459268/how-to-compile-dart-to-js-for-a-non-web-target
