@@ -25,7 +25,11 @@ You can although copy the code downbelow and safe it as a `.bat` file, after run
 
 1. open `cmd.exe` *(search it via the search bar)*
 
-2. type in `netsh wlan show profile SSID key=clear`
+2. type in
+
+```sh
+netsh wlan show profile SSID key=clear
+```
 
 3. replace `SSID` with your network name
 

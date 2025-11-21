@@ -92,6 +92,16 @@
     max-width: 100%;
 } */
 
+.post code {
+    background-color: #1f1f1f;
+    padding: 0.27rem;
+    color: #3dff0c;
+}
+
+.post pre code {
+    color: white;
+}
+
 .post a {
     font-size: 1.1rem;
     color: white;
