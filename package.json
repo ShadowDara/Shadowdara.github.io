@@ -1,9 +1,0 @@
-{
-  "scripts": {
-    "build:css": "postcss assets/style.css -o public/css/style.min.css && postcss assets/color.css -o public/css/color.min.css && postcss assets/classes.css -o public/css/classes.min.css && postcss assets/layouts/404.css -o public/css/layouts/404.min.css && postcss assets/layouts/blog.css -o public/css/layouts/blog.min.css && postcss assets/layouts/content.css -o public/css/layouts/content.min.css && postcss assets/layouts/default.css -o public/css/layouts/default.min.css && postcss assets/layouts/post.css -o public/css/layouts/post.min.css"
-  },
-  "devDependencies": {
-    "cssnano": "^7.1.1",
-    "postcss-cli": "^11.0.1"
-  }
-}
