@@ -12,7 +12,9 @@ hidden: true
 
 *Projects sorted after Update Time.*
 
-More detailed Infos about my projects -> [here](/blog/2025/10/29/project-updates)
+*This is completly outdated*
+
+More detailed Infos about my projects -> [here](https://shadowdara.42web.io/timeline.html)
 
 ## Year 2025
 
