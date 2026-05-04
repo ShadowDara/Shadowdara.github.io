@@ -1,0 +1,606 @@
+---
+layout: permaheader
+title: "Timeline"
+permalink: /timeline
+---
+
+<style>
+  :root {
+    --tl-bg: rgba(255, 255, 255, 0.6);
+    --tl-blur: blur(10px);
+    --tl-border-soft: rgba(0, 0, 0, 0.06);
+    --tl-shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.06);
+    --tl-shadow-hover: 0 8px 22px rgba(0, 0, 0, 0.10);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+    padding: 1rem 1rem 0rem;
+  }
+
+  /* ===== Layout ===== */
+
+  .tl-root {
+    padding: 2.5rem 0 0rem;
+  }
+
+  .tl-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    /* margin-bottom: 2rem; */
+  }
+
+  .tl-scroll {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  .tl-canvas {
+    position: relative;
+    min-height: 20px;
+  }
+
+  .tl-lanes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tl-lane {
+    position: relative;
+    height: 60px;
+  }
+
+  /* ===== Header ===== */
+
+  .tl-title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+  }
+
+  .tl-sub {
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.6;
+  }
+
+  /* ===== Legend ===== */
+
+  .tl-legend {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .leg-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+
+  .leg-item:hover {
+    opacity: 1;
+  }
+
+  .leg-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .leg-dash {
+    width: 16px;
+    height: 2px;
+    border-top: 2px dashed rgba(0, 0, 0, 0.2);
+  }
+
+  /* ===== Timeline Bars ===== */
+
+  .tl-bar-outer {
+    position: absolute;
+    top: 0;
+    height: 60px;
+  }
+
+  .tl-bar {
+    position: relative;
+    height: 100%;
+    min-width: 120px;
+    border-radius: 14px;
+    border: 1px solid var(--tl-border-soft);
+    background: var(--tl-bg);
+    backdrop-filter: var(--tl-blur);
+    box-shadow: var(--tl-shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 16px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+  }
+
+  .tl-bar:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: var(--tl-shadow-hover);
+    border-color: rgba(0, 0, 0, 0.12);
+  }
+
+  /* Stripe */
+
+  .tl-bar-stripe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    opacity: 0.9;
+  }
+
+  /* Text */
+
+  .tl-bar-content {
+    padding-left: 10px;
+    overflow: hidden;
+  }
+
+  .tl-bar-name {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tl-bar-range {
+    font-size: 11px;
+    margin-top: 4px;
+    opacity: 0.65;
+  }
+
+  /* ===== Tooltip ===== */
+
+  .tl-tip {
+    position: fixed;
+    z-index: 99999;
+    pointer-events: none;
+
+    min-width: 200px;
+    max-width: 240px;
+    padding: 14px 16px;
+
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--tl-border-soft);
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .tl-bar-outer:hover .tl-tip {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(6px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  .tip-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .tip-date {
+    font-size: 11px;
+    margin-bottom: 8px;
+    opacity: 0.7;
+  }
+
+  .tip-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+
+  .tip-badge {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 999px;
+  }
+
+  /* ===== Today Line ===== */
+
+  .tl-today {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #378ADD, transparent);
+    box-shadow: 0 0 8px rgba(55, 138, 221, 0.4);
+  }
+
+  .tl-today-label {
+    position: absolute;
+    top: -22px;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #E6F1FB;
+    color: #185FA5;
+  }
+
+  /* ===== Grid + Scroll ===== */
+
+  #gridlines div {
+    opacity: 0.25;
+  }
+
+  .tl-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .tl-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 999px;
+  }
+
+  .tl-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
+  }
+</style>
+
+<body>
+  <div id="global-tip" class="tl-tip" style="position:fixed; display:none;"></div>
+  <div class="tl-root">
+    <div class="tl-meta">
+      <div>
+        <div class="tl-title">My projects</div>
+        <div class="tl-sub">Hover a bar for details</div>
+      </div>
+      <div class="tl-legend">
+        <div class="leg-item">
+          <div class="leg-dot" style="background:#ff0000"></div>MC Content
+        </div>
+        <div class="leg-item">
+          <div class="leg-dot" style="background:#fffb1b"></div>Sites
+        </div>
+        <div class="leg-item">
+          <div class="leg-dot" style="background:#7F77DD"></div>Tools &amp; scripts
+        </div>
+        <div class="leg-item">
+          <div class="leg-dot" style="background:#1D9E75"></div>Games
+        </div>
+        <div class="leg-item">
+          <div class="leg-dot" style="background:#378ADD"></div>Frameworks
+        </div>
+        <div class="leg-item">
+          <div class="leg-dash"></div>ongoing
+        </div>
+      </div>
+    </div>
+    <div class="tl-scroll">
+      <div class="tl-canvas" id="canvas">
+        <div style="position:relative;height:28px;margin-bottom:6px;" id="axis"></div>
+        <div style="position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;" id="gridlines"></div>
+        <div class="tl-lanes" id="lanes"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    const PROJECTS = [
+      // Websites
+      {
+        title: "Zug fahren", start: "2025-06-08", end: "2026-03-27", desc: "a Gallery Page with some Pictures (https://zug-fahren.vercel.app)", cat: "site", color: "#fffb1b", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "My Webpage", start: "2025-02-27", end: null, desc: "a long Page", cat: "tool", color: "#fffb1b", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "Awesome Minecraft Tools", start: "2025-07-31", end: "2026-04-18", desc: "a Collection for Minecraft Related Stuff", cat: "tool", color: "#fffb1b", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+
+      // MC Content
+      {
+        title: "betterbackups", start: "2025-09-02", end: null, desc: "a Mod to view your Minecraft backups", cat: "tool", color: "#ff0000", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "World Viewer", start: "2026-04-17", end: null, desc: "a Mod to view your Minecraft Worlds and their Data", cat: "tool", color: "#ff0000", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "Simple Timer", start: "2024-03-13", end: "2025-08-17", desc: "a Timer Datapack for Minecraft", color: "#ff0000", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+
+      // Tools
+      {
+        title: "Search Engine", start: "2024-10-22", end: "2024-10-29", desc: "File Directory Search Engine in Python — my first time coding outside of school.", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "KeyValueParser", start: "2026-02-11", end: "2026-03-24", desc: "a simple KeyValueParser Libary written in C++", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "Copper Tools (MC)", start: "2025-08-01", end: "2025-09-08", desc: "a minecraft fabric mod for 1.20.1 which ads copper tools and armor", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "SX", start: "2026-02-19", end: "2026-03-24", desc: "a simple shortcuter programm for long commands in C++", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "NotenPunkteUmrechner", start: "2025-11-05", end: "2026-02-21", desc: "Convertiert Notenpunkte zu Noten und in die andere Richtung.", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "bt", start: "2026-04-09", end: null, desc: "a simple cli tool which should help with building", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "Linksaver", start: "2026-01-31", end: "2026-04-25", desc: "a cli tools to save links for example which u used in your game project", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "Automatic MD Index", start: "2025-05-10", end: "2026-04-18", desc: "an npm module to create an index for Markdown files", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "graphicscardinstaller", start: "2025-05-12", end: "2025-08-19", desc: "Just Install a new Graphic Card! - DISCLAIMER! Just a troll, no Virus!", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "Video Converter", start: "2025-09-13", end: "2025-11-22", desc: "a video converter in Kotlin which uses ffmpeg to convert videos to preset formats", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "filebox", start: "2025-09-02", end: "2025-10-22", desc: "a server where users can upload files with a sharelink which exist for choosen period of time", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "Pix", start: "2026-01-09", end: "2026-03-13", desc: "an Image Viewer for Pixel Art Pictures!", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "Repo Database Creator", start: "2025-04-10", end: "2025-05-10", desc: "View GitHub repositories for a user and sort them", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "3ma-to-obj", start: "2025-03-16", end: "2025-04-09", desc: "Python script to convert 3ma files to .obj format.", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "Date Calculator", start: "2025-04-11", end: "2025-04-22", desc: "An easy calculator for important days and time intervals.", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "Fling lang", start: "2025-10-24", end: "2026-03-28", desc: "First attempt at building a programming language in C++.", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+      {
+        title: "finder", start: "2025-11-17", end: null, desc: "A CLI tool to find your files and projects.", cat: "tool", color: "#7F77DD", textColor: "#3C3489", bgLight: "#EEEDFE"
+      },
+
+      // Frameworks
+      {
+        title: "samengine", start: "2026-04-04", end: null, desc: "A web game framework in TypeScript.", cat: "framework", color: "#378ADD", textColor: "#0C447C", bgLight: "#E6F1FB"
+      },
+      
+      // Games
+      {
+        title: "Visual Novel", start: "2025-03-19", end: "2025-05-23", desc: "A simple Visual Novel made for the nanoremo game jam.", cat: "game", color: "#1D9E75", textColor: "#085041", bgLight: "#E1F5EE"
+      },
+      {
+        title: "Shadow-Paths",
+        start: "2024-10-31", end: "2024-11-10", desc: "A little Python text adventure game.", cat: "game", color: "#1D9E75", textColor: "#085041", bgLight: "#E1F5EE"
+      },
+      {
+        title: "justLook", start: "2026-01-19", end: "2026-02-28", desc: "a mysterious Game where you have escape from a creepy House.", cat: "games", color: "#1D9E75", textColor: "#085041", bgLight: "#E1F5EE"
+      },
+      {
+        title: "Piggy Game", start: "2026-01-31", end: "2026-02-10", desc: "a Game where you play as Pig which need to escape the Farmer", cat: "games", color: "#1D9E75", textColor: "#085041", bgLight: "#E1F5EE"
+      },
+    ];
+
+    const DAY = 86400000;
+    const PPD = 3.2;
+    const now = new Date();
+
+    PROJECTS.forEach(p => { p.s = new Date(p.start); p.e = p.end ? new Date(p.end) : now; });
+    PROJECTS.sort((a, b) => a.s - b.s);
+
+    let minD = new Date(Math.min(...PROJECTS.map(p => p.s)));
+    let maxD = new Date(Math.max(...PROJECTS.map(p => p.e)));
+    minD.setDate(1);
+    maxD.setMonth(maxD.getMonth() + 2); maxD.setDate(1);
+
+    function px(d) { return Math.round(((d - minD) / DAY) * PPD); }
+    function fmt(d) { return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }); }
+    function fmtShort(d) { return d.toLocaleDateString('en-GB', { month: 'short', year: '2-digit' }); }
+
+    const lanes = [];
+    PROJECTS.forEach(p => {
+      let placed = false;
+      for (let i = 0; i < lanes.length; i++) {
+        const last = lanes[i][lanes[i].length - 1];
+        if ((p.s - last.e) >= DAY * 30) { lanes[i].push(p); p.lane = i; placed = true; break; }
+      }
+      if (!placed) { p.lane = lanes.length; lanes.push([p]); }
+    });
+
+    const totalPx = px(maxD) + 40;
+    const canvas = document.getElementById('canvas');
+    canvas.style.width = totalPx + 'px';
+
+    const axis = document.getElementById('axis');
+    const gridlines = document.getElementById('gridlines');
+    let cur = new Date(minD);
+    while (cur <= maxD) {
+      const left = px(cur);
+      const lbl = document.createElement('div');
+      lbl.style.cssText = `position:absolute;left:${left}px;top:0;display:flex;flex-direction:column;align-items:flex-start;`;
+      const line = document.createElement('div');
+      line.style.cssText = `width:0.5px;height:10px;background:var(--color-border-tertiary);`;
+      const txt = document.createElement('div');
+      txt.style.cssText = `font-size:10px;color:var(--color-text-tertiary);white-space:nowrap;padding-top:3px;transform:translateX(-50%);`;
+      txt.textContent = fmtShort(cur);
+      lbl.appendChild(line); lbl.appendChild(txt); axis.appendChild(lbl);
+
+      const gl = document.createElement('div');
+      gl.style.cssText = `position:absolute;left:${left}px;top:0;bottom:0;width:0.5px;background:var(--color-border-tertiary);`;
+      gridlines.appendChild(gl);
+
+      cur = new Date(cur); cur.setMonth(cur.getMonth() + 2);
+    }
+
+    const todayPx = px(now);
+    const todayEl = document.createElement('div');
+    todayEl.className = 'tl-today';
+    todayEl.style.cssText = `left:${todayPx}px;top:-28px;bottom:0;`;
+    const todayLbl = document.createElement('div');
+    todayLbl.className = 'tl-today-label';
+    todayLbl.textContent = 'today';
+    todayEl.appendChild(todayLbl);
+    canvas.appendChild(todayEl);
+
+    const lanesDiv = document.getElementById('lanes');
+    for (let i = 0; i < lanes.length; i++) {
+      const laneDiv = document.createElement('div');
+      laneDiv.className = 'tl-lane';
+      lanes[i].forEach(p => {
+        const left = px(p.s);
+        const rawW = (p.e - p.s) / DAY * PPD;
+        const width = Math.max(rawW, 120);
+        const ongoing = !p.end;
+
+        const outer = document.createElement('div');
+        outer.className = 'tl-bar-outer';
+        outer.style.cssText = `left:${left}px;width:${width}px;`;
+
+        const bar = document.createElement('div');
+        bar.className = 'tl-bar';
+        if (ongoing) { bar.style.borderStyle = 'dashed'; bar.style.borderColor = p.color + '80'; }
+
+        const stripe = document.createElement('div');
+        stripe.className = 'tl-bar-stripe';
+        stripe.style.background = p.color;
+
+        const content = document.createElement('div');
+        content.className = 'tl-bar-content';
+
+        const name = document.createElement('div');
+        name.className = 'tl-bar-name';
+        name.textContent = p.title;
+
+        const range = document.createElement('div');
+        range.className = 'tl-bar-range';
+        range.textContent = fmtShort(p.s) + ' → ' + (p.end ? fmtShort(p.e) : 'now');
+
+        content.appendChild(name);
+        content.appendChild(range);
+        bar.appendChild(stripe);
+        bar.appendChild(content);
+
+        const tip = document.createElement('div');
+        tip.className = 'tl-tip';
+        //     tip.innerHTML = `
+        //   <div class="tip-name">${p.title}</div>
+        //   <div class="tip-date">${fmt(p.s)} → ${p.end ? fmt(p.e) : 'ongoing'}</div>
+        //   <div class="tip-desc">${p.desc}</div>
+        //   <span class="tip-badge" style="background:${p.bgLight};color:${p.textColor};">${p.cat}</span>
+        //   ${ongoing ? `<span class="tip-badge" style="background:#E6F1FB;color:#185FA5;margin-left:4px;">active</span>` : ''}
+        // `;
+        tip.innerHTML = `...`;
+
+        const tipHTML = `
+  <div class="tip-name">${p.title}</div>
+  <div class="tip-date">${fmt(p.s)} → ${p.end ? fmt(p.e) : 'ongoing'}</div>
+  <div class="tip-desc">${p.desc}</div>
+  <span class="tip-badge" style="background:${p.bgLight};color:${p.textColor};">${p.cat}</span>
+  ${ongoing ? `<span class="tip-badge" style="background:#E6F1FB;color:#185FA5;margin-left:4px;">active</span>` : ''}
+`;
+
+        outer.appendChild(bar);
+        // outer.appendChild(tip);
+        laneDiv.appendChild(outer);
+
+        outer.addEventListener('mouseenter', () => {
+          globalTip.innerHTML = tipHTML;
+          globalTip.style.display = 'block';
+        });
+
+        outer.addEventListener('mousemove', (e) => {
+          const padding = 12;
+
+          const tipW = globalTip.offsetWidth;
+          const tipH = globalTip.offsetHeight;
+
+          let x = e.clientX + padding;
+          let y = e.clientY - tipH - padding;
+
+          if (x + tipW > window.innerWidth) {
+            x = window.innerWidth - tipW - padding;
+          }
+
+          if (y < 0) {
+            y = e.clientY + padding;
+          }
+
+          globalTip.style.left = x + 'px';
+          globalTip.style.top = y + 'px';
+        });
+
+        outer.addEventListener('mouseleave', () => {
+          globalTip.style.display = 'none';
+        });
+      });
+      lanesDiv.appendChild(laneDiv);
+    }
+
+    const globalTip = document.getElementById('global-tip');
+
+    document.querySelectorAll('.tl-bar-outer').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        globalTip.innerHTML = localTip.innerHTML;
+        globalTip.style.display = 'block';
+      });
+
+      el.addEventListener('mousemove', (e) => {
+        const padding = 12;
+
+        const tipW = globalTip.offsetWidth;
+        const tipH = globalTip.offsetHeight;
+
+        let x = e.clientX + padding;
+        let y = e.clientY - tipH - padding;
+
+        // rechts raus verhindern
+        if (x + tipW > window.innerWidth) {
+          x = window.innerWidth - tipW - padding;
+        }
+
+        // oben raus verhindern
+        if (y < 0) {
+          y = e.clientY + padding;
+        }
+
+        globalTip.style.left = x + 'px';
+        globalTip.style.top = y + 'px';
+      });
+
+      el.addEventListener('mouseleave', () => {
+        globalTip.style.display = 'none';
+      });
+    });
+  </script>
+</body>
