@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+:root {
+    --bg-color: #340028;
+    --box-bg-color: #000000;
+
+    /* --link-box-color: rgb(202, 16, 146); */
+    --link-box-color: var(--settings-hover);
+    --link-box-color-hover: rgb(255, 194, 225);
+    --link-color: black;
+
+    --project-box-color: #1a0019;
+    --project-h2-color: #f136ee;
+    --project-p-color: #ff8afd;
+
+    --h1-color: #ff94f8;
+    --h2-color: #ff6ef5;
+    --h3-color: #ff53f4;
+
+    --a-color: #ff00f7;
+
+    --about-me-bold: #ff0cdf;
+
+    --settings-inner-box-component: var(--link-box-color);
+    --settings-inner-box-component-h: var(--link-box-color-hover);
+    --settings-inner: var(--link-color);
+    --settings-hover: var(--about-me-bold)
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    margin: 1.2rem;
+}
+
+/* Index Page */
+
+.d4r-box {
+    background: var(--box-bg-color);
+    color: #e0e0e0;
+    font-family: 'Fira Code', monospace;
+    padding: 1.5rem;
+    margin: 0.7rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 95%;
+    word-wrap: none;
+    word-break: normal;
+    display: flex;
+    flex-direction: column;
+    transition:
+            transform 2s ease,
+            background-color 2s ease;
+}
+
+.d4r-box:hover {
+    transform: translateY(-6px) scale(1.02);
+    
+    box-shadow: 0 0 10px rgb(255, 0, 195),
+                0 0 25px rgb(255, 0, 195),
+                0 0 50px rgb(255, 0, 195);
+}
+
+.d4r-box h1 {
+    color: var(--h1-color);
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.d4r-box h2 {
+    color: var(--h2-color);
+    font-size: 1.6rem;
+}
+
+.d4r-box h3 {
+    color: var(--h3-color);
+    font-size: 1.3rem;
+}
+
+.d4r-box p {
+    font-size: 1.1rem;
+}
+
+.d4r-box a {
+    color: var(--a-color);
+    text-decoration: none;
+}
+
+.d4r-box img {
+    border-radius: 60px;
+    height: 11rem;
+    width: fit-content;
+    align-self: center;
+}
+
+.d4r-box .skills img {
+    width: fit-content;
+    border-radius: 5px;
+    height: 2rem;
+}
+
+.d4r-box .skills {
+    padding: 0.8rem;
+    border-radius: 10px;
+    background-color: #2e2e2e;
+    font-size: 1.3rem;
+}
+
+.d4r-text-box p {
+    margin: 0 0.9rem;
+}
+
+.d4r-text-box b {
+    color: var(--about-me-bold);
+}
+
+@media (max-width: 748px) {
+    main {
+        flex-direction: column;
+        margin: 0rem;
+    }
+
+    .d4r-top {
+        width: 100%;
+    }
+
+    .d4r-box {
+        width: 96%;
+        margin: 1.5% 2%;
+        padding: 1rem;
+    }
+}

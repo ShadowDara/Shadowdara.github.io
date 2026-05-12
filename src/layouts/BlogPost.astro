@@ -1,0 +1,23 @@
+---
+import "/src/styles/blog.css";
+import BaseHead from "../components/BaseHead.astro";
+import Base from "../layouts/BlogBase.astro";
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<div class="d4r-box-blog">
+			<Base>
+				<main>
+					<slot />
+				</main>
+			</Base>
+		</div>
+	</body>
+</html>

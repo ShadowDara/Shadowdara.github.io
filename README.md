@@ -1,7 +1,3 @@
-# shadowdara.github.io
+# Shadowdara.github.io
 
-My Personal Page
-
-```sh
-bundle exec jekyll serve
-```
+My Personal Portfolio Page [here](https://shadowdara.github.io/portfolio)

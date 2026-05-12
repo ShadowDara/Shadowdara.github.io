@@ -1,0 +1,47 @@
+# All Redirections
+
+# Mein Discord Server
+- from: "/dc"
+  to: "https://discord.gg/9Jh8B8pkJa"
+
+# Mein Discord Account
+- from: "/discord"
+  to: "https://discord.com/users/843919195187183637"
+
+# Broken Link
+# - from: "/mc"
+#   to: "https://github.com/shadowdara/d4r-minecraft-packs"
+
+# Minecraft Tools
+- from: "/mctools"
+  to: "https://shadowdara.github.io/Awesome-Minecraft-Tools/"
+
+
+# Decrypted Redirection
+- from: "/public/decrypted"
+  to: "https://shadowdara.42web.io/decrypted"
+
+
+# Wiki Blog Page
+- from: "/blog/2025/10/27/wikis"
+  to: "/blog/wikis"
+
+
+# Ninjago Akinator
+- from: "/r/a"
+  to: "https://ninjagonator.ju.mp"
+
+
+###### Permalinks
+
+# Birthday App
+- from: "projects/permalink/birthday_app"
+  to: "/blog/birthday_app"
+
+# Photo Compressor
+- from: "projects/permalink/photo_compressor"
+  to: "/blog/photo_compressor"
+
+# Mobile Notes
+- from: "projects/permalink/mobile_notes_app"
+  to: "/blog/mobile_notes_app"
