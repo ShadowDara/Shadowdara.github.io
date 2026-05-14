@@ -15,11 +15,13 @@
     "@astrojs/mdx": "^4.2.6",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/svelte": "^7.0.0",
     "@tailwindcss/vite": "^4.1.7",
     "astro": "^5.7.13",
     "html-minifier-terser": "^7.2.0",
     "js-yaml": "^4.1.1",
-    "samengine": "^1.9.0"
+    "samengine": "^1.9.0",
+    "svelte": "^3.59.2"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
