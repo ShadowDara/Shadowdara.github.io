@@ -10,7 +10,7 @@
         @input="updatePreview"
       ></textarea>
 
-      <article :class="{ viewonly: viewOnly }" v-html="htmlContent"></article>
+      <article class="md-body" :class="{ viewonly: viewOnly }" v-html="htmlContent"></article>
     </div>
 
     <div class="inline">
@@ -128,100 +128,100 @@ main {
   margin: 2rem auto;
   padding: 0 1.5rem;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+.md-body h1,
+.md-body h2,
+.md-body h3,
+.md-body h4,
+.md-body h5,
+.md-body h6 {
   margin: 1.6em 0 0.4em;
   line-height: 1.25;
   font-weight: 700;
 }
-h1 {
+.md-body h1 {
   font-size: 2rem;
   border-bottom: 2px solid var(--md-border);
   padding-bottom: 0.3em;
 }
-h2 {
+.md-body h2 {
   font-size: 1.5rem;
   border-bottom: 1px solid var(--md-border);
   padding-bottom: 0.2em;
 }
-p {
+.md-body p {
   margin: 0.8em 0;
 }
-a {
+.md-body a {
   color: var(--md-accent);
 }
-code {
+.md-body code {
   font-family: var(--md-mono);
   font-size: 0.875em;
   background: var(--md-code-bg);
   padding: 0.15em 0.35em;
   border-radius: 4px;
 }
-pre {
+.md-body pre {
   background: var(--md-code-bg);
   border-radius: 6px;
   padding: 1em;
   overflow-x: auto;
 }
-pre code {
+.md-body pre code {
   background: none;
   padding: 0;
   font-size: 0.9em;
 }
-blockquote {
+.md-body blockquote {
   margin: 1em 0;
   padding: 0.5em 1em;
   border-left: 4px solid var(--md-accent);
   color: var(--md-blockquote);
 }
-table {
+.md-body table {
   border-collapse: collapse;
   width: 100%;
   margin: 1em 0;
 }
-th,
-td {
+.md-body th,
+.md-body td {
   border: 1px solid var(--md-border);
   padding: 0.5em 0.8em;
 }
-th {
+.md-body th {
   background: var(--md-code-bg);
   font-weight: 600;
 }
-tr:nth-child(even) td {
+.md-body tr:nth-child(even) td {
   background: #fafafa;
 }
-ul,
-ol {
+.md-body ul,
+.md-body ol {
   padding-left: 1.5em;
   margin: 0.8em 0;
 }
-li {
+.md-body li {
   margin: 0.25em 0;
 }
-hr {
+.md-body hr {
   border: none;
   border-top: 2px solid var(--md-border);
   margin: 2em 0;
 }
-img {
+.md-body img {
   max-width: 100%;
   height: auto;
   border-radius: 4px;
 }
-mark {
+.md-body mark {
   background: #fef08a;
   padding: 0.1em 0.2em;
   border-radius: 2px;
 }
-input[type="checkbox"] {
+.md-body input[type="checkbox"] {
   margin-right: 0.4em;
 }
-.footnotes {
+.md-body .footnotes {
   font-size: 0.875em;
   color: var(--md-blockquote);
 }
