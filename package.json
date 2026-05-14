@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "postbuild": "node scripts/post-build.js",
-    "build": "astro build && node scripts/minify-html.js && node scripts/post-build.js",
+    "build": "astro build && node scripts/post-build.js",
     "preview": "astro preview",
     "astro": "astro",
     "deploy": "astro build && npm run postbuild && gh-pages -d dist -b gh-pages"
