@@ -22,17 +22,16 @@ jobs:
       - name: Repository auschecken
         uses: actions/checkout@v4
 
-      - name: Node.js setup
-        uses: actions/setup-node@v4
+      - name: Bun installieren
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: 20
-          cache: npm
+          bun-version: latest
 
       - name: Dependencies installieren
-        run: npm ci
+        run: bun install --frozen-lockfile
 
       - name: Astro build
-        run: npm run build
+        run: bun run build
 
       - name: GitHub Pages konfigurieren
         uses: actions/configure-pages@v5
