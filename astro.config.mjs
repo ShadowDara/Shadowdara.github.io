@@ -1,7 +1,7 @@
 // Astro Config
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import svelte from '@astrojs/svelte';
+import vue from '@astrojs/vue';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
@@ -25,18 +25,27 @@ for (const r of redirectsYaml) {
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
-    optimizeDeps: {
-      include: ["samengine"],
+    // optimizeDeps: {
+    //   include: ["samengine"],
+    // },
+    // ssr: {
+    //   noExternal: ["samengine"],
+    // },
+
+    build: {
+      target: 'esnext', // <- very important!
     },
-    ssr: {
-      noExternal: ["samengine"],
+    optimizeDeps: {
+      esbuildOptions: {
+        target: 'esnext', // <- for dev/build
+      },
     },
   },
 
   // base: '/portfolio',
   base: '',
-  
-  integrations: [mdx(), sitemap(), svelte()],
+
+  integrations: [mdx(), sitemap(), vue()],
 
   site: 'https://shadowdara.github.io',
 
