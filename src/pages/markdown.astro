@@ -1,0 +1,117 @@
+---
+---
+
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Markdown Notes</title>
+    </head>
+
+    <body>
+        <main>
+            <h1>Markdown Notes</h1>
+
+            <div class="container">
+                <textarea id="notetext"></textarea>
+
+                <article id="preview"></article>
+            </div>
+
+            <div class="inline">
+                <button id="toggleBtn"> 👁 View </button>
+
+                <button id="exportBtn"> 🛒 Export </button>
+            </div>
+        </main>
+
+        <script type="module" src="/src/scripts/note.ts"></script>
+    </body>
+</html>
+
+<style>
+    :root {
+        --md-font: system-ui, sans-serif;
+        --md-mono: "Fira Code", "Cascadia Code", Consolas, monospace;
+        --md-max-width: 800px;
+        --md-line-height: 1.7;
+        --md-color: #1a1a2e;
+        --md-bg: #ffffff;
+        --md-code-bg: #f4f4f8;
+        --md-border: #d1d5db;
+        --md-accent: #3b5bdb;
+        --md-blockquote: #6b7280;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body,
+    main {
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 1rem;
+        font-family: sans-serif;
+        background: var(--md-bg);
+        color: var(--md-color);
+    }
+
+    .container {
+        display: flex;
+        gap: 1rem;
+        flex: 1;
+        min-height: 0;
+    }
+
+    textarea {
+        width: 50%;
+        padding: 1rem;
+        font-family: monospace;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        resize: none;
+        background: rgb(239, 239, 239);
+    }
+
+    article {
+        width: 50%;
+        padding: 1rem;
+        border-radius: 10px;
+        overflow: auto;
+    }
+
+    article.viewonly {
+        width: 100%;
+    }
+
+    button {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        max-width: 120px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+        border-bottom: 2px solid var(--md-border);
+        padding-bottom: 0.3em;
+    }
+
+    pre {
+        background: var(--md-code-bg);
+        padding: 1rem;
+        border-radius: 6px;
+        overflow-x: auto;
+    }
+
+    code {
+        font-family: var(--md-mono);
+    }
+</style>

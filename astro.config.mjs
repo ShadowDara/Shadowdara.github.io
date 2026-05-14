@@ -24,6 +24,12 @@ for (const r of redirectsYaml) {
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ["samengine"],
+    },
+    ssr: {
+      noExternal: ["samengine"],
+    },
   },
   // base: '/portfolio',
   base: '',
