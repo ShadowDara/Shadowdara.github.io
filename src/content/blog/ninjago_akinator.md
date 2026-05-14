@@ -1,6 +1,6 @@
 ---
 title: "Ninjago Akinator"
-pubDate: "May 09 2026"
+pubDate: "May 14 2026"
 description: "er errät jeden Ninjago Character an den du deknst!"
 ---
 
@@ -8,9 +8,11 @@ description: "er errät jeden Ninjago Character an den du deknst!"
 
 er errät jeden Ninjago Character an den du deknst!
 
+
 ## Wo?
 
 **Du ihn [hier](/r/a) ausprobieren in der Web Version.**
+
 
 ## Info
 
@@ -19,9 +21,21 @@ an `@shadowdara` oder an [`shadowdara74@gmail.com`](malito:shadowdara74@gmail.co
 
 Mehr Updates kommen hier bald :)
 
+
 ## Ninjagonator DB
 
 [Hier](https://ninjagonator.netlify.app/dbchecker.html)
 kann man die Datenbank mit allen Characktern für den Ninjagonator
 anschauen. Bei Fehlenden Charaktern oder Traits sende mir gerne eine
-Nachricht.
+Nachricht um mich darüber zu Informieren.
+
+
+## PS My Favourite Ninjago Character
+
+Ich will auch meinen lieblings Ninjago Character zeigen. `General Cryptor`!!! [Eine 10/10!](https://www.reddit.com/r/Ninjago/comments/14ugmgd/what_are_your_thoughts_about_general_cryptor_as_a/?tl=de#lightbox)
+
+![Image](https://static.wikia.nocookie.net/lego-ninjago-meister-des-spinjitzu/images/c/cd/Cryptor_on_Delta_V.png/revision/latest/scale-to-width-down/536?cb=20240223141426&path-prefix=de)
+
+![Image2](https://static.wikia.nocookie.net/lego-ninjago-meister-des-spinjitzu/images/d/d0/Cryptor_2_--%28.png/revision/latest/scale-to-width-down/250?cb=20230204164304&path-prefix=de)
+
+![Image3](https://i.redd.it/yj1cxbo1ctab1.jpg)

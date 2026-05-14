@@ -1,6 +1,6 @@
 ---
 title: "Ninjago Tournamen Game 2026 and more..."
-pubDate: "May 09 2026"
+pubDate: "May 13 2026"
 description: "Play the old Ninjago Tournament Game from 2015 in 2026 and more ..."
 tags: [
     pinned
