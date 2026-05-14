@@ -90,7 +90,7 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped>
+<style>
 /* === Markdown Styles (1:1 übernommen) === */
 :root {
   --md-font: system-ui, sans-serif;
