@@ -5,6 +5,8 @@ import vue from '@astrojs/vue';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
+import react from '@astrojs/react';
+
 import fs from "fs";
 import yaml from "js-yaml";
 
@@ -45,7 +47,7 @@ export default defineConfig({
   // base: '/portfolio',
   base: '',
 
-  integrations: [mdx(), sitemap(), vue()],
+  integrations: [mdx(), sitemap(), react()],
 
   site: 'https://shadowdara.github.io',
 
