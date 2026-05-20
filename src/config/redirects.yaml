@@ -31,6 +31,10 @@
 - from: "/r/a"
   to: "https://ninjagonator.ju.mp"
 
+# Ninjago Akinator Blog
+- from: "/r/b"
+  to: "/blog/ninjago_akinator"
+
 
 ###### Permalinks
 
