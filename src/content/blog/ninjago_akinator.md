@@ -39,3 +39,8 @@ Ich will auch meinen lieblings Ninjago Character zeigen. `General Cryptor`!!! [E
 ![Image2](https://static.wikia.nocookie.net/lego-ninjago-meister-des-spinjitzu/images/d/d0/Cryptor_2_--%28.png/revision/latest/scale-to-width-down/250?cb=20230204164304&path-prefix=de)
 
 ![Image3](https://i.redd.it/yj1cxbo1ctab1.jpg)
+
+
+## Soon
+
+Ich arbeite grade auch an einem Memory Game mit meinem eigenen Web Framework [samengine](https://samengine.vercel.app), es wird auch die Datenbank von Ninjagonator benutzen. Ich werde bald mehr Infos dazu veröffentlichen. ;)
