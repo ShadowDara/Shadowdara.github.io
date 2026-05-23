@@ -29,6 +29,10 @@ kann man die Datenbank mit allen Characktern für den Ninjagonator
 anschauen. Bei Fehlenden Charaktern oder Traits sende mir gerne eine
 Nachricht um mich darüber zu Informieren.
 
+Zudem könnt ihr [hier](https://docs.google.com/spreadsheets/d/1HtJEMEq4A1CSvgvW6sPluFNxT4zZJwD4vGmsmkdhDVY/edit?usp=sharing)
+die Tabelle anschauen, aber bitte verlinken und mir schreiben
+wenn ihr sie für etwas benutzt, den es würde mich sehr interressieren für was.
+
 
 ## PS My Favourite Ninjago Character
 
