@@ -11,7 +11,9 @@ tags: [
 
 I made a Full Tutorial in this Video for PC
 
+<div class="video-container">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/A4MXIzqetrs?si=33ohwPWYB3_qmRQZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
 
 ## For Mobile
