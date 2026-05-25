@@ -24,7 +24,7 @@ in it then use the same steps as shown in the Video inside the Virtual Maschine.
 
 ## Doesnt work?
 
-If you have Problems, feel free to send me a messafe on Discord at `@shadowdara`.
+If you have Problems, feel free to send me a messafe on Discord at `@shadowdara` or send me an EMail `shadowdara74@gmail.com`.
 
 
 ## Other Games
