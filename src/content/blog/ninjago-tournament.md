@@ -24,7 +24,7 @@ in it then use the same steps as shown in the Video inside the Virtual Maschine.
 
 ## Doesnt work?
 
-If you have Problems, feel free to send me a messafe on Discord at `@shadowdara` or send me an E-Mail [shadowdara74@gmail.com](malito:shadowdara74@gmail.com).
+If you have Problems, feel free to send me a messafe on Discord at `@shadowdara` or send me an E-Mail <a href="mailto:shadowdara74@gmail.com?subject=Error%20with%20Play%20old%20Lego%20Games&body=Describe%20your%20Error%20here">shadowdara74@gmail.com</a>
 
 
 ## Other Games
