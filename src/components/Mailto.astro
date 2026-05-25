@@ -9,14 +9,16 @@ const {
   label = "E-Mail senden"
 } = Astro.props;
 
-const params = new URLSearchParams();
+const encode = (v) => encodeURIComponent(v);
 
-if (subject) params.set("subject", subject);
-if (body) params.set("body", body);
-if (cc) params.set("cc", cc);
-if (bcc) params.set("bcc", bcc);
+const params = [];
 
-const mailto = `mailto:${email}?${params.toString()}`;
+if (subject) params.push(`subject=${encode(subject)}`);
+if (body) params.push(`body=${encode(body)}`);
+if (cc) params.push(`cc=${encode(cc)}`);
+if (bcc) params.push(`bcc=${encode(bcc)}`);
+
+const mailto = `mailto:${email}${params.length ? "?" + params.join("&") : ""}`;
 ---
 
 <a href={mailto} class={className}>
