@@ -16,18 +16,9 @@ const projects = getProjects()
 <!-- The Projects which will be dsiplayed on the Startpage --><!-- List of my Recent Projects -->{
     projects.map((p) => (
         <div class="project">
-            <h2 class="text-center">{p.title}</h2>
+            <h2 class="text-center"><a href={p.url} target="_blank">{p.title}</a></h2>
 
             <p>{p.description}</p>
-
-            {p.url && (
-                <p>
-                    Link:{" "}
-                    <a href={p.url} target="_blank">
-                        {p.title}
-                    </a>
-                </p>
-            )}
         </div>
     ))
 }
