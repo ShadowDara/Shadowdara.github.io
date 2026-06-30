@@ -1,5 +1,10 @@
 # All Redirections
 
+# Wordpress Blog
+- from: "wp"
+  to: "https://shadowdara.wordpress.com"
+
+
 # Mein Discord Server
 - from: "/dc"
   to: "https://discord.gg/9Jh8B8pkJa"
