@@ -9,6 +9,10 @@
 - from: "/dc"
   to: "https://discord.gg/9Jh8B8pkJa"
 
+# Devblog
+- from: "/devblog"
+  to: /blog"
+
 # Mein Discord Account
 - from: "/discord"
   to: "https://discord.com/users/843919195187183637"
