@@ -2,9 +2,7 @@
 title: "New Blog"
 pubDate: "Juli 10 2026"
 description: ""
-tags: [
-    pinned
-]
+tags: []
 ---
 
 # New
