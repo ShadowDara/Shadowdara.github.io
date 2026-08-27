@@ -1,6 +1,6 @@
 ---
 title: 'Simple Reminder Script'
-pubDatw: 2025-11-22
+pubDatw: November 22 2025
 author: Shadowdara
 description: "alittle cool windows script which looks hacky"
 ---
