@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Shadowdara — Computer Science</title>
+    <meta
+      name="description"
+      content="Computer Science student focused on compilers, programming languages and systems programming."
+    />
+
+    <style>
+      :root {
+        --bg: #0d0f12;
+        --surface: #13161a;
+        --border: #272c33;
+        --text: #e6e8eb;
+        --muted: #9299a3;
+        --accent: #8ab4f8;
+        --code: #b8c7d9;
+
+        --content-width: 900px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(var(--content-width), calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      /* Navigation */
+
+      header {
+        border-bottom: 1px solid var(--border);
+      }
+
+      nav {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      /* Hero */
+
+      .hero {
+        padding: 100px 0 90px;
+      }
+
+      .eyebrow {
+        color: var(--accent);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 14px;
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        max-width: 750px;
+        margin: 0;
+        font-size: clamp(38px, 6vw, 64px);
+        line-height: 1.08;
+        letter-spacing: -2px;
+        font-weight: 650;
+      }
+
+      .intro {
+        max-width: 650px;
+        margin-top: 26px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .links {
+        display: flex;
+        gap: 18px;
+        margin-top: 30px;
+        font-size: 14px;
+      }
+
+      .links a {
+        color: var(--accent);
+      }
+
+      .links a:hover {
+        text-decoration: underline;
+      }
+
+      /* Sections */
+
+      section {
+        padding: 70px 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .section-title {
+        margin: 0 0 32px;
+        font-size: 22px;
+        font-weight: 600;
+      }
+
+      /* About */
+
+      .about {
+        max-width: 700px;
+        color: var(--muted);
+      }
+
+      /* Projects */
+
+      .projects {
+        display: grid;
+        gap: 16px;
+      }
+
+      .project {
+        display: block;
+        padding: 24px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        transition: border-color 0.15s ease;
+      }
+
+      .project:hover {
+        border-color: #3b424b;
+      }
+
+      .project-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .project-name {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .project-type {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .project p {
+        margin: 12px 0 18px;
+        color: var(--muted);
+        font-size: 14px;
+        max-width: 700px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .tag {
+        padding: 3px 8px;
+        border: 1px solid var(--border);
+        color: var(--code);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px;
+      }
+
+      /* Skills */
+
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-top: 1px solid var(--border);
+        border-left: 1px solid var(--border);
+      }
+
+      .skill {
+        padding: 20px;
+        border-right: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .skill-name {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .skill-list {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* Experience */
+
+      .timeline {
+        display: grid;
+        gap: 26px;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 30px;
+      }
+
+      .timeline-date {
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 13px;
+      }
+
+      .timeline-title {
+        font-weight: 600;
+      }
+
+      .timeline-description {
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* Footer */
+
+      footer {
+        padding: 40px 0 60px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      @media (max-width: 650px) {
+        .container {
+          width: min(var(--content-width), calc(100% - 28px));
+        }
+
+        .hero {
+          padding: 70px 0;
+        }
+
+        .nav-links {
+          gap: 14px;
+        }
+
+        .skills {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline-item {
+          grid-template-columns: 1fr;
+          gap: 5px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a class="logo" href="/">shadowdara</a>
+
+          <div class="nav-links">
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- INTRO -->
+
+      <div class="container">
+        <section class="hero" style="border-top: 0">
+          <div class="eyebrow">Computer Science · Programming Languages</div>
+
+          <h1>Building software close to the machine.</h1>
+
+          <p class="intro">
+            Computer Science student interested in compilers, programming
+            languages, runtimes and systems programming.
+          </p>
+
+          <div class="links">
+            <a href="https://github.com/shadowdara">GitHub ↗</a>
+            <a href="mailto:shadowdara74@gmail.com">Email ↗</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- ABOUT -->
+
+      <section id="about">
+        <div class="container">
+          <h2 class="section-title">About</h2>
+
+          <div class="about">
+            <p>
+              I'm currently studying Computer Science and enjoy understanding
+              how software works below the application layer.
+            </p>
+
+            <p>
+              My main interests are programming languages, compilers,
+              interpreters, native applications and developer tooling.
+            </p>
+
+            <p>
+              I like building things myself and learning through implementation
+              rather than only studying the theory.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+
+      <section id="projects">
+        <div class="container">
+          <h2 class="section-title">Selected projects</h2>
+
+          <div class="projects">
+            <a class="project" href="#">
+              <div class="project-header">
+                <span class="project-name">fing</span>
+                <span class="project-type">Interpreter</span>
+              </div>
+
+              <p>
+                A small programming language with a hand-written lexer, parser,
+                AST and interpreter.
+                <!-- Currently being extended towards
+              native code generation. -->
+              </p>
+
+              <div class="tags">
+                <span class="tag">C++</span>
+                <span class="tag">Compiler</span>
+                <span class="tag">AST</span>
+                <span class="tag">Parsing</span>
+              </div>
+            </a>
+
+            <a class="project" href="#">
+              <div class="project-header">
+                <span class="project-name">samfileparser</span>
+                <span class="project-type">Developer Tool</span>
+              </div>
+
+              <p>
+                A lightweight Makefile-like parser and task runner designed
+                around a simple human-readable syntax.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Rust</span>
+                <span class="tag">Parser</span>
+                <span class="tag">CLI</span>
+              </div>
+            </a>
+
+            <!-- <a class="project" href="#">
+            <div class="project-header">
+              <span class="project-name">samengine</span>
+              <span class="project-type">Engine</span>
+            </div>
+
+            <p>
+              A small experimental game engine and tooling ecosystem,
+              focused on keeping the development stack lightweight.
+            </p>
+
+            <div class="tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">C++</span>
+              <span class="tag">SDL</span>
+              <span class="tag">Systems</span>
+            </div>
+          </a> -->
+
+            <!--
+            Add more projects by copying a .project block.
+          --></div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+
+      <section>
+        <div class="container">
+          <h2 class="section-title">Technical interests</h2>
+
+          <div class="skills">
+            <div class="skill">
+              <div class="skill-name">Languages</div>
+              <div class="skill-list">Rust · C++ · TypeScript · C · Python</div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-name">Compilers</div>
+              <div class="skill-list">
+                Lexing · Parsing · ASTs · IR · LLVM · JIT
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-name">Systems</div>
+              <div class="skill-list">
+                Linux · Windows · Processes · Networking · C ABI
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="skill-name">Tooling</div>
+              <div class="skill-list">
+                Git · Cargo · npm · CMake · CLI development
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE / EDUCATION -->
+
+      <section>
+        <div class="container">
+          <h2 class="section-title">Education</h2>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">2026 — present</div>
+
+              <div>
+                <div class="timeline-title">B.Sc. Computer Science</div>
+
+                <div class="timeline-description">University Name</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+
+      <section id="contact">
+        <div class="container">
+          <h2 class="section-title">Contact</h2>
+
+          <div class="about">
+            <p>
+              If you're interested in my work or want to talk about compilers,
+              programming languages or systems programming, feel free to get in
+              touch.
+            </p>
+
+            <div class="links">
+              <a href="mailto:shadowdara74@gmail.com">shadowdara74@gmail.com</a>
+              <a href="https://github.com/shadowdara">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© 2026 Shadowdara</div>
+    </footer>
+  </body>
+</html>
