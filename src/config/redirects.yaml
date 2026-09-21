@@ -4,7 +4,6 @@
 - from: "wp"
   to: "https://shadowdara.wordpress.com"
 
-
 # Mein Discord Server
 - from: "/dc"
   to: "https://discord.gg/9Jh8B8pkJa"
@@ -25,16 +24,13 @@
 - from: "/mctools"
   to: "https://shadowdara.github.io/Awesome-Minecraft-Tools/"
 
-
 # Decrypted Redirection
 - from: "/public/decrypted"
   to: "https://shadowdara.42web.io/decrypted"
 
-
 # Wiki Blog Page
 - from: "/blog/2025/10/27/wikis"
   to: "/blog/wikis"
-
 
 # Ninjago Akinator
 - from: "/r/a"
@@ -44,17 +40,20 @@
 - from: "/r/b"
   to: "/blog/ninjago_akinator"
 
+# Love App
+- from: "/r/c"
+  to: "/blog/loveapp"
 
 ###### Permalinks
 
 # Birthday App
-- from: "projects/permalink/birthday_app"
+- from: "/projects/permalink/birthday_app"
   to: "/blog/birthday_app"
 
 # Photo Compressor
-- from: "projects/permalink/photo_compressor"
+- from: "/projects/permalink/photo_compressor"
   to: "/blog/photo_compressor"
 
 # Mobile Notes
-- from: "projects/permalink/mobile_notes_app"
+- from: "/projects/permalink/mobile_notes_app"
   to: "/blog/mobile_notes_app"
