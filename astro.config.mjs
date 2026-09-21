@@ -8,6 +8,9 @@ import { customizeRedirects } from "./scripts/redirects";
 import yaml from "js-yaml";
 import { visualizer } from "rollup-plugin-visualizer";
 import { DevTools } from "@vitejs/devtools";
+import pagefind from "astro-pagefind";
+
+import starlight from "@astrojs/starlight";
 
 const redirectsYaml = yaml.load(
   fs.readFileSync("./src/config/redirects.yaml", "utf8"),
@@ -47,11 +50,23 @@ export default defineConfig({
   base: "",
 
   integrations: [
-    mdx(),
-    sitemap(),
-
-    // WICHTIG:
+    sitemap(), // WICHTIG:
     customizeRedirects(redirects),
+    starlight({
+      title: "Meine Dokumentation",
+      sidebar: [
+        {
+          label: "Getting Started",
+          items: ["getting-started", "installation", "configuration"],
+        },
+        {
+          label: "API",
+          items: ["api/overview", "api/reference"],
+        },
+      ],
+    }),
+    pagefind(),
+    mdx(),
   ],
 
   site: "https://shadowdara.github.io",
