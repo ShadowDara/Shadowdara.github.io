@@ -1,24 +1,24 @@
 // Astro Config
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-import vue from '@astrojs/vue';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
+import vue from "@astrojs/vue";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
 import fs from "fs";
 import yaml from "js-yaml";
 
 const redirectsYaml = yaml.load(
-  fs.readFileSync("./src/config/redirects.yaml", "utf8")
+  fs.readFileSync("./src/config/redirects.yaml", "utf8"),
 );
 
 const redirects = {};
 
 for (const r of redirectsYaml) {
   if (Array.isArray(r.from)) {
-    r.from.forEach(f => redirects[f] = r.to);
+    r.from.forEach((f) => (redirects[f] = r.to));
   } else {
     redirects[r.from] = r.to;
   }
@@ -35,21 +35,25 @@ export default defineConfig({
     // },
 
     build: {
-      target: 'esnext', // <- very important!
+      target: "esnext", // <- very important!
     },
     optimizeDeps: {
       esbuildOptions: {
-        target: 'esnext', // <- for dev/build
+        target: "esnext", // <- for dev/build
       },
     },
   },
 
   // base: '/portfolio',
-  base: '',
+  base: "",
 
-  integrations: [mdx(), sitemap(), react()],
+  integrations: [
+    mdx(),
+    sitemap(),
+    // react()
+  ],
 
-  site: 'https://shadowdara.github.io',
+  site: "https://shadowdara.github.io",
 
-  redirects
+  redirects,
 });
