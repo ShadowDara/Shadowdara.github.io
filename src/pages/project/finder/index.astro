@@ -1,0 +1,295 @@
+---
+import "./../../../styles/finder/home.css";
+
+import { type Os, installCommands } from "../../../client/finder";
+import LayoutNoStyle from "../../../layouts/LayoutNoStyle.astro";
+
+const features = [
+  {
+    kbd: "370+",
+    title: "Built-in templates",
+    text: "Search for projects and file structures using more than 370 built-in templates covering languages, frameworks, databases, CI/CD, and more.",
+  },
+  {
+    kbd: "JSONC",
+    title: "Custom templates",
+    text: "Add your own templates to ~/.finder/templates or ./.finder/templates without recompiling Finder.",
+  },
+  {
+    kbd: "REGEX",
+    title: "Powerful matching",
+    text: "Use glob patterns for common searches and name_regex when you need precise regular-expression matching.",
+  },
+  {
+    kbd: "--json",
+    title: "Machine-readable output",
+    text: "Pipe search results into other tools with JSON output and integrate Finder into your existing workflows.",
+  },
+  {
+    kbd: "--cache",
+    title: "Search caching",
+    text: "Create and reuse a cache to speed up repeated searches across large filesystems.",
+  },
+  {
+    kbd: "findergen",
+    title: "Built-in Web UI",
+    text: "Manage templates, inspect caches, edit configuration, create regex patterns, and explore Minecraft world data through the local web interface.",
+  },
+];
+
+const year = new Date().getFullYear();
+
+const osLabels: Record<Os, string> = {
+  mac: "macOS",
+  windows: "Windows",
+  linux: "Linux",
+};
+
+const operatingSystems: Os[] = ["mac", "windows", "linux"];
+---
+
+<LayoutNoStyle title="Finder" description="a website about finder">
+  <header class="nav wrap">
+    <div class="logo">
+      <span class="logo-mark"></span>
+      finder
+    </div>
+
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="https://github.com/ShadowDara/finder">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="glow"></div>
+
+      <div class="eyebrow">
+        <span class="dot"></span>
+        Go · Cross-platform · Open source
+      </div>
+
+      <h1 class="title">
+        Find projects
+        <br />
+        <span class="grad">by their structure.</span>
+      </h1>
+
+      <p class="subtitle">
+        Finder is a lightweight command-line tool for locating projects and
+        files using predefined folder and file structure templates. Search your
+        filesystem, build your own templates, and automate the results from the
+        terminal.
+      </p>
+
+      <div class="terminal" id="install">
+        <div class="terminal-bar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="terminal-body">
+          <code>
+            <span class="prompt">$</span>
+            <span data-command>{installCommands.mac}</span>
+          </code>
+
+          <button class="copy-btn" type="button" data-copy> copy </button>
+        </div>
+      </div>
+
+      <div class="os-row">
+        {
+          operatingSystems.map((os) => (
+            <button
+              class:list={["os-btn", { primary: os === "mac" }]}
+              data-os={os}
+              type="button"
+            >
+              Install on {osLabels[os]}
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="hero-links">
+        <a href="https://github.com/ShadowDara/finder"> View on GitHub → </a>
+
+        <a href="https://shadowdara.github.io/finder"> Documentation → </a>
+      </div>
+    </section>
+
+    <section class="features wrap" id="features">
+      {
+        features.map((feature) => (
+          <div class="feature">
+            <span class="kbd">{feature.kbd}</span>
+            <h3>{feature.title}</h3>
+            <p>{feature.text}</p>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="examples wrap">
+      <div class="section-heading">
+        <span class="eyebrow">
+          <span class="dot"></span>
+          Built for the terminal
+        </span>
+
+        <h2>
+          Simple commands.
+          <br />
+          <span class="grad">Structured results.</span>
+        </h2>
+      </div>
+
+      <div class="terminal terminal-large">
+        <div class="terminal-bar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="terminal-content">
+          <div>
+            <span class="prompt">$</span>
+            finder react
+          </div>
+
+          <div>
+            <span class="prompt">$</span>
+            finder --json react
+          </div>
+
+          <div>
+            <span class="prompt">$</span>
+            finder -t python
+          </div>
+
+          <div>
+            <span class="prompt">$</span>
+            finder --cache git
+          </div>
+
+          <div>
+            <span class="prompt">$</span>
+            finder list
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow wrap">
+      <div class="feature">
+        <span class="kbd">01</span>
+        <h3>Choose a template</h3>
+        <p>
+          Search the built-in template collection or create your own project
+          structure definition.
+        </p>
+      </div>
+
+      <div class="feature">
+        <span class="kbd">02</span>
+        <h3>Search your filesystem</h3>
+        <p>
+          Finder searches across your available filesystem and matches projects
+          against the selected structure.
+        </p>
+      </div>
+
+      <div class="feature">
+        <span class="kbd">03</span>
+        <h3>Use the result anywhere</h3>
+        <p>
+          Keep the output in the terminal, emit JSON, or integrate Finder into
+          another script or development workflow.
+        </p>
+      </div>
+    </section>
+
+    <section class="agents wrap">
+      <div class="agents-content">
+        <span class="eyebrow">
+          <span class="dot"></span>
+          agents.md
+        </span>
+
+        <h2>
+          Don't write templates.
+          <br />
+          <span class="grad">Let your agent do it.</span>
+        </h2>
+
+        <p>
+          Finder templates are easy to extend, but you don't have to write them
+          by hand. Give your coding agent the project structure and let it
+          create a Finder-compatible template for you.
+        </p>
+
+        <a
+          class="agents-link"
+          href="https://github.com/ShadowDara/finder/blob/102dac77fc3d35a37c554bcdc134dc7c9f902742/AGENTS.md"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn about custom templates →
+        </a>
+      </div>
+
+      <div class="agents-terminal terminal">
+        <div class="terminal-bar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="agents-code">
+          <div class="code-comment"># agents.md</div>
+
+          <div>
+            <span class="code-key">Task:</span>
+            Create a Finder template
+          </div>
+
+          <div>
+            <span class="code-key">Project:</span>
+            Next.js application
+          </div>
+
+          <div>
+            <span class="code-key">Structure:</span>
+            app/, public/, package.json
+          </div>
+
+          <div>
+            <span class="code-key">Output:</span>
+            ~/.finder/templates/nextjs.jsonc
+          </div>
+
+          <div class="code-success">✓ Template ready</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© {year} Finder -> shadowdara</span>
+
+    <div class="footer-links">
+      <a href="https://github.com/ShadowDara/finder"> GitHub </a>
+
+      <a href="https://shadowdara.github.io/finder"> Docs </a>
+    </div>
+  </footer>
+
+  <script>
+    import "../../../client/finder.ts";
+    import "../../../client/finderclient.ts";
+  </script>
+</LayoutNoStyle>

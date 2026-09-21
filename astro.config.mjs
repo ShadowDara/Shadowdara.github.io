@@ -6,6 +6,8 @@ import sitemap from "@astrojs/sitemap";
 import fs from "node:fs";
 import { customizeRedirects } from "./scripts/redirects";
 import yaml from "js-yaml";
+import { visualizer } from "rollup-plugin-visualizer";
+import { DevTools } from "@vitejs/devtools";
 
 const redirectsYaml = yaml.load(
   fs.readFileSync("./src/config/redirects.yaml", "utf8"),
@@ -29,7 +31,7 @@ for (const r of redirectsYaml) {
 
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), visualizer(), DevTools()],
 
     build: {
       target: "esnext",

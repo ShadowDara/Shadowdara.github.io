@@ -36,6 +36,12 @@
 - from: "/blog/2025/10/27/wikis"
   to: "/blog/wikis"
 
+#
+#
+############################################################
+#
+#
+
 # Ninjago Akinator
 - from: "/r/a"
   to: "https://ninjagonator.ju.mp"
@@ -48,7 +54,19 @@
 - from: "/r/c"
   to: "/blog/loveapp"
 
+# finder
+- from: "/r/finder"
+  to: "/finder"
+
+# Finder Infos
+- from: "/r/finderinfos"
+  to: "/project/finder/infos"
+
+#
+#
 ###### Permalinks
+#
+#
 
 # Birthday App
 - from: "/projects/permalink/birthday_app"
