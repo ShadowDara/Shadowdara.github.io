@@ -1,5 +1,6 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import fs from "node:fs";
 
 export function customizeRedirects(redirects) {
   return {
