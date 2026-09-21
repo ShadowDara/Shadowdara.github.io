@@ -15,7 +15,6 @@
     "@astrojs/mdx": "^8.0.1",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.4.0",
-    "@astrojs/starlight": "^0.42.2",
     "@iconmind/icons": "^0.8.1",
     "@tailwindcss/vite": "^4.1.7",
     "@vitejs/devtools": "^0.7.5",

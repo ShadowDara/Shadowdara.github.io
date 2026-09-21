@@ -1,0 +1,107 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  headings?: {
+    depth: number;
+    slug: string;
+    text: string;
+  }[];
+}
+
+import "./../styles/docs.css";
+
+const { title, description, headings = [] } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>{title} — Shadowdara Docs</title>
+
+    {description && <meta name="description" content={description} />}
+  </head>
+
+  <body>
+    <div class="docs-layout">
+      <header class="docs-header">
+        <div class="docs-header-inner">
+          <div class="docs-brand">
+            <a href="/">Shadowdara</a>
+          </div>
+
+          <div class="docs-header-right">
+            <a href="/docs/">Docs</a>
+            <a href="/blog/">Blog</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="docs-main">
+        <aside class="docs-sidebar">
+          <div class="docs-sidebar-title">Documentation</div>
+
+          <a href="/docs/" class:list={{ active: currentPath === "/docs/" }}>
+            Getting Started
+          </a>
+
+          <a
+            href="/docs/config/"
+            class:list={{ active: currentPath === "/docs/config/" }}
+          >
+            Configuration
+          </a>
+
+          <div style="margin-top: 1.5rem" class="docs-sidebar-title">API</div>
+
+          <a
+            href="/docs/api/reference/"
+            class:list={{
+              active: currentPath === "/docs/api/reference/",
+            }}
+          >
+            Reference
+          </a>
+        </aside>
+
+        <main class="docs-content">
+          <h1 class="docs-title">{title}</h1>
+
+          {description && <p class="docs-description">{description}</p>}
+
+          <article class="docs-prose">
+            <slot />
+          </article>
+        </main>
+
+        <aside class="docs-toc">
+          {
+            headings.length > 0 && (
+              <>
+                <div class="docs-toc-title">On this page</div>
+
+                {headings
+                  .filter(
+                    (heading) => heading.depth === 2 || heading.depth === 3,
+                  )
+                  .map((heading) => (
+                    <a
+                      href={`#${heading.slug}`}
+                      class={`depth-${heading.depth}`}
+                    >
+                      {heading.text}
+                    </a>
+                  ))}
+              </>
+            )
+          }
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>

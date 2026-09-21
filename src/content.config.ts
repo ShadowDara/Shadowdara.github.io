@@ -1,7 +1,5 @@
 import { glob } from "astro/loaders";
 import { defineCollection, z } from "astro:content";
-import { docsLoader } from "@astrojs/starlight/loaders";
-import { docsSchema } from "@astrojs/starlight/schema";
 
 const blog = defineCollection({
   // Load Markdown and MDX files in the `src/content/blog/` directory.
@@ -18,10 +16,18 @@ const blog = defineCollection({
   }),
 });
 
+const finderdocs = defineCollection({
+  loader: glob({
+    base: "./src/content/finder-docs",
+    pattern: "**/*.{md,mdx}",
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+  }),
+});
+
 export const collections = {
   blog,
-  docs: defineCollection({
-    loader: docsLoader(),
-    schema: docsSchema(),
-  }),
+  finderdocs,
 };
