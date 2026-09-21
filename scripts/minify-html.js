@@ -14,8 +14,22 @@ async function processFile(filePath) {
   const minified = await minify(originalContent, {
     collapseWhitespace: true,
     removeComments: true,
+    removeRedundantAttributes: true,
+    removeEmptyAttributes: true,
+    removeOptionalTags: true,
+    useShortDoctype: true,
+
     minifyCSS: true,
-    minifyJS: true,
+
+    minifyJS: {
+      compress: {
+        passes: 9,
+        // unsafe: true,
+        drop_console: true,
+        drop_debugger: true,
+      },
+      mangle: true,
+    },
   });
 
   fs.writeFileSync(filePath, minified);
@@ -49,7 +63,8 @@ async function run() {
   await walk(distDir);
 
   const saved = totalBefore - totalAfter;
-  const percent = totalBefore === 0 ? 0 : ((saved / totalBefore) * 100).toFixed(1);
+  const percent =
+    totalBefore === 0 ? 0 : ((saved / totalBefore) * 100).toFixed(1);
 
   console.log("\n📊 Build Minify Summary");
   console.log("------------------------");
