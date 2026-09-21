@@ -1,13 +1,10 @@
 // Astro Config
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import vue from "@astrojs/vue";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-
-import react from "@astrojs/react";
-
-import fs from "fs";
+import fs from "node:fs";
+import { customizeRedirects } from "./scripts/redirects";
 import yaml from "js-yaml";
 
 const redirectsYaml = yaml.load(
@@ -18,39 +15,41 @@ const redirects = {};
 
 for (const r of redirectsYaml) {
   if (Array.isArray(r.from)) {
-    r.from.forEach((f) => (redirects[f] = r.to));
+    r.from.forEach((f) => {
+      redirects[f] = r.to;
+    });
   } else {
     redirects[r.from] = r.to;
   }
 }
 
+// --------------------------------------------------
+// Astro Config
+// --------------------------------------------------
+
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
-    // optimizeDeps: {
-    //   include: ["samengine"],
-    // },
-    // ssr: {
-    //   noExternal: ["samengine"],
-    // },
 
     build: {
-      target: "esnext", // <- very important!
+      target: "esnext",
     },
+
     optimizeDeps: {
       esbuildOptions: {
-        target: "esnext", // <- for dev/build
+        target: "esnext",
       },
     },
   },
 
-  // base: '/portfolio',
   base: "",
 
   integrations: [
     mdx(),
     sitemap(),
-    // react()
+
+    // WICHTIG:
+    customizeRedirects(redirects),
   ],
 
   site: "https://shadowdara.github.io",

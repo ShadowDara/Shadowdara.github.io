@@ -73,6 +73,7 @@ export const link_sort: LinkSortData = {
     // "discord",
     // "reddit",
     // "linktree",
+    "portfolio",
   ],
 };
 
@@ -126,6 +127,12 @@ export const all_links: AllLinksItem[] = [
     name: "Linktree",
     link: "https://linktr.ee/shadowdara",
     blanc: true,
+  },
+  {
+    id: "portfolio",
+    name: "Portfolio",
+    link: "/portfolio.html",
+    blanc: false,
   },
 
   {

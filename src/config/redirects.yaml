@@ -1,7 +1,11 @@
 # All Redirections
 
+# Portfolio
+- from: "/portfolio.html"
+  to: "/portfolio"
+
 # Wordpress Blog
-- from: "wp"
+- from: "/wp"
   to: "https://shadowdara.wordpress.com"
 
 # Mein Discord Server
