@@ -21,6 +21,7 @@
 #include <numeric>
 #include <sstream>
 #include <stdexcept>
+#include <fstream>
 
 #pragma endregion
 
@@ -693,7 +694,7 @@ namespace shadowdara::nana_ui {
     }
 
 #define NANA_ON_CLICK(button, code) \
-    (button).events().click([&]()  code; );
+    (button).events().click([&]()  code );
 
 // Easy Size, MOve
 #define NANA_SIMO(object, movX, movY, sizeX, sizeY) \
@@ -897,6 +898,97 @@ void enable_utf8() {
 
 #endif
 }
+
+// open a file
+void openFile(const std::string& path)
+{
+#ifdef _WIN32
+
+    ShellExecuteA(NULL, "open", path.c_str(), NULL, NULL, SW_SHOW);
+
+#elif __APPLE__
+
+    std::string command = "open \"" + path + "\"";
+    system(command.c_str());
+
+#elif __linux__
+
+    std::string command = "xdg-open \"" + path + "\"";
+    system(command.c_str());
+
+#endif
+}
+
+
+std::string loadFile(const std::string& pfad)
+{
+    std::ifstream datei(pfad);
+
+    if (!datei)
+        return "";
+
+    std::stringstream buffer;
+    buffer << datei.rdbuf();
+
+    return buffer.str();
+}
+
+#pragma endregion
+
+#pragma region ArgParser
+
+class ArgParser {
+private:
+    std::unordered_map<std::string, std::string> options;
+    std::vector<std::string> args;
+
+public:
+    inline ArgParser(int argc, char* argv[])
+    {
+        for (int i = 1; i < argc; i++) {
+            std::string arg = argv[i];
+
+            // Option mit Wert: --name Bob
+            if (arg.rfind("--", 0) == 0 || arg.rfind("-", 0) == 0) {
+                if (i + 1 < argc && argv[i + 1][0] != '-') {
+                    options[arg] = argv[++i];
+                }
+                else {
+                    // Flag ohne Wert
+                    options[arg] = "true";
+                }
+            }
+            else {
+                args.push_back(arg);
+            }
+        }
+    }
+
+    inline bool has(const std::string& option)
+    {
+        return options.find(option) != options.end();
+    }
+
+    inline std::string get(const std::string& option,
+        const std::string& defaultValue = "")
+    {
+        if (has(option))
+            return options[option];
+
+        return defaultValue;
+    }
+
+    inline bool getBool(const std::string& option)
+    {
+        return get(option) == "true";
+    }
+
+
+    inline std::vector<std::string> positional()
+    {
+        return args;
+    }
+};
 
 #pragma endregion
 
