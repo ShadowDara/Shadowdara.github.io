@@ -5,6 +5,8 @@ description: "an info about the page ..."
 tags: ["pinned"]
 ---
 
-# Deployment Status
+# Some Infos about the Page
+
+## Deployment Status
 
 [![Build & Deploy Astro Site](https://github.com/ShadowDara/Shadowdara.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/ShadowDara/Shadowdara.github.io/actions/workflows/deploy.yml)

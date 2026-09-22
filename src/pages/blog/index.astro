@@ -22,7 +22,7 @@ const posts = (await getCollection("blog")).sort(
                 </div>
                 <section>
                     {
-                        posts.slice(0, 5).map((post) => (
+                        posts.slice(0, 6).map((post) => (
                             <div class="blog"><hr /></div>
                             <div class="tooltip-container">
                                 <a href={b + `/blog/${post.id}/`}>
