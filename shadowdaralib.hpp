@@ -19,9 +19,16 @@
 #include <cstdint>
 #include <stdexcept>
 #include <numeric>
+#include <sstream>
+#include <stdexcept>
 
 #pragma endregion
 
+#pragma region Macros
+
+#define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))
+
+#pragma endregion
 
 #pragma region colors
 
@@ -261,7 +268,6 @@ inline constexpr const char* BG_BRIGHT_WHITE = "\x1b[107m";
 
 #pragma endregion
 
-
 #pragma region sorting
 
 // bublsort algorithm, which is a simple sorting algorithm that
@@ -300,7 +306,6 @@ inline void bubblesort(std::vector<T>& values, Compare comp)
 }
 
 #pragma endregion
-
 
 #pragma region strings
 
@@ -618,3 +623,281 @@ namespace strutil {
 } // namespace strutil
 
 #pragma endregion
+
+#pragma region Version
+
+struct Version
+{
+    int major = 0;
+    int minor = 0;
+    int patch = 0;
+
+    // to compare the versions
+    auto operator<=>(const Version&) const = default;
+};
+
+inline Version parseVersion(const std::string& versionStr)
+{
+    Version version;
+    std::stringstream ss(versionStr);
+    std::string part;
+    std::vector<int> numbers;
+
+    while (std::getline(ss, part, '.'))
+    {
+        numbers.push_back(std::stoi(part));
+    }
+
+    if (numbers.size() != 3)
+        throw std::invalid_argument("Invalid version format. Expected MAJOR.MINOR.PATCH");
+
+    version.major = numbers[0];
+    version.minor = numbers[1];
+    version.patch = numbers[2];
+
+    return version;
+}
+
+#pragma endregion
+
+#pragma region Nana UI
+
+// Enable with the Macros 
+// #define SHADOWDARA_LIB_NANA_UI
+
+#ifdef SHADOWDARA_LIB_NANA_UI
+
+#include <nana/gui.hpp>
+#include <nana/gui/widgets/label.hpp>
+#include <nana/gui/widgets/button.hpp>
+#include <nana/gui/widgets/slider.hpp>
+#include <nana/gui/widgets/combox.hpp>
+#include <nana/gui/widgets/checkbox.hpp>
+#include <nana/gui/widgets/textbox.hpp>
+#include <nana/gui/widgets/progress.hpp>
+#include <nana/gui/widgets/panel.hpp>
+
+namespace shadowdara::nana_ui {
+
+    inline void create_nana_button(
+        nana::button& button,
+        const std::string& name,
+        int desX,
+        int desY,
+        unsigned sizeX,
+        unsigned sizeY)
+    {
+        button.caption(name);
+        button.move({ desX, desY });
+        button.size({ sizeX, sizeY });
+    }
+
+#define NANA_ON_CLICK(button, code) \
+    (button).events().click([&]()  code; );
+
+// Easy Size, MOve
+#define NANA_SIMO(object, movX, movY, sizeX, sizeY) \
+    object.move( { movX, movY });                   \
+    object.size({ sizeX, sizeY });;
+
+} // shadowdara::nana_ui
+
+#endif
+
+#pragma endregion
+
+#pragma region Process
+
+#ifdef _WIN32
+#define NOMINMAX
+#include <windows.h>
+#else
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#endif
+
+
+inline int runProcess(
+    const std::string& executable,
+    const std::vector<std::string>& args)
+{
+#ifdef _WIN32
+
+    // ------------------------------------------------------------
+    // Windows - Unicode / UTF-16
+    // ------------------------------------------------------------
+
+    // UTF-8 -> UTF-16
+    auto utf8ToWide = [](const std::string& str) -> std::wstring
+        {
+            if (str.empty())
+                return {};
+
+            int size = MultiByteToWideChar(
+                CP_UTF8,
+                0,
+                str.data(),
+                static_cast<int>(str.size()),
+                nullptr,
+                0
+            );
+
+            if (size <= 0)
+                return {};
+
+            std::wstring result(size, L'\0');
+
+            MultiByteToWideChar(
+                CP_UTF8,
+                0,
+                str.data(),
+                static_cast<int>(str.size()),
+                result.data(),
+                size
+            );
+
+            return result;
+        };
+
+    std::wstring wideExecutable = utf8ToWide(executable);
+
+    std::wstring commandLine = L"\"" + wideExecutable + L"\"";
+
+    for (const auto& arg : args)
+    {
+        std::wstring wideArg = utf8ToWide(arg);
+
+        commandLine += L" \"";
+
+        // Minimal escaping für Windows command line arguments.
+        for (wchar_t c : wideArg)
+        {
+            if (c == L'"')
+                commandLine += L"\\\"";
+            else
+                commandLine += c;
+        }
+
+        commandLine += L"\"";
+    }
+
+    STARTUPINFOW startupInfo{};
+    startupInfo.cb = sizeof(startupInfo);
+
+    PROCESS_INFORMATION processInfo{};
+
+    std::vector<wchar_t> commandLineBuffer(
+        commandLine.begin(),
+        commandLine.end()
+    );
+
+    commandLineBuffer.push_back(L'\0');
+
+    BOOL success = CreateProcessW(
+        nullptr,
+        commandLineBuffer.data(),
+        nullptr,
+        nullptr,
+        FALSE,
+        0,
+        nullptr,
+        nullptr,
+        &startupInfo,
+        &processInfo
+    );
+
+    if (!success)
+        return -1;
+
+    WaitForSingleObject(
+        processInfo.hProcess,
+        INFINITE
+    );
+
+    DWORD exitCode = 0;
+
+    GetExitCodeProcess(
+        processInfo.hProcess,
+        &exitCode
+    );
+
+    CloseHandle(processInfo.hThread);
+    CloseHandle(processInfo.hProcess);
+
+    return static_cast<int>(exitCode);
+
+#else
+
+    // ------------------------------------------------------------
+    // Linux / macOS
+    // ------------------------------------------------------------
+
+    pid_t pid = fork();
+
+    if (pid < 0)
+        return -1;
+
+    if (pid == 0)
+    {
+        std::vector<char*> argv;
+
+        argv.push_back(
+            const_cast<char*>(executable.c_str())
+        );
+
+        for (const auto& arg : args)
+        {
+            argv.push_back(
+                const_cast<char*>(arg.c_str())
+            );
+        }
+
+        argv.push_back(nullptr);
+
+        execvp(
+            executable.c_str(),
+            argv.data()
+        );
+
+        _exit(127);
+    }
+
+    int status = 0;
+
+    if (waitpid(pid, &status, 0) < 0)
+        return -1;
+
+    if (WIFEXITED(status))
+        return WEXITSTATUS(status);
+
+    if (WIFSIGNALED(status))
+        return 128 + WTERMSIG(status);
+
+    return -1;
+
+#endif
+}
+
+// WIndows only function
+void enable_utf8() {
+#if _WIN32
+
+    // that ansi codes work
+
+    SetConsoleOutputCP(CP_UTF8);
+
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    DWORD mode = 0;
+    if (GetConsoleMode(hOut, &mode))
+    {
+        SetConsoleMode(hOut, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+    }
+
+#endif
+}
+
+#pragma endregion
+
+// END of shadowdaras LIB
