@@ -1,0 +1,119 @@
+---
+title: "Local IP Adresses"
+pubDate: "September 23 2026"
+description: "here i am explaining how i set up .local domains in my wifi network"
+---
+
+import CodeBlock from "../../components/CodeBlock.astro";
+import CodeLine from "../../components/CodeLine.astro";
+import Code from "../../components/Code.astro";
+
+# Local Ip Adresses
+
+add `.local` domains in your local wifi network.
+
+## Install
+
+*(for linux lubuntu)*
+
+<CodeLine language="sh" src="install_local_server" />
+
+## nginx
+
+<Code src="sudo nano /etc/nginx/sites-available/local-apps" language="sh" />
+
+<br/>
+
+<details>
+    <summary><b>nginx.conf content</b></summary>
+
+    <CodeBlock
+        language="nginx"
+        src="src/code/nginx-local.conf"
+    />
+
+</details>
+
+<br/>
+
+Remove the nginx standard Page:
+
+<Code src="sudo rm -f /etc/nginx/sites-enabled/default" language="sh" />
+
+### Reload
+
+Reload the nginx server
+
+<Code src="sudo nginx -t" language="sh" />
+
+<Code src="sudo systemctl reload nginx" language="sh" />
+
+##  Avahi
+
+<Code src="sudo nano /etc/avahi/avahi-daemon.conf" language="sh" />
+
+change this line to `wlo1` in the avahi daemon config
+
+<Code src="allow-interfaces=wlo1" language="ini" />
+
+### Start
+
+<CodeLine language="sh" src="start_local_server" />
+
+<Code src="sudo systemctl restart avahi-daemon" language="sh" />
+
+<Code src="avahi-publish -a -R grafana.local 192.168.178.103" language="sh" />
+
+### Test
+
+<Code src="avahi-resolve -n grafana.local" language="sh" />
+
+### Make Forever
+
+<Code src="sudo nano /etc/systemd/system/mdns-grafana.service" language="sh" />
+<Code src="sudo nano /etc/systemd/system/mdns-app.service" language="sh" />
+<Code src="sudo nano /etc/systemd/system/mdns-homeassistant.service" language="sh" />
+
+<br/>
+
+<details>
+    <summary>mdns-grafana.service</summary>
+
+    <CodeBlock
+        language="ini"
+        src="src/code/mdns-grafana.service"
+    />
+
+</details>
+<br/>
+<details>
+    <summary>mdns-app.service</summary>
+
+    <CodeBlock
+        language="ini"
+        src="src/code/mdns-app.service"
+    />
+
+</details>
+<br/>
+<details>
+    <summary>mdns-homeassistant.service</summary>
+
+    <CodeBlock
+        language="ini"
+        src="src/code/mdns-homeassistant.service"
+    />
+
+</details>
+
+### Make Active
+
+<CodeLine language="sh" src="reload_local_server" />
+
+### Test
+
+<CodeLine language="sh" src="test_local_server" />
+
+<br/>
+
+Please creadit if repost this or use it.

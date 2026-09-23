@@ -1,5 +1,6 @@
 ---
 import { codeToHtml } from "shiki";
+import { prettySize } from "../lib/helper.ts";
 
 const { src, language = "text" } = Astro.props;
 
@@ -7,11 +8,14 @@ const highlightedCode = await codeToHtml(src, {
   lang: language,
   theme: "github-dark",
 });
+
+let size = prettySize(src.length);
 ---
 
 <div class="code-wrapper">
   <div class="code-header">
     <span>{language}</span>
+	<span>Size: {size}</span>
     <button class="copy-button" type="button">Copy</button>
   </div>
 

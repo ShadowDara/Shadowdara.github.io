@@ -1,5 +1,8 @@
 #pragma once
 
+// INFO if you find bugs in this libary, please send them
+// to shadowdara74@gmail.com
+
 // This Shadowdara Personal Library is a collection of utility
 // functions and classes for various purposes, including
 // configuration management, file loading, rendering, and string
@@ -8,20 +11,44 @@
 
 // for C++ 20
 
+// LICENSE MIT for the libary
+// and when using the libary in project which will be published,
+// it would be cool if you could send an email to email down below,
+// i want to see what you have created with it!
+//
+// shadowdara74@gmail.com
+//
+
+// CREDIT WHEN USING THIS LIB (COPY THE LINE DOWN BELOW)
+
+/*
+used shadowdara's C++ Lib by Shadowdara which is licensed under MIT
+LICENSE
+https://shadowdara.github.io/blog/my-cpp-lib-for-stuff/
+*/
+
+// PS SOME CREDITS WHICH I USED TO CREATE THE LIBARY
+//
+// https://stackoverflow.com/questions/13172158/c-split-string-by-line
 
 #pragma region includes
 
+// CPP Libs
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <sstream>
-#include <cctype>
-#include <cstdint>
 #include <stdexcept>
 #include <numeric>
 #include <sstream>
 #include <stdexcept>
 #include <fstream>
+#include <unordered_map>
+
+// C Libs
+#include <cstdint>
+#include <cctype>
+#include <cstdint>
 
 #pragma endregion
 
@@ -881,7 +908,7 @@ inline int runProcess(
 }
 
 // WIndows only function
-void enable_utf8() {
+inline void enable_utf8() {
 #if _WIN32
 
     // that ansi codes work
@@ -900,7 +927,7 @@ void enable_utf8() {
 }
 
 // open a file
-void openFile(const std::string& path)
+inline void openFile(const std::string& path)
 {
 #ifdef _WIN32
 
@@ -920,7 +947,7 @@ void openFile(const std::string& path)
 }
 
 
-std::string loadFile(const std::string& pfad)
+inline std::string loadFile(const std::string& pfad)
 {
     std::ifstream datei(pfad);
 
@@ -989,6 +1016,137 @@ public:
         return args;
     }
 };
+
+#pragma endregion
+
+#pragma region splitter
+
+// Get the section of a file with a start and an end point
+// the function returns an empty string when the endpoint
+// is missing
+inline std::string getSection(std::string content, std::string start, std::string end)
+{
+	std::stringstream ss(content);
+	std::string to;
+	
+	std::string result;
+	
+	bool collect = false;
+	
+	while(std::getline(ss, to, '\n'))
+	{
+		// Collect the string
+		if (collect)
+		{
+			result += to;
+		}
+		
+		if (to == start)
+		{
+			collect = true;
+		}
+		
+		if (to == end)
+		{
+			return result;
+		}
+	}
+	
+	return "";
+}
+
+#pragma endregion
+
+#pragma region base64
+
+inline static const std::string base64_chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    "abcdefghijklmnopqrstuvwxyz"
+    "0123456789+/";
+
+inline std::string base64_encode(const std::string& input) {
+    std::string output;
+    int val = 0;
+    int bits = -6;
+
+    for (unsigned char c : input) {
+        val = (val << 8) + c;
+        bits += 8;
+
+        while (bits >= 0) {
+            output += base64_chars[(val >> bits) & 0x3F];
+            bits -= 6;
+        }
+    }
+
+    if (bits > -6)
+        output += base64_chars[((val << 8) >> (bits + 8)) & 0x3F];
+
+    while (output.size() % 4)
+        output += '=';
+
+    return output;
+}
+
+inline std::string base64_decode(const std::string& input) {
+    std::vector<int> lookup(256, -1);
+
+    for (int i = 0; i < 64; ++i)
+        lookup[static_cast<unsigned char>(base64_chars[i])] = i;
+
+    std::string output;
+    int val = 0;
+    int bits = -8;
+
+    for (unsigned char c : input) {
+        if (lookup[c] == -1)
+            break;
+
+        val = (val << 6) + lookup[c];
+        bits += 6;
+
+        if (bits >= 0) {
+            output += static_cast<char>((val >> bits) & 0xFF);
+            bits -= 8;
+        }
+    }
+
+    return output;
+}
+
+#pragma endregion
+
+#pragma region Char Count
+
+inline std::unordered_map<char, int> counter(std::string input)
+{
+    std::unordered_map<char, int> map;
+    
+    for (char c : input)
+    {
+        map[c] += 1;
+    }
+    
+    return map;
+}
+
+
+inline void printresult(std::unordered_map<char, int> map)
+{
+    for (const auto& pair : map)
+    {
+        std::cout << pair.first << " -> " << pair.second << "\n";
+    }
+}
+
+#pragma endregion
+
+#pragma region Bitpacking
+
+#define BIT_SET(v, b)   ((v) |=  (uint8_t(1u) << (b)))
+#define BIT_CLEAR(v, b) ((v) &= ~(uint8_t(1u) << (b)))
+#define BIT_READ(v, b)  (((v) >> (b)) & 1u)
+#define BIT_SWAP(v, b)  ((v) ^=  (uint8_t(1u) << (b)))
 
 #pragma endregion
 

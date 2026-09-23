@@ -1,0 +1,12 @@
+[Unit]
+Description=mDNS alias for Grafana
+After=avahi-daemon.service
+Requires=avahi-daemon.service
+
+[Service]
+ExecStart=/usr/bin/avahi-publish -a -R grafana.local 192.168.178.103
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

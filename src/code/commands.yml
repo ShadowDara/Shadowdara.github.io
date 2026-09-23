@@ -1,0 +1,18 @@
+install_local_server: |
+    sudo apt update
+    sudo apt install avahi-utils libnss-mdns avahi-daemon nginx
+start_local_server: |
+    sudo systemctl enable avahi-daemon
+    sudo systemctl start avahi-daemon
+    systemctl status avahi-daemon
+test_local_server: |
+    systemctl status mdns-grafana.service
+    
+    avahi-resolve -n grafana.local
+reload_local_server: |
+    sudo systemctl daemon-reload
+    
+    sudo systemctl enable --now mdns-grafana.service
+    sudo systemctl enable --now mdns-app.service
+    sudo systemctl enable --now mdns-homeassistant.service
+    
