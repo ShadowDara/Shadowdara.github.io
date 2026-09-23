@@ -1,6 +1,11 @@
 ---
 import { b } from "../consts";
 import "../styles/blog.css";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <header>
@@ -31,4 +36,5 @@ import "../styles/blog.css";
     ·{" "}
     <span><a href={b + "/blog/i/devblog"}>Devblog</a></span>
   </h3>
+  <h4>Posts Count: {posts.length}</h4>
 </footer>

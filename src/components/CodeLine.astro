@@ -1,0 +1,22 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import YAML from "js-yaml";
+import Code from "./Code.astro";
+
+const { src, language = "text" } = Astro.props;
+
+const file = fs.readFileSync(
+  path.resolve(process.cwd(), "src/code/commands.yml"),
+  "utf-8",
+);
+
+const commands = YAML.load(file) as Record<string, string>;
+const code = commands[src]?.trimEnd();
+
+if (typeof code !== "string") {
+  throw new Error(`Command "${src}" was not found in commands.yml`);
+}
+---
+
+<Code language={language} src={code} />

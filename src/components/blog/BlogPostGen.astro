@@ -1,0 +1,140 @@
+---
+
+---
+
+<h2>Input</h2>
+
+<input id="name" placeholder="name" />
+
+<input id="desc" placeholder="description" />
+
+<input id="pubDate" type="date" />
+
+<input id="tags" placeholder="tags" />
+
+<h2>Output</h2>
+
+<div class="code-wrapper">
+  <div class="code-header">
+    <span>Markdown</span>
+    <button class="copy-button" type="button">Copy</button>
+  </div>
+
+  <pre id="output"></pre>
+</div>
+
+<script>
+  const name = document.getElementById("name");
+  const desc = document.getElementById("desc");
+  const tags = document.getElementById("tags");
+  const pubDate = document.getElementById("pubDate");
+  const output = document.getElementById("output");
+
+  function generateHeader(): string {
+    const nameval = name?.value ?? "";
+    const descval = desc?.value ?? "";
+    const tagsval = tags?.value ?? "";
+    const pubDateVal = (pubDate as HTMLInputElement | null)?.value ?? "";
+
+    let returnval = "---\n";
+
+    returnval += 'title: "' + nameval + '"\n';
+    returnval += 'description: "' + descval + '"\n';
+    if (pubDateVal) {
+      const date = new Date(pubDateVal + "T00:00:00");
+
+      const formattedDate = date
+        .toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        })
+        .replace(",", "");
+
+      returnval += `pubDate: "${formattedDate}"\n`;
+    }
+
+    const tagsarr = tagsval
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag.length > 0);
+
+    if (tagsarr.length > 0) {
+      returnval += "tags: [ ";
+
+      for (const tag of tagsarr) {
+        returnval += `"${tag}", `;
+      }
+
+      returnval += "]\n";
+    }
+
+    returnval += "---";
+
+    return returnval;
+  }
+
+  function updateOutput() {
+    if (output) {
+      output.innerText = generateHeader();
+    }
+  }
+
+  name?.addEventListener("input", updateOutput);
+  desc?.addEventListener("input", updateOutput);
+  pubDate?.addEventListener("input", updateOutput);
+  tags?.addEventListener("input", updateOutput);
+
+  updateOutput();
+</script>
+
+<script>
+  document.querySelectorAll(".copy-button").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const wrapper = button.closest(".code-wrapper");
+      const code = wrapper?.querySelector("code")?.textContent ?? "";
+
+      await navigator.clipboard.writeText(code);
+
+      button.textContent = "Copied!";
+
+      setTimeout(() => {
+        button.textContent = "Copy";
+      }, 1500);
+    });
+  });
+</script>
+
+<style>
+  .code-wrapper {
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: #1e1e1e;
+    color: #aaa;
+    font-family: monospace;
+    font-size: 0.85rem;
+  }
+
+  .copy-button {
+    border: 0;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+  }
+
+  .code-content {
+    overflow-x: auto;
+  }
+
+  .code-content :global(pre) {
+    margin: 0;
+    padding: 1rem;
+  }
+</style>

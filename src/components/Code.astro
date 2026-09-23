@@ -1,0 +1,70 @@
+---
+import { codeToHtml } from "shiki";
+
+const { src, language = "text" } = Astro.props;
+
+const highlightedCode = await codeToHtml(src, {
+  lang: language,
+  theme: "github-dark",
+});
+---
+
+<div class="code-wrapper">
+  <div class="code-header">
+    <span>{language}</span>
+    <button class="copy-button" type="button">Copy</button>
+  </div>
+
+  <div class="code-content" set:html={highlightedCode} />
+</div>
+
+<script>
+  document.querySelectorAll(".copy-button").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const wrapper = button.closest(".code-wrapper");
+      const code = wrapper?.querySelector("code")?.textContent ?? "";
+
+      await navigator.clipboard.writeText(code);
+
+      button.textContent = "Copied!";
+
+      setTimeout(() => {
+        button.textContent = "Copy";
+      }, 1500);
+    });
+  });
+</script>
+
+<style>
+  .code-wrapper {
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: #1e1e1e;
+    color: #aaa;
+    font-family: monospace;
+    font-size: 0.85rem;
+  }
+
+  .copy-button {
+    border: 0;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+  }
+
+  .code-content {
+    overflow-x: auto;
+  }
+
+  .code-content :global(pre) {
+    margin: 0;
+    padding: 1rem;
+  }
+</style>
