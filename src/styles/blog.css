@@ -3,6 +3,11 @@ body {
   padding: 2rem;
 }
 
+main {
+  word-wrap: all;
+  word-break: break-all;
+}
+
 .d4r-box-blog {
   background: #1e1e1e;
   color: #e0e0e0;
