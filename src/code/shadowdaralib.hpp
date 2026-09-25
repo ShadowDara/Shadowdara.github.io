@@ -44,6 +44,7 @@ https://shadowdara.github.io/blog/my-cpp-lib-for-stuff/
 #include <stdexcept>
 #include <fstream>
 #include <unordered_map>
+#include <system_error>
 
 // C Libs
 #include <cstdint>
@@ -1149,5 +1150,129 @@ inline void printresult(std::unordered_map<char, int> map)
 #define BIT_SWAP(v, b)  ((v) ^=  (uint8_t(1u) << (b)))
 
 #pragma endregion
+
+#pragma region Terminal Markdown
+
+// Terminal Markdown is Libary to make a syntax style similiar to markdown
+// but with the ansi colors codes too.
+//
+// for example the text will be printed in the terminal default color,
+// except red, which will be printed in red!
+
+/*
+hello, this text is [red]red[/red]
+*/
+
+inline std::string parseTerminalMarkdown(std::string input)
+{}
+
+inline std::string parseTerminalMarkdowntoMarkdown()
+{}
+
+#pragma endregion
+
+inline std::string getHomeDir()
+{
+    // -------------------------
+    // 1. HOME-Verzeichnis finden
+    // -------------------------
+    std::string home;
+
+#if defined(_WIN32)
+    const char* env = std::getenv("USERPROFILE");
+    if (!env) env = std::getenv("HOMEPATH");
+    if (!env) env = std::getenv("HOME"); // falls unter MSYS/MinGW
+    if (!env) return {};
+    home = env;
+
+    // Backslashes → Slashes normalisieren
+    for (char& c : home)
+        if (c == '\\') c = '/';
+
+#elif defined(__APPLE__) || defined(__linux__)
+    const char* env = std::getenv("HOME");
+    if (!env) return {};
+    home = env;
+
+#else
+	
+#error Unsupported platform
+
+#endif
+
+    // -------------------------
+    // 2. ".config"-Ordner anhängen
+    // -------------------------
+    // trailing slash entfernen
+    while (!home.empty() && (home.back() == '/' || home.back() == '\\'))
+        home.pop_back();
+
+    return home;
+}
+
+#pragma region Data	
+
+inline std::string escapeNewline(std::string input)
+{
+    std::string result;
+    result.reserve(input.size());
+
+    for (char c : input)
+    {
+        if (c == '\n')
+		{
+            result += "\\n";
+		}
+        else
+		{
+            result += c;
+		}
+    }
+
+    return result;
+}
+
+inline std::string unescapeNewline(std::string input)
+{
+    std::string result;
+    result.reserve(input.size());
+
+    for (size_t i = 0; i < input.size(); ++i)
+    {
+        if (input[i] == '\\' && i + 1 < input.size() && input[i + 1] == 'n')
+        {
+            result += '\n';
+            ++i; // 'n' überspringen
+        }
+        else
+        {
+            result += input[i];
+        }
+    }
+
+    return result;
+}
+
+#pragma endregion
+
+std::int64_t getEditTime(const std::filesystem::path& path)
+{
+    std::error_code ec;
+
+    auto fileTime = std::filesystem::last_write_time(path, ec);
+
+    if (ec)
+        return 0;
+
+    auto systemTime =
+        std::chrono::time_point_cast<std::chrono::system_clock::duration>(
+            fileTime - std::filesystem::file_time_type::clock::now()
+            + std::chrono::system_clock::now()
+        );
+
+    return std::chrono::duration_cast<std::chrono::seconds>(
+        systemTime.time_since_epoch()
+    ).count();
+}
 
 // END of shadowdaras LIB
