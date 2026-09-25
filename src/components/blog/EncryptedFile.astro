@@ -1,0 +1,288 @@
+---
+import { readFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { webcrypto } from "node:crypto";
+import { loadEnv } from "vite";
+
+interface Props {
+  /**
+   * Pfad zur Datei relativ zum Projekt-Root.
+   *
+   * Beispiel:
+   * file="./private/geheim.txt"
+   */
+  file: string;
+
+  /**
+   * Name der Environment-Variable mit dem Passwort.
+   *
+   * Beispiel:
+   * passwordEnv="SECRET_PASSWORD"
+   */
+  passwordEnv: string;
+
+  /**
+   * Optionaler Text über dem Passwortfeld.
+   */
+  label?: string;
+}
+
+const { file, passwordEnv, label = "Passwort" } = Astro.props;
+
+const encoder = new TextEncoder();
+
+function toBase64(buffer: ArrayBuffer): string {
+  return Buffer.from(buffer).toString("base64");
+}
+
+// .env-Dateien laden.
+// Astro/Vite lädt dadurch auch Variablen aus .env, .env.local usw.
+const env = loadEnv(
+  process.env.NODE_ENV === "production" ? "production" : "development",
+  process.cwd(),
+  "",
+);
+
+const password = env[passwordEnv];
+
+if (!password) {
+  throw new Error(
+    `EncryptedFile: Environment-Variable "${passwordEnv}" wurde nicht gefunden.`,
+  );
+}
+
+// Datei relativ zum Projekt-Root lesen.
+const filePath = resolve(process.cwd(), file);
+
+let plaintext: string;
+
+try {
+  plaintext = await readFile(filePath, "utf8");
+} catch (error) {
+  throw new Error(
+    `EncryptedFile: Datei "${file}" konnte nicht gelesen werden.`,
+    { cause: error },
+  );
+}
+
+// -------------------------
+// Verschlüsselung
+// -------------------------
+
+const salt = webcrypto.getRandomValues(new Uint8Array(16));
+const iv = webcrypto.getRandomValues(new Uint8Array(12));
+
+const passwordKey = await webcrypto.subtle.importKey(
+  "raw",
+  encoder.encode(password),
+  "PBKDF2",
+  false,
+  ["deriveKey"],
+);
+
+const key = await webcrypto.subtle.deriveKey(
+  {
+    name: "PBKDF2",
+    salt,
+    iterations: 310_000,
+    hash: "SHA-256",
+  },
+  passwordKey,
+  {
+    name: "AES-GCM",
+    length: 256,
+  },
+  false,
+  ["encrypt"],
+);
+
+const encrypted = await webcrypto.subtle.encrypt(
+  {
+    name: "AES-GCM",
+    iv,
+  },
+  key,
+  encoder.encode(plaintext),
+);
+
+const encryptedData = JSON.stringify({
+  salt: toBase64(salt.buffer),
+  iv: toBase64(iv.buffer),
+  data: toBase64(encrypted),
+});
+---
+
+<div class="encrypted-file" data-encrypted={encryptedData}>
+  <form class="encrypted-file-form">
+    <label>
+      <span>{label}</span>
+
+      <input type="password" name="password" autocomplete="off" required />
+    </label>
+
+    <button type="submit"> Entschlüsseln </button>
+
+    <p class="encrypted-file-error" hidden role="alert">
+      Falsches Passwort oder beschädigte Daten.
+    </p>
+  </form>
+
+  <div class="encrypted-file-content" hidden></div>
+</div>
+
+<script>
+  const encoder = new TextEncoder();
+  const decoder = new TextDecoder();
+
+  function fromBase64(base64: string): Uint8Array {
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+
+    for (let i = 0; i < binary.length; i++) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+
+    return bytes;
+  }
+
+  async function decrypt(
+    encryptedText: string,
+    password: string,
+  ): Promise<string> {
+    const encrypted = JSON.parse(encryptedText);
+
+    const salt = fromBase64(encrypted.salt);
+    const iv = fromBase64(encrypted.iv);
+    const data = fromBase64(encrypted.data);
+
+    const passwordKey = await crypto.subtle.importKey(
+      "raw",
+      encoder.encode(password),
+      "PBKDF2",
+      false,
+      ["deriveKey"],
+    );
+
+    const key = await crypto.subtle.deriveKey(
+      {
+        name: "PBKDF2",
+        salt,
+        iterations: 310_000,
+        hash: "SHA-256",
+      },
+      passwordKey,
+      {
+        name: "AES-GCM",
+        length: 256,
+      },
+      false,
+      ["decrypt"],
+    );
+
+    const decrypted = await crypto.subtle.decrypt(
+      {
+        name: "AES-GCM",
+        iv,
+      },
+      key,
+      data,
+    );
+
+    return decoder.decode(decrypted);
+  }
+
+  function setupEncryptedFile(element: HTMLElement) {
+    const encrypted = element.dataset.encrypted;
+
+    if (!encrypted) {
+      return;
+    }
+
+    const form = element.querySelector<HTMLFormElement>(".encrypted-file-form");
+
+    const input = element.querySelector<HTMLInputElement>(
+      'input[name="password"]',
+    );
+
+    const error = element.querySelector<HTMLElement>(".encrypted-file-error");
+
+    const content = element.querySelector<HTMLElement>(
+      ".encrypted-file-content",
+    );
+
+    if (!form || !input || !error || !content) {
+      return;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      error.hidden = true;
+      content.hidden = true;
+
+      try {
+        const plaintext = await decrypt(encrypted, input.value);
+
+        content.innerHTML = plaintext;
+        content.hidden = false;
+
+        form.hidden = true;
+      } catch {
+        error.hidden = false;
+        input.select();
+      }
+    });
+  }
+
+  document
+    .querySelectorAll<HTMLElement>(".encrypted-file")
+    .forEach(setupEncryptedFile);
+</script>
+
+<style>
+  .encrypted-file {
+    margin: 1rem 0;
+  }
+
+  .encrypted-file-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 400px;
+  }
+
+  .encrypted-file-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .encrypted-file-form input {
+    padding: 0.5rem;
+  }
+
+  .encrypted-file-form button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+
+  .encrypted-file-error {
+    color: #c00;
+  }
+
+  .encrypted-file-content {
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+
+  .encrypted-file-content {
+    all: initial;
+    display: block;
+    font-family: inherit;
+    color: inherit;
+  }
+
+  .encrypted-file-content * {
+    all: revert;
+  }
+</style>
