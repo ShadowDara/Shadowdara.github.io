@@ -1,0 +1,21 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import Code from "./Code.astro";
+import CodeBlock from "./CodeBlock.astro";
+
+const { name, src, language = "text" } = Astro.props;
+
+const code = fs.readFileSync(path.resolve(process.cwd(), src), "utf-8");
+---
+
+<details>
+    <summary>{name}</summary>
+
+	<Code src={name} />
+
+    <Code language={language} src={code} />
+
+</details>
+
+<br />
