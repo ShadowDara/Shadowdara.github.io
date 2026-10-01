@@ -1,4 +1,4 @@
-Make an 2d tilemap creator in Cpp easy. Tutorial step by step
+Make an 2d tilemap creator in Cpp easy. Tutorial step by step with imgui and opengl.
 
 Setup Repository:
 https://github.com/meemknight/cmakeSetup
