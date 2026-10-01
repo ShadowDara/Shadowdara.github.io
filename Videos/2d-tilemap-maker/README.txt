@@ -4,7 +4,7 @@ Setup Repository:
 https://github.com/meemknight/cmakeSetup
 
 Cpp Code Snippet:
-https://github.com/shadowdara/shadowdara.github.io/blog/main/Videos/2d-tilemap-maker/mapcreator-episode-1.cpp
+https://github.com/ShadowDara/Shadowdara.github.io/blob/main/Videos/2d-tilemap-maker/mapcreator-episode-1.cpp
 
 My Blog:
 https://shadowdara.github.io/blog
