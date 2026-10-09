@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scriptviewer</title>
+    <style>
+        html, body {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            background-color: rgb(81, 81, 81);
+        }
+        
+        .info {
+          color: floralwhite;
+          padding: 0.6rem;
+          font-style: italic;
+        }
+
+        .app {
+            color: white;
+        }
+
+        .line {
+            padding: 1rem;
+            background-color: rgb(30, 30, 30);
+            border-radius: 10px;
+            margin: 0.2rem;
+        }
+
+        .first {
+            background-color: rgb(1, 4, 7);
+            margin: 0.2rem;
+            padding: 0.4rem;
+            border-radius: 10px;
+            margin: 0.2rem;
+            color: yellow;
+        }
+
+        .second {
+          
+        }
+
+        .oneline {
+            font-style: italic;
+        }
+        
+        .fmtline {
+          line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+  <p class="info">This Viewer was created with ❤️ by <a href="https://youtube.com/@shadowdara.mp4">Shadowdara</a>. The newest Version can be found <a href="https://github.com/ShadowDara/Shadowdara.github.io/tree/main/MiniProjects/Scriptviewer/">here</a>.</p>
+    <div id="app" class="app"></div>
+    <script>
+let text = `
+exmplae line 1.0
+
+peter: hallo
+
+ende
+
+`;
+
+let app = document.getElementById("app");
+
+function update() {
+    let lines = [];
+
+    for (const line of text.split('\n')) {
+        lines.push(line);
+    }
+
+    for (const line of lines) {
+        if (line === "") {
+            continue;
+        }
+
+        const i = line.indexOf(":");
+
+        if (i === -1) {
+            // Zeile ohne ":"
+            app.innerHTML += `
+                <div class="line">
+                    <span class="oneline fmtline">${line}</span>
+                </div>
+            `;
+            continue;
+        }
+
+        const key = line.slice(0, i).trim();
+        const value = line.slice(i + 1).trim();
+
+        let str = `<div class="line">`;
+        str += `<span class="first fmtline">${key}:</span>`;
+        str += `<span class="second fmtline"> ${value}</span>`;
+        str += `</div>`;
+
+        app.innerHTML += str;
+    }
+}
+
+update();
+</script>
+</body>
+</html>
