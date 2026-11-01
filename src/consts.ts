@@ -74,6 +74,9 @@ export const link_sort: LinkSortData = {
     // "reddit",
     // "linktree",
     "portfolio",
+    "youtube",
+    "itch_io",
+    "discord",
   ],
 };
 
@@ -145,6 +148,12 @@ export const all_links: AllLinksItem[] = [
     id: "3",
     name: "Lego-Ninjago.Fandom.com",
     link: "https://lego-ninjago.fandom.com/de/wiki/Benutzer:Shadowdara",
+    blanc: true,
+  },
+  {
+    id: "youtube",
+    name: "YouTube",
+    link: "https://www.youtube.com/@shadowdara.mp4",
     blanc: true,
   },
 ];
