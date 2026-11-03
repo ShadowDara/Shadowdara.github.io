@@ -32,6 +32,13 @@ for (const r of redirectsYaml) {
 
 export default defineConfig({
   vite: {
+    server: {
+      watch: {
+        usePolling: true,
+        interval: 1000,
+      },
+    },
+
     plugins: [tailwindcss(), visualizer(), DevTools()],
 
     build: {

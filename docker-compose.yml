@@ -1,0 +1,13 @@
+services:
+  astro:
+    build: .
+    container_name: shadowdara-dev
+    ports:
+      - "4321:4321"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    command: bun run dev -- --host 0.0.0.0
