@@ -1,7 +1,7 @@
 ---
 title: "Wikis"
 pubDate: "October 27 2025"
-description: ""
+description: "Some Wiki entries i wrote some time ago"
 tags: [
     pinned
 ]

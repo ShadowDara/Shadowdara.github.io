@@ -2,7 +2,7 @@
 title: "Page Info"
 pubDate: "September 21 2026"
 description: "an info about the page ..."
-tags: ["pinned"]
+tags: []
 ---
 
 # Some Infos about the Page
